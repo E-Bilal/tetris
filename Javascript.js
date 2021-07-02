@@ -39,9 +39,9 @@ for (let i =0 ; i <1000; i+=50)
 {if (array[i/50][j/50] === 0){
 ctx.fillStyle = "#f1f1f1"
 ctx.fillRect(j,i,50, 50);
-/*ctx.strokeStyle = "#a6a6a6";
-ctx.lineWidth  = 1
-ctx.strokeRect (j,i,50,50)*/
+ctx.strokeStyle = "#000000";
+ctx.lineWidth  = 2
+ctx.strokeRect (j,i,50,50)
 
 j +=50}
 else if (array[i/50][j/50] === 5)
@@ -49,7 +49,7 @@ else if (array[i/50][j/50] === 5)
 ctx.fillRect(j,i,50, 50);
 j +=50}}}
 
-const tetrimino = ["t"];
+const tetrimino = ["s"];
 
 let random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
@@ -65,13 +65,13 @@ if (random === "s")
 {
 //S tetrimino
 ctx.fillStyle = "#00ff80"
-ctx.fillRect (200,0,50,50)
+ctx.fillRect (201,1,48,48)
 array[0][4] = 2
-ctx.fillRect (250,0,50,50)
+ctx.fillRect (251,1,48,48)
 array[0][5] = 2
-ctx.fillRect (200,50,50,50)
+ctx.fillRect (201,51,48,48)
 array[1][4] = 2
-ctx.fillRect (150,50,50,50)
+ctx.fillRect (151,51,48,48)
 array[1][3] = 2
 }
 
@@ -88,22 +88,12 @@ ctx.fillRect (151,51,48,48)
 array[1][3] = 2
 ctx.fillRect (251,51,48,48)
 array[1][5] = 2
-/*ctx.strokeStyle = "#000000";
-ctx.lineWidth  = 2
-ctx.strokeRect(200, 0, 50, 50);
-ctx.strokeRect (200,50,50,50)
-ctx.strokeRect (150,50,50,50)
-ctx.strokeRect (250,50,50,50)*/
+
 }
 }
 randomizerTetrimino ()
 //}
-/*ctx.strokeStyle = "#000000";
-ctx.lineWidth  = 2
-ctx.strokeRect(200, 0, 50, 50);
-ctx.strokeRect (200,50,50,50)
-ctx.strokeRect (150,50,50,50)
-ctx.strokeRect (250,50,50,50)*/
+
 
 
 
@@ -132,6 +122,32 @@ break;}
 
 }
 
+let pAX = 151
+let pAY = 1
+
+let pBX = 201
+let pBY = 1
+
+let pCX = 251
+let pCY = 1
+
+let pDX = 151
+let pDY = 51
+
+let pEX = 201
+let pEY = 51
+
+let pFX = 251
+let pFY = 51
+
+let pGX = 151
+let pGY = 101
+
+let pHX = 201
+let pHY = 101
+
+let pIX = 251
+let pIY = 101
 
 
 
@@ -178,168 +194,142 @@ array[pointDY/50][pointDX/50] = 0
 }
 
 function fillRStateS0 () {
-ctx.fillRect(pointBX,pointBY,50,50)
+ctx.fillRect(pBX,pBY,48,48)
 array[pointBY/50][pointBX/50] = 2
 
-ctx.fillRect (pointCX,pointCY,50,50)
+ctx.fillRect (pCX,pCY,50,50)
 array[pointCY/50][pointCX/50] = 0   
 
-ctx.fillRect (pointEX,pointEY,50,50)
+ctx.fillRect (pEX,pEY,50,50)
 array[pointEY/50][pointEX/50] = 2
 
-ctx.fillRect (pointDX,pointDY, 50,50)
+ctx.fillRect (pDX,pDY, 50,50)
 array[pointDY/50][pointDX/50] = 2
 console.log("hel")
-ctx.strokeStyle = "#000000"
-ctx.lineWidth  = 2
-ctx.strokeRect (pointBX,pointBY, 50, 50);
-ctx.strokeRect (pointCX,pointCY,50,50)
-ctx.strokeRect (pointEX,pointEY,50,50)
-ctx.strokeRect (pointDX,pointDY,50,50)
-console.log('hal')
+
+
 }
 
 function clearRStateT0 () {
 
-ctx.clearRect(pointBX,pointBY,48,48)
+ctx.clearRect(pBX,pBY,48,48)
 array[pointBY/50][pointBX/50] = 0
 
-ctx.clearRect (pointEX,pointEY,48,48)
+ctx.clearRect (pEX,pEY,48,48)
 array[pointEY/50][pointEX/50] = 0
 
-ctx.clearRect (pointDX,pointDY, 48,48)
+ctx.clearRect (pDX,pDY, 48,48)
 array[pointDY/50][pointDX/50] = 0
 
-ctx.clearRect (pointFX,pointFY,48,48)
+ctx.clearRect (pFX,pFY,48,48)
 array[pointFY/50][pointFX/50] = 0
 
 }
 
 function fillRStateT0 () {
-ctx.fillRect(pointBX,pointBY,48,48)
+ctx.fillRect(pBX,pBY,48,48)
 array[pointBY/50][pointBX/50] = 2
 
-ctx.fillRect (pointEX,pointEY,48,48)
+ctx.fillRect (pEX,pEY,48,48)
 array[pointEY/50][pointEX/50] = 2
 
 
-ctx.fillRect (pointDX,pointDY, 48,48)
+ctx.fillRect (pDX,pDY, 48,48)
 array[pointDY/50][pointDX/50] = 2
 
-ctx.fillRect (pointFX,pointFY,48,48)
+ctx.fillRect (pFX,pFY,48,48)
 array[pointFY/50][pointFX/50] = 2
-
-
-
 }
 
-function clearRState1 () 
-{
-ctx.clearRect(pointBX,pointBY,50,50)
-array[pointBY/50][pointBX/50] = 0
 
-ctx.clearRect (pointEX,pointEY,50,50)
-array[pointEY/50][pointEX/50] = 0
-
-
-ctx.clearRect (pointDX,pointDY, 50,50)
-array[pointDY/50][pointDX/50] = 0
-
-ctx.clearRect (pointHX,pointHY,50,50)
-array[pointHY/50][pointHX/50] = 0
-
-}
 
 function fillRState1 () {
-ctx.fillRect(pointBX,pointBY,50,50)
+ctx.fillRect(pBX,pBY,48,48)
 array[pointBY/50][pointBX/50] = 2
 
-ctx.fillRect (pointEX,pointEY,50,50)
+ctx.fillRect (pEX,pEY,48,48)
 array[pointEY/50][pointEX/50] = 2
 
 
-ctx.fillRect (pointDX,pointDY, 50,50)
+ctx.fillRect (pDX,pDY, 48,48)
 array[pointDY/50][pointDX/50] = 2
 
-ctx.fillRect (pointHX,pointHY,50,50)
+ctx.fillRect (pHX,pHY,48,48)
 array[pointHY/50][pointHX/50] = 2
 
 }
 
 function clearRState1 () 
 {
-ctx.clearRect(pointBX,pointBY,50,50)
+ctx.clearRect(pBX,pBY,48,48)
 array[pointBY/50][pointBX/50] = 0
 
-ctx.clearRect (pointEX,pointEY,50,50)
+ctx.clearRect (pEX,pEY,48,48)
 array[pointEY/50][pointEX/50] = 0
 
-
-ctx.clearRect (pointDX,pointDY, 50,50)
+ctx.clearRect (pDX,pDY, 48,48)
 array[pointDY/50][pointDX/50] = 0
 
-ctx.clearRect (pointHX,pointHY,50,50)
+ctx.clearRect (pHX,pHY,48,48)
 array[pointHY/50][pointHX/50] = 0
 
 }
 
 function fillRState2 () {
-ctx.fillRect(pointFX,pointFY,50,50)
+ctx.fillRect(pFX,pFY,48,48)
 array[pointFY/50][pointFX/50] = 2
 
-ctx.fillRect (pointEX,pointEY,50,50)
+ctx.fillRect (pEX,pEY,48,48)
 array[pointEY/50][pointEX/50] = 2
 
 
-ctx.fillRect (pointDX,pointDY, 50,50)
+ctx.fillRect (pDX,pDY, 48,48)
 array[pointDY/50][pointDX/50] = 2
 
-ctx.fillRect (pointHX,pointHY,50,50)
+ctx.fillRect (pHX,pHY,48,48)
 array[pointHY/50][pointHX/50] = 2
 }
 
 function clearRState2 () {
-ctx.clearRect(pointFX,pointFY,50,50)
+ctx.clearRect(pFX,pFY,48,48)
 array[pointFY/50][pointFX/50] = 0
 
-ctx.clearRect (pointEX,pointEY,50,50)
+ctx.clearRect (pEX,pEY,48,48)
 array[pointEY/50][pointEX/50] = 0
 
-
-ctx.clearRect (pointDX,pointDY, 50,50)
+ctx.clearRect (pDX,pDY, 48,48)
 array[pointDY/50][pointDX/50] = 0
 
-ctx.clearRect (pointHX,pointHY,50,50)
+ctx.clearRect (pHX,pHY,48,48)
 array[pointHY/50][pointHX/50] = 0
 }
 
 function fillRState3 () 
 {
-ctx.fillRect(pointBX,pointBY,50,50)
-array[pointBY/50][pointBX/50] = 2
+ctx.fillRect(pFX,pFY,48,48)
+array[pointFY/50][pointFX/50] = 2
 
-ctx.fillRect (pointEX,pointEY,50,50)
+ctx.fillRect (pEX,pEY,48,48)
 array[pointEY/50][pointEX/50] = 2
 
 
-ctx.fillRect (pointFX,pointFY, 50,50)
-array[pointFY/50][pointFX/50] = 2
+ctx.fillRect (pBX,pBY, 48,48)
+array[pointBY/50][pointBX/50] = 2
 
-ctx.fillRect (pointHX,pointHY,50,50)
+ctx.fillRect (pHX,pHY,48,48)
 array[pointHY/50][pointHX/50] = 2
 }
 function clearRState3 () {
-ctx.clearRect(pointBX,pointBY,50,50)
-array[pointBY/50][pointBX/50] = 0
-
-ctx.clearRect (pointEX,pointEY,50,50)
-array[pointEY/50][pointEX/50] = 0
-
-
-ctx.clearRect (pointFX,pointFY, 50,50)
+ctx.clearRect(pFX,pFY,48,48)
 array[pointFY/50][pointFX/50] = 0
 
-ctx.clearRect (pointHX,pointHY,50,50)
+ctx.clearRect (pEX,pEY,48,48)
+array[pointEY/50][pointEX/50] = 0
+
+ctx.clearRect (pBX,pBY, 48,48)
+array[pointBY/50][pointBX/50] = 0
+
+ctx.clearRect (pHX,pHY,48,48)
 array[pointHY/50][pointHX/50] = 0
 
 }
@@ -357,6 +347,15 @@ pointFY += amount
 pointGY += amount
 pointHY += amount
 pointIY += amount
+pAY += amount
+pBY += amount
+pCY += amount
+pDY +=amount
+pEY += amount
+pFY +=amount
+pGY += amount
+pHY += amount
+pIY += amount
 
 
 }
@@ -371,6 +370,16 @@ pointFY -= amount
 pointGY -= amount
 pointHY -= amount
 pointIY -= amount
+pAY -= amount
+pBY -= amount
+pCY -= amount
+pDY -=amount
+pEY -= amount
+pFY -=amount
+pGY -= amount
+pHY -= amount
+pIY -= amount
+
 
 
 }
@@ -385,6 +394,15 @@ pointFX += amount
 pointGX += amount
 pointHX += amount
 pointIX += amount
+pAX += amount
+pBX += amount
+pCX += amount
+pDX +=amount
+pEX += amount
+pFX +=amount
+pGX += amount
+pHX += amount
+pIX += amount
 
 }
 function minusX (amount) 
@@ -398,9 +416,18 @@ pointFX -= amount
 pointGX -= amount
 pointHX -= amount
 pointIX -= amount
+pAX -= amount
+pBX -= amount
+pCX -= amount
+pDX -=amount
+pEX -= amount
+pFX -=amount
+pGX -= amount
+pHX -= amount
+pIX -= amount
+
 }
 
-let clearY =0
 let rotationState = 0
 let counter = 1
 
@@ -887,7 +914,32 @@ counter++
 
 else { 
       
+pAX = 151
+pAY = 1
 
+pBX = 201
+pBY = 1
+
+pCX = 251
+pCY = 1
+
+pDX = 151
+pDY = 51
+
+pEX = 201
+pEY = 51
+
+pFX = 251
+pFY = 51
+
+pGX = 151
+pGY = 101
+
+pHX = 201
+pHY = 101
+
+pIX = 251
+pIY = 101
 
 counter = 1
 pointAX = 150

@@ -5,7 +5,7 @@ body {
 }
 
 canvas {
-  border: 1px solid black;
+  border: 2px solid black;
   background-color: #f1f1f1;
   position: absolute;
   z-index: -1;
@@ -13,7 +13,7 @@ canvas {
   padding: 0;
 }
 
-.line {
+/*.line {
   width: 1px;
   height: 1001px;
   color: black;
@@ -35,4 +35,4 @@ canvas {
 
 #four {
   left: 300px;
-}
+}*/
