@@ -45,7 +45,7 @@ else if (array[i/50][j/50] === 5)
 ctx.fillRect(j,i,50, 50);
 j +=50}}}
 
-const tetrimino = ["s"];
+const tetrimino = ["z"];
 
 let random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
@@ -81,32 +81,55 @@ array[1][3] = 2
 ctx.fillRect (251,51,48,48)
 array[1][5] = 2
 }
+else if (random === "z")
+{
+//Z tetrimino
+ctx.fillStyle = "#ff0000"
+ctx.fillRect (151,1,48,48)
+array[0][3] = 2
+ctx.fillRect (201,1,48,48)
+array[0][4] = 2
+ctx.fillRect (201,51,48,48)
+array[1][4] = 2
+ctx.fillRect (251,51,48,48)
+array[1][5] = 2
+}
 }
 randomizerTetrimino ()
 
 function downChecker () {
        if(random === "t"){moveDownT()}
        else if (random === "s") {moveDownS()}
+       else if (random === "z") {moveDownZ()}
+
 }
 
 function leftChecker () {
        if(random === "t"){moveLeftT()}
        else if (random === "s") {moveLeftS()}
+       else if (random === "z") {moveLeftZ()}
+
 }
 
 function rightChecker () {
        if(random === "t"){moveRightT()}
        else if (random === "s") {moveRightS()}
+       else if (random === "z") {moveRightZ()}
+
 }
 
 function upChecker () {
        if(random === "t"){moveUpT()}
        else if (random === "s") {moveUpS()}
+       else if (random === "z") {moveUpZ()}
+
 }
 
 function zChecker () {
   if(random === "t"){moveZT()}
        else if (random === "s") {moveZS()}
+       else if (random === "z") {moveZZ()}
+
 
 }
 function getKeyAndMove(e) {				
@@ -294,9 +317,9 @@ let counter = 1
 if (random === "t") {
 id2 = setInterval(t,1000)}
 else if (random === "s")
-{console.log("hello")
-id3 = setInterval (s,1000)
-}
+{id3 = setInterval (s,1000)}
+else if (random === "z")
+{id4 = setInterval (z,1000)}
 
 function t () {
        
@@ -505,4 +528,10 @@ else if (random === "s")
 {id3 = setInterval (s,1000)} 
 }
 
+}
+
+function z () {
+
+
+       
 }
