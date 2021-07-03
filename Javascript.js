@@ -1,12 +1,8 @@
 
-
-//let canvas = document.createElement("canvas")
 let canvas = document.getElementById("canvas")
 //canvas.getContext("2d")
-
 canvas.width = 500
 canvas.height = 1000
-//document.body.insertBefore(canvas, document.body.childNodes[0])
 let ctx = canvas.getContext("2d")
 let array = [
        [0,0,0,0,0,0,0,0,0,0],
@@ -53,10 +49,6 @@ const tetrimino = ["s"];
 
 let random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
-/*const tetrimino = ["square", "t", "s", "z", "I", "L", "j"];
-
-const random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
-console.log(random)*/
 function randomizerTetrimino () {
 
 
@@ -88,38 +80,57 @@ ctx.fillRect (151,51,48,48)
 array[1][3] = 2
 ctx.fillRect (251,51,48,48)
 array[1][5] = 2
-
 }
 }
 randomizerTetrimino ()
-//}
 
+function downChecker () {
+       if(random === "t"){moveDownT()}
+       else if (random === "s") {moveDownS()}
+}
 
+function leftChecker () {
+       if(random === "t"){moveLeftT()}
+       else if (random === "s") {moveLeftS()}
+}
 
+function rightChecker () {
+       if(random === "t"){moveRightT()}
+       else if (random === "s") {moveRightS()}
+}
 
-function getKeyAndMove(e){				
+function upChecker () {
+       if(random === "t"){moveUpT()}
+       else if (random === "s") {moveUpS()}
+}
+
+function zChecker () {
+  if(random === "t"){moveZT()}
+       else if (random === "s") {moveZS()}
+
+}
+function getKeyAndMove(e) {				
 		let key_code=e.which||e.keyCode;
 		switch(key_code){
 case 40:  // down arrow key
-moveDownT()
+downChecker()
 break;
 
 case 38 : // up arrow key
-moveUpT()
+upChecker ()
 break;	
 
 case 39: //right arrow key
-moveRightT();
+rightChecker ();
 break;
 
 case 37: //left arrow key
-moveLeftT()
+leftChecker()
 break;
 
 case 90: //Z key
-moveZT();
+zChecker();
 break;}
-
 }
 
 let pAX = 151
@@ -178,178 +189,6 @@ let pointHY = 100
 
 let pointIX = 250
 let pointIY = 100
-
-function clearRStateS0 () {
-ctx.clearRect(pBX,pBY,48,48)
-array[pointBY/50][pointBX/50] = 0
-
-ctx.clearRect (pCX,pCY,48,48)
-array[pointCY/50][pointCX/50] = 0   
-
-ctx.clearRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 0
-
-ctx.clearRect (pDX,pDY, 48,48)
-array[pointDY/50][pointDX/50] = 0
-}
-
-function fillRStateS0 () {
-ctx.fillRect(pBX,pBY,48,48)
-array[pointBY/50][pointBX/50] = 2
-
-ctx.fillRect (pCX,pCY,48,48)
-array[pointCY/50][pointCX/50] = 0   
-
-ctx.fillRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 2
-
-ctx.fillRect (pDX,pDY, 48,48)
-array[pointDY/50][pointDX/50] = 2
-console.log("hel")
-
-
-}
-
-function clearRStateT0 () {
-
-ctx.clearRect(pBX,pBY,48,48)
-array[pointBY/50][pointBX/50] = 0
-
-ctx.clearRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 0
-
-ctx.clearRect (pDX,pDY, 48,48)
-array[pointDY/50][pointDX/50] = 0
-
-ctx.clearRect (pFX,pFY,48,48)
-array[pointFY/50][pointFX/50] = 0
-
-}
-
-function clearRStateT0 () {
-
-ctx.clearRect(pBX,pBY,48,48)
-array[pointBY/50][pointBX/50] = 0
-
-ctx.clearRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 0
-
-ctx.clearRect (pDX,pDY, 48,48)
-array[pointDY/50][pointDX/50] = 0
-
-ctx.clearRect (pFX,pFY,48,48)
-array[pointFY/50][pointFX/50] = 0
-
-}
-
-function fillRStateT0 () {
-ctx.fillRect(pBX,pBY,48,48)
-array[pointBY/50][pointBX/50] = 2
-
-ctx.fillRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 2
-
-
-ctx.fillRect (pDX,pDY, 48,48)
-array[pointDY/50][pointDX/50] = 2
-
-ctx.fillRect (pFX,pFY,48,48)
-array[pointFY/50][pointFX/50] = 2
-}
-
-
-
-function fillRState1 () {
-ctx.fillRect(pBX,pBY,48,48)
-array[pointBY/50][pointBX/50] = 2
-
-ctx.fillRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 2
-
-
-ctx.fillRect (pDX,pDY, 48,48)
-array[pointDY/50][pointDX/50] = 2
-
-ctx.fillRect (pHX,pHY,48,48)
-array[pointHY/50][pointHX/50] = 2
-
-}
-
-function clearRState1 () 
-{
-ctx.clearRect(pBX,pBY,48,48)
-array[pointBY/50][pointBX/50] = 0
-
-ctx.clearRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 0
-
-ctx.clearRect (pDX,pDY, 48,48)
-array[pointDY/50][pointDX/50] = 0
-
-ctx.clearRect (pHX,pHY,48,48)
-array[pointHY/50][pointHX/50] = 0
-
-}
-
-function fillRState2 () {
-ctx.fillRect(pFX,pFY,48,48)
-array[pointFY/50][pointFX/50] = 2
-
-ctx.fillRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 2
-
-
-ctx.fillRect (pDX,pDY, 48,48)
-array[pointDY/50][pointDX/50] = 2
-
-ctx.fillRect (pHX,pHY,48,48)
-array[pointHY/50][pointHX/50] = 2
-}
-
-function clearRState2 () {
-ctx.clearRect(pFX,pFY,48,48)
-array[pointFY/50][pointFX/50] = 0
-
-ctx.clearRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 0
-
-ctx.clearRect (pDX,pDY, 48,48)
-array[pointDY/50][pointDX/50] = 0
-
-ctx.clearRect (pHX,pHY,48,48)
-array[pointHY/50][pointHX/50] = 0
-}
-
-function fillRState3 () 
-{
-ctx.fillRect(pFX,pFY,48,48)
-array[pointFY/50][pointFX/50] = 2
-
-ctx.fillRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 2
-
-
-ctx.fillRect (pBX,pBY, 48,48)
-array[pointBY/50][pointBX/50] = 2
-
-ctx.fillRect (pHX,pHY,48,48)
-array[pointHY/50][pointHX/50] = 2
-}
-function clearRState3 () {
-ctx.clearRect(pFX,pFY,48,48)
-array[pointFY/50][pointFX/50] = 0
-
-ctx.clearRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 0
-
-ctx.clearRect (pBX,pBY, 48,48)
-array[pointBY/50][pointBX/50] = 0
-
-ctx.clearRect (pHX,pHY,48,48)
-array[pointHY/50][pointHX/50] = 0
-
-}
-
 
 
 function plusY (amount) 
@@ -449,444 +288,14 @@ let counter = 1
 
 
 
-function moveDownT() {
-if (random === "t") {t()}
-else if (random === "s") {s()}
-}
-
-function moveLeftT () { if (rotationState === 0 && counter < array.length-1 && array[(pointAY/50)][(pointAX/50)] === 0 && array[(pointDY/50)][(pointDX/50)-1] === 0 )
-//Left movement , rotationstate 0
-{
-clearRStateT0 ()
-minusX (50)
-fillRStateT0 ()
-}
-//Left movement , rotationstate 1
-
-else if (rotationState === 1 && counter < array.length-1 && array[(pointAY/50)][(pointAX/50)] === 0 && array[(pointDY/50)][(pointDX/50)-1] === 0  && array[(pointGY/50)][(pointGX/50)] === 0  )
-
-{
-clearRState1 ()
-minusX (50)
-fillRState1 ()
-}
-
-//Left movement , rotationstate 2
-
-else if (rotationState === 2 && counter < array.length-1 && array[(pointDY/50)][(pointDX/50)-1] === 0 && array[(pointGY/50)][(pointGX/50)] === 0  )
-
-{
-clearRState2()
-minusX (50)
-fillRState2()
-}
-
-//Left movement , rotationstate 3
-else if (rotationState === 3 && counter < array.length-1 && array[(pointAY/50)][(pointAX/50)] === 0 && array[(pointDY/50)][(pointDX/50)] === 0 && array[(pointGY/50)][(pointGX/50)] === 0  )
-
-{
-clearRState3 ()
-minusX (50)
-fillRState3 ()
-}
-else {}}
 
 
-function moveRightT () { if (rotationState === 0 &&counter < array.length-1 && array[(pointCY/50)][(pointCX/50)] === 0 && array[(pointFY/50)][(pointFX/50)+1] === 0 )
-//Right movement , rotation state 0
-{
-clearRStateT0 ()
-plusX(50)
-fillRStateT0 ()
-}
-
-//Right movement , rotation state 1
-else if (rotationState === 1 && array[pointCY/50][pointCX/50]=== 0 && array[pointFY/50][pointFX/50]=== 0 && array[pointIY/50][pointIX/50]=== 0 )
-{
-clearRState1 ()
-plusX(50)
-fillRState1()
-}
-
-//Right movement , rotation state 2
-else if (rotationState === 2 && counter < array.length-1 && array[(pointFY/50)][(pointFX/50)+1] === 0 && array[(pointIY/50)][(pointIX/50)] === 0)
-{
-clearRState2 ()
-plusX(50)
-fillRState2 ()
-}
-
-//Right movement, rotation state 3
-else if (rotationState === 3 && counter < array.length-1 && array[(pointCY/50)][(pointCX/50)] === 0 && array[(pointFY/50)][(pointFX/50)+1] === 0 && array[(pointIY/50)][(pointIX/50)] === 0)
-{
-clearRState3()
-plusX(50)
-fillRState3()
-}
-  else {}}
-
-
-function moveUpT () {
-
-//Rotationstate 0 to 3 
-if (rotationState === 0 && array[pointHY/50][pointHX/50]=== 0)
-{
-clearRStateT0()
-fillRState3()
-rotationState =3
-}
-
-//Rotationstate 0 to 3  , WallKick 1
-else if (rotationState === 0 && array[pointHY/50][pointHX/50] !== 0 &&   array[pointAY/50][pointAX/50] === 0 && array[pointGY/50][pointGX/50] === 0  )
-{
-clearRStateT0()
-minusX(50)
-fillRState3()
-rotationState =3
-}
-
-//Rotationstate 0 to 3 , WallKick 3
-else if (rotationState === 0 && array[pointGY/50][pointGX/50] !== 0 && array[pointHY/50][pointHX/50] !== 0 &&   array[pointAY/50][pointAX/50] === 0 && array[(pointAY/50)-1][pointAX/50] === 0 )
-{
-clearRStateT0()
-minusX(50)
-minusY(50)
-fillRState3()
-rotationState =3
-}
-
-//Rotationstate 0 to 3 , WallKick 4
-else if (rotationState === 0 && array[pointGY/50][pointGX/50] === 0 && array[(pointGY/50)+1][pointGX/50] === 0 && array[(pointGY/50)+2][pointGX/50] === 0 && array[(pointHY/50)+1][pointHX/50] === 0 &&  array[pointAY/50][pointAX/50] !== 0 )
-{
-clearRStateT0()
-minusX(50)
-plusY(100)
-fillRState3()
-rotationState =3      
-}
-
-//Rotationstate 3 to 2
-else if ( rotationState === 3 && array[pointDY/50][pointDX/50]=== 0 )
-{
-clearRState3()
-fillRState2()
-rotationState = 2
-}
-
-//Rotationstate 3 to 2 , WallKick1
-else if (rotationState===3 && array[pointDY/50][pointDX/50] !== 0 &&  array[pointIY/50][pointIX/50] === 0 && array[pointFY/50][(pointFX/50)+1] === 0)
-{
-clearRState3()
-plusX(50)
-fillRState2()
-rotationState = 2
-}
-
-//Rotationstate 3 to 2 , WallKick2
-else if ( rotationState===3 && array[pointFY/50][(pointFX/50)+1] !== 0 && array[pointDY/50][pointDX/50] !== 0 && array[pointIY/50][pointIX/50] === 0 && array[pointIY/50][(pointIX/50)+1] === 0 && array[(pointIY/50)+1][pointIX/50] === 0 )
-{
-clearRState3()
-plusX(50)
-plusY(50)
-fillRState2()
-rotationState = 2
-}
-
-//Rotationstate 3 to 2 , WallKick3
-else if (rotationState===3 && array[(pointAY/50)-1][pointAX/50] === 0 && array[(pointBY/50)-1][pointBX/50] === 0 && array[(pointCY/50)-1][pointCX/50] === 0 && array[pointFY/50][(pointFX/50)+1] !== 0 && array[pointDY/50][pointDX/50] !== 0 && (array[pointIY/50][pointIX/50]  !== 0 || array[pointIY/50][(pointIX/50)+1] !== 0 || array[(pointIY/50)+1][pointIX/50] !== 0 ))
-{
-clearRState3()
-minusY(100)
-fillRState2()
-rotationState = 2
-}
-
-
-//Rotationstate 3 to 2 , WallKick4
-else if (rotationState===3 && array[(pointAY/50)-1][pointAX/50] !== 0 && array[(pointBY/50)-1][pointBX/50] === 0 && array[(pointCY/50)-1][pointCX/50] === 0 && 
-array[pointCY/50][pointCX/50] === 0 && array[(pointCY/50)-1][(pointCX/50)+1] === 0 && (array[pointFY/50][(pointFX/50)+1] !== 0 || array[pointDY/50][pointDX/50] !== 0) && (array[pointIY/50][pointIX/50]  !== 0 || array[pointIY/50][(pointIX/50)+1] !== 0 || array[(pointIY/50)+1][pointIX/50] !== 0 ))
-{console.log("hello")
-clearRState3()
-minusY(100)
-plusX(50)
-fillRState2()
-rotationState = 2
-}
-//Rotaionstate 2 to 1
-else if (rotationState === 2 && array[pointBY/50][pointBX/50]=== 0 )
-{
-clearRState2()
-fillRState1 ()
-rotationState = 1
-} 
-
-//Rotaionstate 2 to 1 , Wallkick 1
-else if (rotationState === 2 && array[pointBY/50][pointBX/50] !== 0 && array[pointCY/50][pointCX/50] === 0 && array[pointIY/50][pointIX/50] === 0)
-{
-clearRState2()
-plusX(50)
-fillRState1()
-rotationState = 1
-}
-
-//Rotaionstate 2 to 1 , Wallkick 3
-else if (rotationState === 2 && array[(pointHY/50)+1][pointHX/50] === 0 && array[(pointHY/50)+2][pointHX/50] === 0 && array[(pointGY/50)+1][pointGX/50] === 0 && array[pointBY/50][pointBX/50] !== 0 && (array[pointCY/50][pointCX/50] !== 0 || array[pointIY/50][pointIX/50] !== 0))
-{
-clearRState2()
-plusY(100)
-fillRState1()
-rotationState = 1
-}
-
-//Rotaionstate 2 to 1 , Wallkick 4
-
-else if (rotationState === 2 && ( array[(pointHY/50)+2][pointHX/50] !== 0 || array[(pointGY/50)+1][pointGX/50] !== 0) && array[pointBY/50][pointBX/50] !== 0 && array[pointCY/50][pointCX/50] !== 0 && array[pointIY/50][pointIX/50] === 0 && array[(pointHY/50)+1][pointHX/50] === 0 && array[(pointIY/50)+1][pointIX/50] === 0  && array[(pointIY/50)+2][pointIX/50] === 0)
-{
-clearRState2()
-plusY(100)
-plusX(50)
-fillRState1()
-rotationState = 1
-}
-//Rotationstate 1 to 0
-else if (rotationState === 1 && array[pointFY/50][pointFX/50]=== 0)
-{
-clearRState1()
-fillRStateT0()
-rotationState = 0
-}
-
-//Rotationstate 1 to 0 , Wallkick 1
-else if (rotationState === 1 && array[pointFY/50][pointFX/50] !== 0 && array[pointDY/50][(pointDX/50)-1] === 0 && array[pointAY/50][pointAX/50] === 0)
-{
-       
-       clearRState1()
-       minusX(50)
-       fillRStateT0()
-       rotationState = 0
-}
-//Rotationstate 1 to 0 , Wallkick 2
-else if (rotationState === 1 && array[(pointGY/50)][(pointGX/50)-1] === 0 && array[(pointGY/50)][(pointGX/50)] === 0 && array[pointFY/50][pointFX/50] !== 0 && array[pointDY/50][(pointDX/50)-1] !== 0 )
-{ clearRState1()
-minusX(50)
-plusY(50)
-fillRStateT0()
-rotationState = 0
-}
-
-//Rotationstate 1 to 0 , Wallkick 3
-else if (rotationState === 1 && (array[(pointGY/50)][(pointGX/50)-1] !== 0 || array[(pointGY/50)][(pointGX/50)] !== 0 )&& array[pointFY/50][pointFX/50] !== 0 && array[pointDY/50][(pointDX/50)-1] !== 0 && array[(pointAY/50)-1][pointAX/50] === 0 && array[(pointBY/50)-1][pointBX/50] === 0 && array[(pointCY/50)-1][pointCX/50] === 0 &&array[(pointBY/50)-2][pointBX/50] === 0)
-{
-clearRState1()
-minusY(100)
-fillRStateT0()
-rotationState = 0     
-}
-
-//Rotationstate 1 to 0 , Wallkick 4
-else if (rotationState === 1 && (array[(pointGY/50)][(pointGX/50)-1] !== 0 || array[(pointGY/50)][(pointGX/50)] !== 0 )&& array[pointFY/50][pointFX/50] !== 0 && array[pointDY/50][(pointDX/50)-1] !== 0 && (array[(pointCY/50)-1][pointCX/50] !== 0 || array[(pointBY/50)-2][pointBX/50] !== 0 )&& array[(pointAY/50)-1][pointAX/50] === 0 && array[(pointAY/50)-2][pointAX/50] === 0&& array[(pointAY/50)-1][(pointAX/50)-1] === 0 &&array[(pointBY/50)-1][pointBX/50] === 0)
-{
-clearRState1()
-minusX(50)
-minusY(100)
-fillRStateT0()
-rotationState = 0        
-}
-}
-
-
-
-
-
-
-function moveZT () { if (rotationState === 0 && array[pointHY/50][pointHX/50]=== 0 )
-{
-//Rotationstate 0 to 1    
-clearRStateT0 ()
-fillRState1 ()
-rotationState = 1}
-
-//Rotaionstate 0 to 1 , WallKick 1  
-else if ( rotationState === 0 && array[pointHY/50][pointHX/50] !== 0 &&   array[pointCY/50][pointCX/50] === 0 && array[pointIY/50][pointIX/50] === 0  )
-{
-clearRStateT0 ()
-plusX(50)
-fillRState1 ()
-rotationState = 1
-}
-
-//Rotaionstate 0 to 1 , WallKick 2 
-else if (rotationState === 0 && array[pointIY/50][pointIX/50] !== 0 && array[pointHY/50][pointHX/50] !== 0 && array[pointCY/50][pointCX/50] === 0 && array[(pointCY/50)-1][pointCX/50] === 0 )
-{
-clearRStateT0 ()
-plusX(50)
-minusY(50)
-fillRState1 ()
-rotationState = 1
-}
-
-//Rotaionstate 0 to 1 , WallKick 4
-else if (rotationState === 0 && array[pointIY/50][pointIX/50] === 0 && array[(pointIY/50)+1][pointIX/50] === 0 && array[(pointIY/50)+2][pointIX/50] === 0 && array[(pointHY/50)+1][pointHX/50] === 0 &&  array[pointCY/50][pointCX/50] !== 0 )
-{
-clearRStateT0 ()
-plusY(100)
-plusX(50)
-fillRState1 ()
-rotationState = 1
-}
-
-//Rotationstate 1 to 2
-else if ( rotationState === 1 && array[pointFY/50][pointFX/50]=== 0 )
-{
-clearRState1()
-fillRState2()
-rotationState = 2
-}
-
-//Rotationstate 1 to 2 , Wallkick 1 
-else if (rotationState===1 && array[pointFY/50][pointFX/50] !== 0 &&  array[pointGY/50][pointGX/50] === 0 && array[pointDY/50][(pointDX/50)-1] === 0)
-{
-clearRState1()
-minusX(50)
-fillRState2()
-rotationState = 2}
-
-//Rotationstate 1 to 2 , Wallkick 2
-else if ( rotationState===1 && array[pointFY/50][pointFX/50] !== 0 && array[pointDY/50][(pointDX/50)-1] !== 0 && array[pointGY/50][pointGX/50] === 0 && array[pointGY/50][(pointGX/50)-1] === 0 && array[(pointGY/50)+1][pointGX/50] === 0 )
-{
-clearRState1()
-minusX(50)
-plusY(50)
-fillRState2()
-rotationState = 2
-}
-
-//Rotationstate 1 to 2 , Wallkick 3
-else if (rotationState===1 && array[(pointAY/50)-1][pointAX/50] === 0 && array[(pointBY/50)-1][pointBX/50] === 0 && array[(pointCY/50)-1][pointCX/50] === 0 && array[pointFY/50][pointFX/50] !== 0 && array[pointDY/50][(pointDX/50)-1] !== 0 && (array[pointGY/50][pointGX/50] !== 0 || array[pointGY/50][(pointGX/50)-1] !== 0 || array[(pointGY/50)+1][pointGX/50] !== 0 ))
-{
-clearRState1()
-minusY(100)
-fillRState2()
-rotationState = 2}
-
-//Rotationstate 1 to 2 , Wallkick 4
-else if (rotationState===1 && array[(pointAY/50)-1][pointAX/50] === 0 && array[pointAY/50][pointAX/50] === 0 && array[(pointAY/50)-1][(pointAX/50)-1] === 0 && array[(pointBY/50)-1][pointBX/50] === 0 && array[(pointCY/50)-1][pointCX/50] !== 0 && (array[pointFY/50][pointFX/50] !==0 ||  array[pointDY/50][(pointDX/50)-1] !== 0)&& (array[pointGY/50][pointGX/50] !== 0 || array[pointGY/50][(pointGX/50)-1] !== 0 || array[(pointGY/50)+1][pointGX/50] !== 0 ))
-{
-       
-clearRState1()
-minusY(100)
-minusX(50)
-fillRState2()
-rotationState = 2
-}
-
-//Rotaionstate 2 to 3
-else if (rotationState === 2 && array[pointBY/50][pointBX/50]=== 0 )
-{
-clearRState2()
-fillRState3 ()
-rotationState = 3} 
-
-//Rotaionstate 2 to 3 , wallkick 1
-
-else if (rotationState === 2 && array[pointBY/50][pointBX/50] !== 0 && array[pointAY/50][pointAX/50] === 0 && array[pointGY/50][pointGX/50] === 0)
-{
-clearRState2()
-minusX(50)
-fillRState3()
-rotationState = 3
-}
-
-//Rotaionstate 2 to 3 , wallkick 3
-else if (rotationState === 2 && array[(pointHY/50)+1][pointHX/50] === 0 && array[(pointHY/50)+2][pointHX/50] === 0 && array[(pointIY/50)+1][pointIX/50] === 0 && array[pointBY/50][pointBX/50] !== 0 && (array[pointAY/50][pointAX/50] !== 0 || array[pointGY/50][pointGX/50] !== 0))
-{
-clearRState2()
-plusY(100)
-fillRState3()
-rotationState = 3
-}
-
-//Rotaionstate 2 to 3 , wallkick 4
-else if (rotationState === 2 && ( array[(pointHY/50)+2][pointHX/50] !== 0 || array[(pointIY/50)+1][pointIX/50] !== 0) && array[pointBY/50][pointBX/50] !== 0 && array[pointAY/50][pointAX/50] !== 0 && array[pointGY/50][pointGX/50] === 0 && array[(pointHY/50)+1][pointHX/50] === 0 && array[(pointGY/50)+1][pointGX/50] === 0  && array[(pointGY/50)+2][pointGX/50] === 0)
-{
-clearRState2()
-plusY(100)
-minusX(50)
-fillRState3()
-rotationState = 3}
-
-//Rotaionstate 3 to 0
-
-else if (rotationState === 3 && array[pointDY/50][pointDX/50]=== 0)
-{
-       clearRState3()
-       fillRStateT0()
-       rotationState = 0
-}
-//Rotaionstate 3 to 0 , WallKick 1
-
-else if (rotationState === 3 && array[pointDY/50][pointDX/50] !== 0 && array[pointFY/50][(pointFX/50)+1] === 0 && array[pointCY/50][pointCX/50] === 0)
-{
-       
-       clearRState3()
-       plusX(50)
-       fillRStateT0()
-       rotationState = 0
-}
-//Rotaionstate 3 to 0 , WallKick 2
-
-else if (rotationState === 3 && array[(pointIY/50)][(pointIX/50)+1] === 0 && array[(pointIY/50)][(pointIX/50)] === 0 && array[pointDY/50][pointDX/50] !== 0 && array[pointFY/50][(pointFX/50)+1] !== 0 )
-{
-       
-       clearRState3()
-       plusX(50)
-       plusY(50)
-       fillRStateT0()
-       rotationState = 0
-}
-
-//Rotaionstate 3 to 0 , WallKick 3
-
-else if (rotationState === 3 && (array[(pointIY/50)][(pointIX/50)+1] !== 0 || array[(pointIY/50)][(pointIX/50)] !== 0 )&& array[pointDY/50][pointDX/50] !== 0 && array[pointFY/50][(pointFX/50)+1] !== 0 && array[(pointAY/50)-1][pointAX/50] === 0 && array[(pointBY/50)-1][pointBX/50] === 0 && array[(pointCY/50)-1][pointCX/50] === 0 &&array[(pointBY/50)-2][pointBX/50] === 0)
-{
-       
-       clearRState3()
-       minusY(100)
-       fillRStateT0()
-       rotationState = 0
-}
-//Rotaionstate 3 to 0 , WallKick 4
-
-else if (rotationState === 3 && (array[(pointIY/50)][(pointIX/50)+1] !== 0 || array[(pointIY/50)][(pointIX/50)] !== 0 )&& array[pointDY/50][pointDX/50] !== 0 && array[pointFY/50][(pointFX/50)+1] !== 0 && (array[(pointAY/50)-1][pointAX/50] !== 0 || array[(pointBY/50)-2][pointBX/50] !== 0 )&& array[(pointCY/50)-1][pointCX/50] === 0 && array[(pointCY/50)-2][pointCX/50] === 0&& array[(pointCY/50)-1][(pointCX/50)+1] === 0 &&array[(pointBY/50)-1][pointBX/50] === 0)
-{
-       
-       clearRState3()
-       minusY(100)
-       plusX(50)
-       fillRStateT0()
-       rotationState = 0
-}
-
-}
-
-console.log(random)
 //id = setInterval(square, 100);
 if (random === "t") {
 id2 = setInterval(t,1000)}
 else if (random === "s")
 {console.log("hello")
 id3 = setInterval (s,1000)
-}
-
-
-
-
-function s () {
-if (pointHY <1000 && array[(pointGY/50)][pointGX/50]===0 && array[(pointHY/50)][pointHX/50]===0 &&array[(pointIY/50)][pointIX/50]===0/* && rotationState === 0*/)
-{clearRStateS0()
-plusY(50)
-fillRStateS0()
-}
 }
 
 function t () {
@@ -905,9 +314,9 @@ else if (/*counter < array.length-2*/ pointHY <950 && array[(pointGY/50)][pointG
 
 {
 
-clearRState1 ()
+clearRStateT1 ()
 plusY(50)
-fillRState1 ()
+fillRStateT1 ()
 counter++
 }
 
@@ -915,19 +324,21 @@ counter++
 else if (/*counter < array.length-2*/ pointHY <950 && array[(pointGY/50)][pointGX/50]===0 &&array[(pointIY/50)][pointIX/50]===0 && array[(pointHY/50)+1][pointHX/50]===0 && rotationState === 2 )
 
 {
-clearRState2 ()
+clearRStateT2 ()
 plusY(50)
-fillRState2 ()
+fillRStateT2 ()
 counter++
+test ()
+
 }
 
 //Rotationstate of 3
 else if (/*counter < array.length-2*/ rotationState === 3 && pointHY <950  && array[(pointIY/50)][pointIX/50]===0 && array[(pointHY/50)+1][pointHX/50]===0 )
 
 {
-clearRState3 ()
+clearRStateT3 ()
 plusY(50)
-fillRState3 ()
+fillRStateT3 ()
 counter++
 }
 
@@ -1002,3 +413,96 @@ else if (random === "s")
 }
 
 
+function s () {
+//Rotation state of 0
+if (pointHY <1000 && rotationState === 0 && array[(pointGY/50)][pointGX/50]===0 && array[(pointHY/50)][pointHX/50]===0 &&array[(pointFY/50)][pointFX/50]===0)
+{clearRStateS0()
+plusY(50)
+fillRStateS0()
+}
+//Rotation state of 1
+else if (pointHY <1000 && rotationState === 1 && array[(pointHY/50)][pointHX/50]===0 &&array[(pointIY/50)+1][pointIX/50]===0)
+{clearRStateS1()
+plusY(50)
+fillRStateS1()
+}
+//Rotation state of 2
+else if (pointHY <1000 && rotationState === 2 && array[(pointHY/50)+1][pointHX/50]===0 && array[(pointGY/50)+1][pointGX/50]===0 &&array[(pointIY/50)][pointIX/50]===0)
+{clearRStateS2()
+plusY(50)
+fillRStateS2()
+}
+//Rotation state of 3
+else if (pointHY <1000 && rotationState === 3 && array[(pointHY/50)+1][pointHX/50]===0 && array[(pointGY/50)][pointGX/50]===0)
+{clearRStateS3()
+plusY(50)
+fillRStateS3()
+}
+else { 
+      
+pAX = 151
+pAY = 1
+
+pBX = 201
+pBY = 1
+
+pCX = 251
+pCY = 1
+
+pDX = 151
+pDY = 51
+
+pEX = 201
+pEY = 51
+
+pFX = 251
+pFY = 51
+
+pGX = 151
+pGY = 101
+
+pHX = 201
+pHY = 101
+
+pIX = 251
+pIY = 101
+
+counter = 1
+pointAX = 150
+ pointAY =0
+ pointBX = 200
+ pointBY = 0
+
+ pointCX = 250
+ pointCY = 0
+
+ pointDX = 150
+ pointDY = 50
+
+ pointEX = 200
+ pointEY = 50
+
+ pointFX = 250
+ pointFY = 50
+
+ pointGX = 150
+ pointGY = 100
+
+ pointHX = 200
+ pointHY = 100
+
+ pointIX = 250
+ pointIY = 100
+
+rotationState = 0
+clearInterval(id3)
+
+random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
+randomizerTetrimino ()
+if (random === "t")
+{id2 = setInterval(t,1000)}
+else if (random === "s")
+{id3 = setInterval (s,1000)} 
+}
+
+}
