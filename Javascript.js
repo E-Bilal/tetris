@@ -180,16 +180,16 @@ let pointIX = 250
 let pointIY = 100
 
 function clearRStateS0 () {
-ctx.clearRect(pointBX,pointBY,50,50)
+ctx.clearRect(pBX,pBY,48,48)
 array[pointBY/50][pointBX/50] = 0
 
-ctx.clearRect (pointCX,pointCY,50,50)
+ctx.clearRect (pCX,pCY,48,48)
 array[pointCY/50][pointCX/50] = 0   
 
-ctx.clearRect (pointEX,pointEY,50,50)
+ctx.clearRect (pEX,pEY,48,48)
 array[pointEY/50][pointEX/50] = 0
 
-ctx.clearRect (pointDX,pointDY, 50,50)
+ctx.clearRect (pDX,pDY, 48,48)
 array[pointDY/50][pointDX/50] = 0
 }
 
@@ -197,16 +197,32 @@ function fillRStateS0 () {
 ctx.fillRect(pBX,pBY,48,48)
 array[pointBY/50][pointBX/50] = 2
 
-ctx.fillRect (pCX,pCY,50,50)
+ctx.fillRect (pCX,pCY,48,48)
 array[pointCY/50][pointCX/50] = 0   
 
-ctx.fillRect (pEX,pEY,50,50)
+ctx.fillRect (pEX,pEY,48,48)
 array[pointEY/50][pointEX/50] = 2
 
-ctx.fillRect (pDX,pDY, 50,50)
+ctx.fillRect (pDX,pDY, 48,48)
 array[pointDY/50][pointDX/50] = 2
 console.log("hel")
 
+
+}
+
+function clearRStateT0 () {
+
+ctx.clearRect(pBX,pBY,48,48)
+array[pointBY/50][pointBX/50] = 0
+
+ctx.clearRect (pEX,pEY,48,48)
+array[pointEY/50][pointEX/50] = 0
+
+ctx.clearRect (pDX,pDY, 48,48)
+array[pointDY/50][pointDX/50] = 0
+
+ctx.clearRect (pFX,pFY,48,48)
+array[pointFY/50][pointFX/50] = 0
 
 }
 
@@ -434,8 +450,8 @@ let counter = 1
 
 
 function moveDownT() {
-//Copying function tetrmino clip through other tetriminos , calling the function doesn't
-t()
+if (random === "t") {t()}
+else if (random === "s") {s()}
 }
 
 function moveLeftT () { if (rotationState === 0 && counter < array.length-1 && array[(pointAY/50)][(pointAX/50)] === 0 && array[(pointDY/50)][(pointDX/50)-1] === 0 )
@@ -855,19 +871,22 @@ else if (rotationState === 3 && (array[(pointIY/50)][(pointIX/50)+1] !== 0 || ar
 
 console.log(random)
 //id = setInterval(square, 100);
-/*if (random === "t") {
+if (random === "t") {
 id2 = setInterval(t,1000)}
 else if (random === "s")
-{
+{console.log("hello")
 id3 = setInterval (s,1000)
-}*/
+}
 
 
 
 
 function s () {
-if (pointHY <1000 && array[(pointGY/50)][pointGX/50]===0 && array[(pointHY/50)][pointHX/50]===0 &&array[(pointIY/50)][pointIX/50]===0 && rotationState === 0)
-{}
+if (pointHY <1000 && array[(pointGY/50)][pointGX/50]===0 && array[(pointHY/50)][pointHX/50]===0 &&array[(pointIY/50)][pointIX/50]===0/* && rotationState === 0*/)
+{clearRStateS0()
+plusY(50)
+fillRStateS0()
+}
 }
 
 function t () {
