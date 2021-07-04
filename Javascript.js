@@ -45,7 +45,7 @@ else if (array[i/50][j/50] === 5)
 ctx.fillRect(j,i,50, 50);
 j +=50}}}
 
-const tetrimino = ["z"];
+const tetrimino = ["l"];
 
 let random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
@@ -94,6 +94,19 @@ array[1][4] = 2
 ctx.fillRect (251,51,48,48)
 array[1][5] = 2
 }
+else if (random === "l")
+{
+//L tetrimino
+ctx.fillStyle = "#FFA500"
+ctx.fillRect (251,1,48,48)
+array[0][5] = 2
+ctx.fillRect (151,51,48,48)
+array[1][3] = 2
+ctx.fillRect (201,51,48,48)
+array[1][4] = 2
+ctx.fillRect (251,51,48,48)
+array[1][5] = 2
+}
 }
 randomizerTetrimino ()
 
@@ -101,6 +114,7 @@ function downChecker () {
        if(random === "t"){moveDownT()}
        else if (random === "s") {moveDownS()}
        else if (random === "z") {moveDownZ()}
+         else if (random === "l") {moveDownL()}
 
 }
 
@@ -108,6 +122,8 @@ function leftChecker () {
        if(random === "t"){moveLeftT()}
        else if (random === "s") {moveLeftS()}
        else if (random === "z") {moveLeftZ()}
+       else if (random === "l") {moveLeftL()}
+
 
 }
 
@@ -115,6 +131,8 @@ function rightChecker () {
        if(random === "t"){moveRightT()}
        else if (random === "s") {moveRightS()}
        else if (random === "z") {moveRightZ()}
+       else if (random === "l") {moveRightL()}
+
 
 }
 
@@ -122,6 +140,8 @@ function upChecker () {
        if(random === "t"){moveUpT()}
        else if (random === "s") {moveUpS()}
        else if (random === "z") {moveUpZ()}
+       else if (random === "l") {moveUpL()}
+
 
 }
 
@@ -129,6 +149,8 @@ function zChecker () {
   if(random === "t"){moveZT()}
        else if (random === "s") {moveZS()}
        else if (random === "z") {moveZZ()}
+       else if (random === "l") {moveZL()}
+
 
 
 }
@@ -320,6 +342,8 @@ else if (random === "s")
 {id3 = setInterval (s,1000)}
 else if (random === "z")
 {id4 = setInterval (z,1000)}
+else if (random === "l")
+{id5 = setInterval (l,1000)}
 
 function t () {
        
@@ -525,7 +549,7 @@ randomizerTetrimino ()
 if (random === "t")
 {id2 = setInterval(t,1000)}
 else if (random === "s")
-{id3 = setInterval (s,1000)}
+{id3 = setInterval (s,1000)} 
 else if (random === "z")
 {id4 = setInterval(z,1000)} 
 }
@@ -629,4 +653,104 @@ else if (random === "z")
 
 
        
+}
+
+
+function l () {//Rotation state of 0
+if (pointHY <1000 && rotationState === 0 && array[(pointGY/50)][pointGX/50]===0 && array[(pointHY/50)][pointHX/50]===0 &&array[(pointIY/50)][pointIX/50]===0)
+{clearRStateL0()
+plusY(50)
+fillRStateL0()
+}
+//Rotation state of 1
+else if (pointHY <1000 && rotationState === 1 && array[(pointHY/50)+1][pointHX/50]===0 && array[(pointIY/50)+1][pointIX/50]===0)
+{clearRStateL1()
+plusY(50)
+fillRStateL1()
+}
+//Rotation state of 2
+else if (pointHY <1000 && rotationState === 2 && array[(pointHY/50)+1][pointHX/50]===0 && array[(pointGY/50)][pointGX/50]===0 &&array[(pointIY/50)+1][pointIX/50]===0)
+{clearRStateZ2()
+plusY(50)
+fillRStateZ2()
+}
+//Rotation state of 3
+else if (pointHY <1000 && rotationState === 3 && array[(pointHY/50)][pointHX/50]===0 && array[(pointGY/50)+1][pointGX/50]===0)
+{clearRStateZ3()
+plusY(50)
+fillRStateZ3()
+}
+else { 
+      
+pAX = 151
+pAY = 1
+
+pBX = 201
+pBY = 1
+
+pCX = 251
+pCY = 1
+
+pDX = 151
+pDY = 51
+
+pEX = 201
+pEY = 51
+
+pFX = 251
+pFY = 51
+
+pGX = 151
+pGY = 101
+
+pHX = 201
+pHY = 101
+
+pIX = 251
+pIY = 101
+
+counter = 1
+pointAX = 150
+ pointAY =0
+ pointBX = 200
+ pointBY = 0
+
+ pointCX = 250
+ pointCY = 0
+
+ pointDX = 150
+ pointDY = 50
+
+ pointEX = 200
+ pointEY = 50
+
+ pointFX = 250
+ pointFY = 50
+
+ pointGX = 150
+ pointGY = 100
+
+ pointHX = 200
+ pointHY = 100
+
+ pointIX = 250
+ pointIY = 100
+
+rotationState = 0
+clearInterval(id5)
+
+random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
+randomizerTetrimino ()
+if (random === "t")
+{id2 = setInterval(t,1000)}
+else if (random === "s")
+{id3 = setInterval (s,1000)} 
+else if (random === "z")
+{id4 = setInterval(z,1000)}
+else if (random === "l")
+{id5 = setInterval (l,1000)} 
+}
+
+
+
 }
