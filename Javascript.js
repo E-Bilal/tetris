@@ -669,16 +669,16 @@ plusY(50)
 fillRStateL1()
 }
 //Rotation state of 2
-else if (pointHY <1000 && rotationState === 2 && array[(pointHY/50)+1][pointHX/50]===0 && array[(pointGY/50)][pointGX/50]===0 &&array[(pointIY/50)+1][pointIX/50]===0)
-{clearRStateZ2()
+else if (pointHY <1000 && rotationState === 2 && array[(pointHY/50)][pointHX/50]===0 && array[(pointGY/50)+1][pointGX/50]===0 && array[(pointIY/50)][pointIX/50]===0)
+{clearRStateL2()
 plusY(50)
-fillRStateZ2()
+fillRStateL2()
 }
 //Rotation state of 3
-else if (pointHY <1000 && rotationState === 3 && array[(pointHY/50)][pointHX/50]===0 && array[(pointGY/50)+1][pointGX/50]===0)
-{clearRStateZ3()
+else if (pointHY <1000 && rotationState === 3 && array[(pointHY/50)+1][pointHX/50]===0 && array[(pointDY/50)][pointDX/50]===0 )
+{clearRStateL3()
 plusY(50)
-fillRStateZ3()
+fillRStateL3()
 }
 else { 
       
