@@ -4,6 +4,7 @@ canvas.width = 500
 canvas.height = 1000
 let ctx = canvas.getContext("2d")
 let array = [
+       
        [0,0,0,0,0,0,0,0,0,0],
        [0,0,0,0,0,0,0,0,0,0],
        [0,0,0,0,0,0,0,0,0,0],
@@ -24,6 +25,8 @@ let array = [
        [0,0,0,0,0,0,0,0,0,0],
        [0,0,0,0,0,0,0,0,0,0],
        [0,0,0,0,0,0,0,0,0,0],
+       [1,1,1,1,1,1,1,1,1,1],
+       [1,1,1,1,1,1,1,1,1,1],
        [1,1,1,1,1,1,1,1,1,1],
 ]
 
@@ -227,6 +230,7 @@ zChecker();
 break;}
 }
 
+
 let pAX = 151
 let pAY = 1
 
@@ -283,6 +287,7 @@ let pointHY = 100
 
 let pointIX = 250
 let pointIY = 100
+
 
 function plusY (amount) 
 {
@@ -947,12 +952,151 @@ else if (random === "i")
 }
 
 
-function i () { if (pontNY <1000 && rotationState === 0 && array[(pontIY/50)][pontIX/50]===0 && array[(pontJY/50)][pontJX/50]===0 && array[(pontKY/50)][pontKX/50]===0  && array[(pontLY/50)][pontLX/50]===0)
-  
+function i () { if (pontNY <1050 && rotationState === 0 && array[(pontIY/50)][pontIX/50]===0 && array[(pontJY/50)][pontJX/50]===0 && array[(pontKY/50)][pontKX/50]===0  && array[(pontLY/50)][pontLX/50]===0)
+//Rotation state of 0
 {
 clearRStateI0 ()
 pY (50)
 fillRStateI0()
+console.log(pontAY)
+}
+//Rotation state of 1
+else if (pontNY <1050 && rotationState === 1 && array[(pontOY/50)+1][pontOX/50]===0 )
+{
+clearRStateI1 ()
+pY (50)
+fillRStateI1()
+}
+else if (pontNY <1050 && rotationState === 2 && array[(pontMY/50)][pontMX/50]===0 && array[(pontNY/50)][pontNX/50]===0 && array[(pontOY/50)][pontOX/50]===0  && array[(pontPY/50)][pontPX/50]===0)
+//Rotation state of 2
+{
+clearRStateI2 ()
+pY (50)
+fillRStateI2()
+}
+else if (pontNY <1050 && rotationState === 3 && array[(pontNY/50)+1][pontNX/50]===0 )
+//Rotation state of 3
+{
+clearRStateI3 ()
+pY (50)
+fillRStateI3()
+}
+else {
+
+clearInterval(id7)
+random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
+randomizerTetrimino ()
+if (random === "o")
+{id = setInterval(o,1000)}
+else if (random === "t")
+{id2 = setInterval(t,1000)}
+else if (random === "s")
+{id3 = setInterval (s,1000)} 
+else if (random === "z")
+{id4 = setInterval(z,1000)}
+else if (random === "l")
+{id5 = setInterval (l,1000)}
+else if (random === "j")
+{id6 = setInterval (j,1000)} 
+else if (random === "i")
+{id7 = setInterval (i,1000)}  
+pontAX = 150
+pontAY = 0
+
+pontBX = 200
+pontBY = 0
+
+pontCX = 250
+pontCY = 0
+
+pontDX = 300
+pontDY = 0
+
+pontEX = 150
+pontEY = 50
+
+pontFX = 200
+pontFY = 50
+
+pontGX = 250
+pontGY = 50
+
+pontHX = 300
+pontHY = 50
+
+pontIX = 150
+pontIY = 100
+
+pontJX = 200
+pontJY = 100
+
+pontKX = 250
+pontKY = 100
+
+pontLX = 300
+pontLY = 100
+
+pontMX = 150
+pontMY = 150
+
+pontNX = 200
+pontNY = 150
+
+pontOX = 250
+pontOY = 150
+
+pontPX = 300
+pontPY = 150
+
+iAX = 151
+iAY = 1
+
+iBX = 201
+iBY = 1
+
+iCX = 251
+iCY = 1
+
+iDX = 301
+iDY = 1
+
+iEX = 151
+iEY = 51
+
+iFX = 201
+iFY = 51
+
+iGX = 251
+iGY = 51
+
+iHX = 301
+iHY = 51
+
+iIX = 151
+iIY = 101
+
+iJX = 201
+iJY = 101
+
+iKX = 251
+iKY = 101
+
+iLX = 301
+iLY = 101
+
+iMX = 151
+iMY = 151
+
+iNX = 201
+iNY = 151
+
+iOX = 251
+iOY = 151
+
+iPX = 301
+iPY = 151
+mY(50)
+rotationState =0
+}
 }
 
-}

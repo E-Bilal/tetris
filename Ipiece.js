@@ -171,49 +171,79 @@ iPY -= amount
 
 
 }
-function plusX (amount) 
+function pX (amount) 
 {
-pointAX += amount
-pointBX += amount 
-pointCX += amount
-pointDX += amount
-pointEX += amount
-pointFX += amount
-pointGX += amount
-pointHX += amount
-pointIX += amount
+pontAX += amount
+pontBX += amount
+pontCX += amount
+pontDX += amount
+pontEX += amount
+pontFX += amount
+pontGX += amount
+pontHX += amount
+pontIX += amount
+pontJX += amount
+pontKX += amount
+pontLX += amount
+pontMX += amount
+pontNX += amount
+pontOX += amount
+pontPX += amount
+
 iAX += amount
 iBX += amount
 iCX += amount
-iDX +=amount
+iDX += amount
 iEX += amount
-iFX +=amount
+iFX += amount
 iGX += amount
 iHX += amount
 iIX += amount
+iJX += amount
+iKX += amount
+iLX += amount
+iMX += amount
+iNX += amount
+iOX += amount
+iPX += amount
+
 
 }
-function minusX (amount) 
+function mX (amount) 
 {
-pointAX -= amount
-pointBX -= amount 
-pointCX -= amount
-pointDX -= amount
-pointEX -= amount
-pointFX -= amount
-pointGX -= amount
-pointHX -= amount
-pointIX -= amount
+pontAX -= amount
+pontBX -= amount
+pontCX -= amount
+pontDX -= amount
+pontEX -= amount
+pontFX -= amount
+pontGX -= amount
+pontHX -= amount
+pontIX -= amount
+pontJX -= amount
+pontKX -= amount
+pontLX -= amount
+pontMX -= amount
+pontNX -= amount
+pontOX -= amount
+pontPX -= amount
+
 iAX -= amount
 iBX -= amount
 iCX -= amount
-iDX -=amount
+iDX -= amount
 iEX -= amount
-iFX -=amount
+iFX -= amount
 iGX -= amount
 iHX -= amount
 iIX -= amount
-
+iJX -= amount
+iKX -= amount
+iLX -= amount
+iMX -= amount
+iNX -= amount
+iOX -= amount
+iPX -= amount
 }
 
 mY(50)
@@ -246,3 +276,354 @@ ctx.clearRect (iHX,iHY,48,48)
 array[pontHY/50][pontHX/50] = 0
 
 }
+
+function fillRStateI1 () {
+ctx.fillRect(iCX,iCY,48,48)
+array[pontCY/50][pontCX/50] = 2
+
+ctx.fillRect (iKX,iKY,48,48)
+array[pontKY/50][pontKX/50] = 2
+
+
+ctx.fillRect (iGX,iGY, 48,48)
+array[pontGY/50][pontGX/50] = 2
+
+ctx.fillRect (iOX,iOY,48,48)
+array[pontOY/50][pontOX/50] = 2
+}
+
+function clearRStateI1() {
+ctx.clearRect(iCX,iCY,48,48)
+array[pontCY/50][pontCX/50] = 0
+
+ctx.clearRect (iKX,iKY,48,48)
+array[pontKY/50][pontKX/50] = 0
+
+
+ctx.clearRect (iGX,iGY, 48,48)
+array[pontGY/50][pontGX/50] = 0
+
+ctx.clearRect (iOX,iOY,48,48)
+array[pontOY/50][pontOX/50] = 0
+
+}
+
+function fillRStateI2 () {
+ctx.fillRect(iIX,iIY,48,48)
+array[pontIY/50][pontIX/50] = 2
+
+ctx.fillRect (iKX,iKY,48,48)
+array[pontKY/50][pontKX/50] = 2
+
+
+ctx.fillRect (iJX,iJY, 48,48)
+array[pontJY/50][pontJX/50] = 2
+
+ctx.fillRect (iLX,iLY,48,48)
+array[pontLY/50][pontLX/50] = 2
+}
+
+function clearRStateI2() {
+ctx.clearRect(iIX,iIY,48,48)
+array[pontIY/50][pontIX/50] = 0
+
+ctx.clearRect (iKX,iKY,48,48)
+array[pontKY/50][pontKX/50] = 0
+
+
+ctx.clearRect (iJX,iJY, 48,48)
+array[pontJY/50][pontJX/50] = 0
+
+ctx.clearRect (iLX,iLY,48,48)
+array[pontLY/50][pontLX/50] = 0
+
+}
+function fillRStateI3 () {
+ctx.fillRect(iBX,iBY,48,48)
+array[pontBY/50][pontBX/50] = 2
+
+ctx.fillRect (iFX,iFY,48,48)
+array[pontFY/50][pontFX/50] = 2
+
+
+ctx.fillRect (iJX,iJY, 48,48)
+array[pontJY/50][pontJX/50] = 2
+
+ctx.fillRect (iNX,iNY,48,48)
+array[pontNY/50][pontNX/50] = 2
+}
+
+function clearRStateI3() {
+ctx.clearRect(iBX,iBY,48,48)
+array[pontBY/50][pontBX/50] = 0
+
+ctx.clearRect (iFX,iFY,48,48)
+array[pontFY/50][pontFX/50] = 0
+
+ctx.clearRect (iJX,iJY, 48,48)
+array[pontJY/50][pontJX/50] = 0
+
+ctx.clearRect (iNX,iNY,48,48)
+array[pontNY/50][pontNX/50] = 0
+
+}
+
+
+function moveDownI() {
+i()
+}
+function moveLeftI () { if (rotationState === 0 &&  array[(pontEY/50)][(pontEX/50)-1] === 0)
+//Left movement , rotationstate 0
+{
+clearRStateI0 ()
+mX (50)
+fillRStateI0 ()
+}
+//Left movement , rotationstate 1
+
+else if (rotationState ===1 &&  array[(pontBY/50)][(pontBX/50)] === 0  &&  array[(pontFY/50)][(pontFX/50)] === 0  &&  array[(pontJY/50)][(pontJX/50)] === 0  &&  array[(pontNY/50)][(pontNX/50)] === 0)
+{
+clearRStateI1 ()
+mX(50)
+fillRStateI1()
+}
+
+//Left movement , rotationstate 2
+else if (rotationState ===2 &&  array[(pontIY/50)][(pontIX/50)-1] === 0)
+{
+clearRStateI2 ()
+mX(50)
+fillRStateI2()
+}
+
+//Left movement , rotationstate 3
+else if (rotationState === 3 &&  array[(pontAY/50)][(pontAX/50)] === 0  &&  array[(pontEY/50)][(pontEX/50)] === 0  &&  array[(pontIY/50)][(pontIX/50)] === 0  &&  array[(pontMY/50)][(pontMX/50)] === 0)
+{
+clearRStateI3 ()
+mX(50)
+fillRStateI3()
+}
+
+else {}}
+
+
+function moveRightI () { if (rotationState === 0 &&  array[(pontHY/50)][(pontHX/50)+1] === 0)
+//Left movement , rotationstate 0
+{
+clearRStateI0 ()
+pX (50)
+fillRStateI0 ()
+}
+//Right movement , rotation state 1
+else if (rotationState ===1 &&  array[(pontDY/50)][(pontDX/50)] === 0  &&  array[(pontHY/50)][(pontHX/50)] === 0  &&  array[(pontLY/50)][(pontLX/50)] === 0  &&  array[(pontPY/50)][(pontPX/50)] === 0)
+{
+clearRStateI1 ()
+pX(50)
+fillRStateI1()
+}
+
+//Right movement , rotation state 2
+else if (rotationState ===2 &&  array[(pontLY/50)][(pontLX/50)+1] === 0)
+{
+clearRStateI2 ()
+pX(50)
+fillRStateI2()
+}
+
+
+//Right movement, rotation state 3
+else if (rotationState ===3 &&  array[(pontCY/50)][(pontCX/50)] === 0  &&  array[(pontGY/50)][(pontGX/50)] === 0  &&  array[(pontKY/50)][(pontKX/50)] === 0  &&  array[(pontOY/50)][(pontOX/50)] === 0)
+{
+clearRStateI3 ()
+pX(50)
+fillRStateI3()
+}
+  else {}}
+
+
+function moveUpI () {
+
+    
+//Rotationstate 0 to 1 , WallKick 
+ if (rotationState === 0  && array[(pontOY/50)+1][(pontOX/50)] === 0  &&  array[(pontKY/50)][(pontKX/50)] === 0 &&  array[(pontOY/50)][(pontOX/50)] === 0)
+{
+clearRStateI0()
+pY(50)
+fillRStateI1()
+rotationState =1
+}
+//Rotationstate 0 to 1 
+else if (rotationState === 0 && array[(pontKY/50)][(pontKX/50)] === 0 &&  array[(pontOY/50)][(pontOX/50)] === 0 && array[(pontCY/50)][(pontCX/50)] === 0)
+{
+clearRStateI0()
+fillRStateI1()
+rotationState =1
+}
+
+//Rotationstate 0 to 1 , WallKick2 
+ else  if (rotationState === 0  && array[(pontCY/50)-1][(pontCX/50)] === 0 &&  array[(pontCY/50)][(pontCX/50)] === 0 && array[(pontCY/50)-2][(pontCX/50)] === 0 )
+{
+clearRStateI0()
+mY(100)
+fillRStateI1()
+rotationState =1
+}
+//Rotationstate 1 to 2 
+ else if (rotationState === 1  && array[(pontIY/50)][(pontIX/50)] === 0  &&  array[(pontJY/50)][(pontJX/50)] === 0 &&  array[(pontLY/50)][(pontLX/50)] === 0)
+{
+clearRStateI1()
+fillRStateI2()
+rotationState =2
+}
+//Rotationstate 1 to 2 Wallkick
+ else if (rotationState === 1  && array[(pontIY/50)][(pontIX/50)] === 0  &&  array[(pontJY/50)][(pontJX/50)] === 0 &&  array[(pontIY/50)][(pontIX/50)-1] === 0)
+{
+clearRStateI1()
+mX(50)
+fillRStateI2()
+rotationState =2
+}
+//Rotationstate 1 to 2 Wallkick 2
+ else if (rotationState === 1  && array[(pontLY/50)][(pontLX/50)] === 0  &&  array[(pontLY/50)][(pontLX/50)+1] === 0 &&  array[(pontLY/50)][(pontLX/50)+2] === 0)
+{
+clearRStateI1()
+pX(100)
+fillRStateI2()
+rotationState =2
+}
+
+//Rotationstate 2 to 3 
+ else if (rotationState === 2  && array[(pontBY/50)][(pontBX/50)] === 0  &&  array[(pontFY/50)][(pontFX/50)] === 0 &&  array[(pontNY/50)][(pontNX/50)] === 0)
+{
+clearRStateI2()
+fillRStateI3()
+rotationState =3
+}
+//Rotationstate 2 to 3 Wallkick
+ else if (rotationState === 2  && array[(pontBY/50)][(pontBX/50)] === 0  &&  array[(pontFY/50)][(pontFX/50)] === 0 &&  array[(pontBY/50)-1][(pontBX/50)] === 0)
+{
+clearRStateI2()
+mY(50)
+fillRStateI3()
+rotationState =3
+}
+//Rotationstate 3 to 0 
+else if (rotationState === 3  && array[(pontEY/50)][(pontEX/50)] === 0  &&  array[(pontGY/50)][(pontGX/50)] === 0 &&  array[(pontHY/50)][(pontHX/50)] === 0)
+{
+clearRStateI3()
+fillRStateI0()
+rotationState =0
+}
+//Rotationstate 3 to 0  Wallkick 
+else if (rotationState === 3  && array[(pontEY/50)][(pontEX/50)] === 0  &&  array[(pontEY/50)][(pontEX/50)-1] === 0 &&  array[(pontEY/50)][(pontEX/50)-2] === 0)
+{
+clearRStateI3()
+mX(100)
+fillRStateI0()
+rotationState =0
+}
+//Rotationstate 3 to 0 Wallkick 2 
+else if (rotationState === 3  && array[(pontHY/50)][(pontHX/50)+1] === 0  &&  array[(pontGY/50)][(pontGX/50)] === 0 &&  array[(pontHY/50)][(pontHX/50)] === 0)
+{
+clearRStateI3()
+pX(50)
+fillRStateI0()
+rotationState =0
+}
+}
+
+function moveZI (){
+//Rotationstate 0 to 3 Wallkick
+if (rotationState === 0  && array[(pontNY/50)+1][(pontNX/50)] === 0  &&  array[(pontJY/50)][(pontJX/50)] === 0 &&  array[(pontNY/50)][(pontNX/50)] === 0)
+{
+clearRStateI0()
+pY(50)
+fillRStateI3()
+rotationState =3
+}
+//Rotationstate 0 to 3 
+else if (rotationState === 0  && array[(pontBY/50)][(pontBX/50)] === 0  &&  array[(pontJY/50)][(pontJX/50)] === 0 &&  array[(pontNY/50)][(pontNX/50)] === 0)
+{
+clearRStateI0()
+fillRStateI3()
+rotationState =3
+}
+//Rotationstate 0 to 3 Wallkick 2
+else if (rotationState === 0  && array[(pontBY/50)][(pontBX/50)] === 0  &&  array[(pontBY/50)-1][(pontBX/50)] === 0 &&  array[(pontBY/50)-2][(pontBX/50)] === 0)
+{
+clearRStateI0()
+mY(100)
+fillRStateI3()
+rotationState =3
+}
+
+//Rotationstate 3 to 2 
+ else if (rotationState === 3  && array[(pontIY/50)][(pontIX/50)] === 0  &&  array[(pontKY/50)][(pontKX/50)] === 0 &&  array[(pontLY/50)][(pontLX/50)] === 0)
+{
+clearRStateI3()
+fillRStateI2()
+rotationState =2
+}
+//Rotationstate 3 to 2 Wallkick
+
+ else if (rotationState === 3  && array[(pontLY/50)][(pontLX/50)] === 0  &&  array[(pontKY/50)][(pontKX/50)] === 0 &&  array[(pontLY/50)][(pontLX/50)+1] === 0)
+{
+clearRStateI3()
+pX(50)
+fillRStateI2()
+rotationState =2
+}
+//Rotationstate 3 to 2 Wallkick 2
+
+ else if (rotationState === 3  && array[(pontIY/50)][(pontIX/50)] === 0  &&  array[(pontIY/50)][(pontIX/50)-1] === 0 &&  array[(pontIY/50)][(pontIX/50)-2] === 0)
+{
+clearRStateI3()
+mX(100)
+fillRStateI2()
+rotationState =2
+}
+//Rotationstate 2 to 1 
+else if (rotationState === 2 && array[(pontGY/50)][(pontGX/50)] === 0 &&  array[(pontOY/50)][(pontOX/50)] === 0 && array[(pontCY/50)][(pontCX/50)] === 0)
+{
+clearRStateI2()
+fillRStateI1()
+rotationState =1
+}
+//Rotationstate 2 to 1 Wallkick 
+else if (rotationState === 2 && array[(pontGY/50)][(pontGX/50)] === 0 &&  array[(pontCY/50)][(pontCX/50)] === 0 && array[(pontCY/50)-1][(pontCX/50)] === 0)
+{
+clearRStateI2()
+mY(50)
+fillRStateI1()
+rotationState =1
+}
+//Rotationstate 1 to 0 
+else if (rotationState === 1  && array[(pontEY/50)][(pontEX/50)] === 0  &&  array[(pontFY/50)][(pontFX/50)] === 0 &&  array[(pontHY/50)][(pontHX/50)] === 0)
+{
+clearRStateI1()
+fillRStateI0()
+rotationState =0
+}
+//Rotationstate 1 to 0 Wallkick
+else if (rotationState === 1  && array[(pontHY/50)][(pontHX/50)] === 0  &&  array[(pontHY/50)][(pontHX/50)+1] === 0 &&  array[(pontHY/50)][(pontHX/50)+2] === 0)
+{
+clearRStateI1()
+pX(100)
+fillRStateI0()
+rotationState =0
+}
+//Rotationstate 1 to 0 Wallkick 2
+else if (rotationState === 1  && array[(pontEY/50)][(pontEX/50)] === 0  &&  array[(pontFY/50)][(pontFX/50)] === 0 &&  array[(pontEY/50)][(pontEX/50)-1] === 0)
+{
+clearRStateI1()
+mX(50)
+fillRStateI0()
+rotationState =0
+}
+}
+
+
+
+
+
+
