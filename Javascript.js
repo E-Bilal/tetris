@@ -47,15 +47,26 @@ else if (array[i/50][j/50] === 5)
 ctx.fillRect(j,i,50, 50);
 j +=50}}}
 
-const tetrimino = ["i"];
+const tetrimino = ["o"];
 
 let random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
 function randomizerTetrimino () {
 
+if (random === "o") {
+// O tetrimino   
+ctx.fillStyle = "#6a0dad"
+ctx.fillRect (201,1,48,48)
+array[0][4] = 2
+ctx.fillRect (251,1,48,48)
+array[0][5] = 2
+ctx.fillRect (201,51,48,48)
+array[1][4] = 2
+ctx.fillRect (251,51,48,48)
+array[1][5] = 2
+}
 
-if (random === "s")
-
+else if (random === "s")
 {
 //S tetrimino
 ctx.fillStyle = "#00ff80"
@@ -142,7 +153,8 @@ randomizerTetrimino ()
 
 
 function downChecker () {
-       if(random === "t"){moveDownT()}
+       if(random === "o"){moveDownO()}
+       else if(random === "t"){moveDownT()}
        else if (random === "s") {moveDownS()}
        else if (random === "z") {moveDownZ()}
        else if (random === "l") {moveDownL()}
@@ -154,7 +166,8 @@ function downChecker () {
 }
 
 function leftChecker () {
-       if(random === "t"){moveLeftT()}
+       if(random === "o"){moveLeftO()}
+       else if(random === "t"){moveLeftT()}
        else if (random === "s") {moveLeftS()}
        else if (random === "z") {moveLeftZ()}
        else if (random === "l") {moveLeftL()}
@@ -168,7 +181,8 @@ function leftChecker () {
 }
 
 function rightChecker () {
-       if(random === "t"){moveRightT()}
+       if(random === "o"){moveRightO()}
+       else if(random === "t"){moveRightT()}
        else if (random === "s") {moveRightS()}
        else if (random === "z") {moveRightZ()}
        else if (random === "l") {moveRightL()}
@@ -181,7 +195,8 @@ function rightChecker () {
 }
 
 function upChecker () {
-       if(random === "t"){moveUpT()}
+       if(random === "o"){moveUpO()}
+       else if(random === "t"){moveUpT()}
        else if (random === "s") {moveUpS()}
        else if (random === "z") {moveUpZ()}
        else if (random === "l") {moveUpL()}
@@ -194,7 +209,8 @@ function upChecker () {
 }
 
 function zChecker () {
-  if(random === "t"){moveZT()}
+       if (random === "o") {moveZO()}
+       else if(random === "t"){moveZT()}
        else if (random === "s") {moveZS()}
        else if (random === "z") {moveZZ()}
        else if (random === "l") {moveZL()}
@@ -1100,3 +1116,89 @@ rotationState =0
 }
 }
 
+
+function o ()
+//Rotation state of 0 
+{if (rotationState === 0 &&  pointHY <1000  && array[(pointHY/50)][pointHX/50]===0 &&array[(pointIY/50)][pointIX/50]===0 ) 
+{
+clearRStateO0 ()
+plusY(50)
+fillRStateO0()
+}
+
+else { 
+      
+pAX = 151
+pAY = 1
+
+pBX = 201
+pBY = 1
+
+pCX = 251
+pCY = 1
+
+pDX = 151
+pDY = 51
+
+pEX = 201
+pEY = 51
+
+pFX = 251
+pFY = 51
+
+pGX = 151
+pGY = 101
+
+pHX = 201
+pHY = 101
+
+pIX = 251
+pIY = 101
+
+pointAX = 150
+ pointAY =0
+ pointBX = 200
+ pointBY = 0
+
+ pointCX = 250
+ pointCY = 0
+
+ pointDX = 150
+ pointDY = 50
+
+ pointEX = 200
+ pointEY = 50
+
+ pointFX = 250
+ pointFY = 50
+
+ pointGX = 150
+ pointGY = 100
+
+ pointHX = 200
+ pointHY = 100
+
+ pointIX = 250
+ pointIY = 100
+
+rotationState = 0
+clearInterval(id)
+
+random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
+randomizerTetrimino ()
+if (random === "o")
+{id = setInterval(o,1000)}
+else if (random === "t")
+{id2 = setInterval(t,1000)}
+else if (random === "s")
+{id3 = setInterval (s,1000)} 
+else if (ranomd === "z")
+{id4 = setInterval (z,1000)}
+else if (random === "l")
+{id5 = setInterval (l,1000)} 
+else if (random === "j")
+{id6 = setInterval (j,1000)}
+else if (random === "i")
+{id7 = setInterval (i,1000)}  
+}
+}
