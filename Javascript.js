@@ -30,7 +30,7 @@ let array = [
        [1,1,1,1,1,1,1,1,1,1],
 ]
 
-
+function drawArea () {
 for (let i =0 ; i <1000; i+=50)
 {for (let j=0 ; j< 500; j)
 
@@ -42,12 +42,13 @@ ctx.lineWidth  = 2
 ctx.strokeRect (j,i,50,50)
 
 j +=50}
-else if (array[i/50][j/50] === 5)
+/*else if (array[i/50][j/50] === 5)
 {ctx.fillStyle = "#ff0000"
 ctx.fillRect(j,i,50, 50);
-j +=50}}}
+j +=50}*/}}}
+drawArea()
 
-const tetrimino = ["o"];
+const tetrimino = ["o","t","s","z","i","l","j"];
 
 let random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
@@ -418,7 +419,42 @@ else if (random === "l")
 else if (random === "j")
 {id6 = setInterval (j,1000)} 
 else if (random === "i")
-{id7 = setInterval (i,1000)} 
+{id7 = setInterval (i,1000)}
+
+
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+let array2 = []
+
+
+
+function lineChecker () {
+for (let i = 0 ; i< 20 ; i++){ if (array[i].reduce(reducer)===20){
+
+array2 = array.slice(0, array.indexOf(array[i]))
+for (let s = array.indexOf(array[i])+1 ; s <23 ; s++ )
+{array2.push(array[s])}
+array = array2
+array.unshift([0,0,0,0,0,0,0,0,0,0])
+
+for (let z = 0 ; z<1000 ; z+=50){
+for (let v = 0 ; v<500 ; v)
+{if (array[z/50][v/50] === 0){
+ctx.fillStyle = "#f1f1f1"
+ctx.fillRect(v,z,50, 50);
+ctx.strokeStyle = "#000000";
+ctx.lineWidth  = 2
+ctx.strokeRect (v,z,50,50)
+v +=50  
+  }else {v+=50}}
+}
+
+
+}
+else {}}
+
+}
+
+
 
 function t () {
        
@@ -450,7 +486,6 @@ clearRStateT2 ()
 plusY(50)
 fillRStateT2 ()
 counter++
-test ()
 
 }
 
@@ -522,7 +557,7 @@ pointAX = 150
 
 rotationState = 0
 clearInterval(id2)
-
+lineChecker()
 random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()
 if (random === "o")
@@ -531,7 +566,7 @@ else if (random === "t")
 {id2 = setInterval(t,1000)}
 else if (random === "s")
 {id3 = setInterval (s,1000)} 
-else if (ranomd === "z")
+else if (random === "z")
 {id4 = setInterval (z,1000)}
 else if (random === "l")
 {id5 = setInterval (l,1000)} 
@@ -629,7 +664,7 @@ pointAX = 150
 
 rotationState = 0
 clearInterval(id3)
-
+lineChecker ()
 random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()
 if (random === "o")
@@ -734,7 +769,7 @@ pointAX = 150
 
 rotationState = 0
 clearInterval(id4)
-
+lineChecker ()
 random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()
 if (random === "o")
@@ -842,7 +877,7 @@ pointAX = 150
 
 rotationState = 0
 clearInterval(id5)
-
+lineChecker()
 random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()
 if (random === "o")
@@ -947,7 +982,7 @@ pointAX = 150
 
 rotationState = 0
 clearInterval(id6)
-
+lineChecker()
 random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()
 if (random === "o")
@@ -1000,6 +1035,7 @@ fillRStateI3()
 else {
 
 clearInterval(id7)
+lineChecker()
 random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()
 if (random === "o")
@@ -1183,7 +1219,8 @@ pointAX = 150
 
 rotationState = 0
 clearInterval(id)
-
+lineChecker()
+//drawArea()
 random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()
 if (random === "o")
@@ -1192,7 +1229,7 @@ else if (random === "t")
 {id2 = setInterval(t,1000)}
 else if (random === "s")
 {id3 = setInterval (s,1000)} 
-else if (ranomd === "z")
+else if (random === "z")
 {id4 = setInterval (z,1000)}
 else if (random === "l")
 {id5 = setInterval (l,1000)} 
