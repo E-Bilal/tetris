@@ -15,17 +15,17 @@ array[pointFY/50][pointFX/50] = 0
 }
 function fillRStateO0 () {
 ctx.fillRect(pBX,pBY,48,48)
-array[pointBY/50][pointBX/50] = 2
+array[pointBY/50][pointBX/50] = 1
 
 ctx.fillRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 2
+array[pointEY/50][pointEX/50] = 1
 
 
 ctx.fillRect (pCX,pCY, 48,48)
-array[pointCY/50][pointCX/50] = 2
+array[pointCY/50][pointCX/50] = 1
 
 ctx.fillRect (pFX,pFY,48,48)
-array[pointFY/50][pointFX/50] = 2
+array[pointFY/50][pointFX/50] = 1
 }
 
 

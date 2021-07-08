@@ -56,15 +56,15 @@ function randomizerTetrimino () {
 
 if (random === "o") {
 // O tetrimino   
-ctx.fillStyle = "#6a0dad"
+ctx.fillStyle = "#ffff00"
 ctx.fillRect (201,1,48,48)
-array[0][4] = 2
+array[0][4] = 1
 ctx.fillRect (251,1,48,48)
-array[0][5] = 2
+array[0][5] = 1
 ctx.fillRect (201,51,48,48)
-array[1][4] = 2
+array[1][4] = 1
 ctx.fillRect (251,51,48,48)
-array[1][5] = 2
+array[1][5] = 1
 }
 
 else if (random === "s")
@@ -72,13 +72,13 @@ else if (random === "s")
 //S tetrimino
 ctx.fillStyle = "#00ff80"
 ctx.fillRect (201,1,48,48)
-array[0][4] = 2
+array[0][4] = 3
 ctx.fillRect (251,1,48,48)
-array[0][5] = 2
+array[0][5] = 3
 ctx.fillRect (201,51,48,48)
-array[1][4] = 2
+array[1][4] = 3
 ctx.fillRect (151,51,48,48)
-array[1][3] = 2
+array[1][3] = 3
 }
 
 else if (random === "t")
@@ -87,39 +87,39 @@ else if (random === "t")
     //T tetrimino   
 ctx.fillStyle = "#6a0dad"
 ctx.fillRect (201,1,48,48)
-array[0][4] = 2
+array[0][4] = 4
 ctx.fillRect (201,51,48,48)
-array[1][4] = 2
+array[1][4] = 4
 ctx.fillRect (151,51,48,48)
-array[1][3] = 2
+array[1][3] = 4
 ctx.fillRect (251,51,48,48)
-array[1][5] = 2
+array[1][5] = 4
 }
 else if (random === "z")
 {
 //Z tetrimino
 ctx.fillStyle = "#ff0000"
 ctx.fillRect (151,1,48,48)
-array[0][3] = 2
+array[0][3] = 5
 ctx.fillRect (201,1,48,48)
-array[0][4] = 2
+array[0][4] = 5
 ctx.fillRect (201,51,48,48)
-array[1][4] = 2
+array[1][4] = 5
 ctx.fillRect (251,51,48,48)
-array[1][5] = 2
+array[1][5] = 5
 }
 else if (random === "l")
 {
 //L tetrimino
 ctx.fillStyle = "#FFA500"
 ctx.fillRect (251,1,48,48)
-array[0][5] = 2
+array[0][5] = 6
 ctx.fillRect (151,51,48,48)
-array[1][3] = 2
+array[1][3] = 6
 ctx.fillRect (201,51,48,48)
-array[1][4] = 2
+array[1][4] = 6
 ctx.fillRect (251,51,48,48)
-array[1][5] = 2
+array[1][5] = 6
 
 }
 else if (random === "j")
@@ -127,13 +127,13 @@ else if (random === "j")
 //J tetrimino
 ctx.fillStyle = "#2e8bc0"
 ctx.fillRect (151,1,48,48)
-array[0][3] = 2
+array[0][3] = 7
 ctx.fillRect (151,51,48,48)
-array[1][3] = 2
+array[1][3] = 7
 ctx.fillRect (201,51,48,48)
-array[1][4] = 2
+array[1][4] = 7
 ctx.fillRect (251,51,48,48)
-array[1][5] = 2
+array[1][5] = 7
 }
 else if (random === "i")
 {
@@ -421,38 +421,93 @@ else if (random === "j")
 else if (random === "i")
 {id7 = setInterval (i,1000)}
 
-
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
+let m = 0
 let array2 = []
+function numberChecker (item) {if (item >0){m+=1}}
+
+function draw () {
+for (let z = 0 ; z<1000 ; z+=50){
+for (let v = 0 ; v<500 ; v+=50)
+{if (array[z/50][v/50] === 0){
+       ctx.fillStyle = "#f1f1f1"
+       ctx.fillRect(v,z,50, 50);
+       ctx.strokeStyle = "#000000";
+       ctx.lineWidth  = 2
+       ctx.strokeRect (v,z,50,50)
+  } else if (array[z/50][v/50] === 1)
+  {
+       ctx.fillStyle = "#ffff00"
+       ctx.fillRect(v,z,50, 50);
+       ctx.strokeStyle = "#000000";
+       ctx.lineWidth  = 2
+       ctx.strokeRect (v,z,50,50)
+  }
+else if (array[z/50][v/50] === 3)
+  {
+       ctx.fillStyle = "#00ff80"
+       ctx.fillRect(v,z,50, 50);
+       ctx.strokeStyle = "#000000";
+       ctx.lineWidth  = 2
+       ctx.strokeRect (v,z,50,50)
+}
+  else if (array[z/50][v/50] === 4)
+  {
+       ctx.fillStyle = "#6a0dad"
+       ctx.fillRect(v,z,50, 50);
+       ctx.strokeStyle = "#000000";
+       ctx.lineWidth  = 2
+       ctx.strokeRect (v,z,50,50)
+  }
+  else if (array[z/50][v/50] === 5)
+  {
+       ctx.fillStyle = "#ff0000"
+       ctx.fillRect(v,z,50, 50);
+       ctx.strokeStyle = "#000000";
+       ctx.lineWidth  = 2
+       ctx.strokeRect (v,z,50,50)
+  }
+  else if (array[z/50][v/50] === 6)
+  {
+       ctx.fillStyle = "#FFA500"
+       ctx.fillRect(v,z,50, 50);
+       ctx.strokeStyle = "#000000";
+       ctx.lineWidth  = 2
+       ctx.strokeRect (v,z,50,50)
+  }
+  else if (array[z/50][v/50] === 7)
+  {
+       ctx.fillStyle = "#2e8bc0"
+       ctx.fillRect(v,z,50, 50);
+       ctx.strokeStyle = "#000000";
+       ctx.lineWidth  = 2
+       ctx.strokeRect (v,z,50,50)
+
+  }
+}}}
+
 
 
 
 function lineChecker () {
-for (let i = 0 ; i< 20 ; i++){ if (array[i].reduce(reducer)===20){
+for (let i = 0 ; i< 20 ; i++){ 
+  array[i].forEach(numberChecker)
+  if (m === 10) {array2 = array.slice(0,i)
 
-array2 = array.slice(0, array.indexOf(array[i]))
-for (let s = array.indexOf(array[i])+1 ; s <23 ; s++ )
+for (let s = i+1 ; s <23 ; s++ )
 {array2.push(array[s])}
+
 array = array2
+
 array.unshift([0,0,0,0,0,0,0,0,0,0])
-
-for (let z = 0 ; z<1000 ; z+=50){
-for (let v = 0 ; v<500 ; v)
-{if (array[z/50][v/50] === 0){
-ctx.fillStyle = "#f1f1f1"
-ctx.fillRect(v,z,50, 50);
-ctx.strokeStyle = "#000000";
-ctx.lineWidth  = 2
-ctx.strokeRect (v,z,50,50)
-v +=50  
-  }else {v+=50}}
-}
+m=0
+draw()}
+else {m=0}
+  }}
 
 
-}
-else {}}
 
-}
+
+
 
 
 

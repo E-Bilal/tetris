@@ -14,17 +14,17 @@ array[pointFY/50][pointFX/50] = 0
 
 function fillRStateZ0 () {
 ctx.fillRect (pAX,pAY,48,48)
-array[pointAY/50][pointAX/50] = 2
+array[pointAY/50][pointAX/50] = 5
 
 ctx.fillRect(pBX,pBY,48,48)
-array[pointBY/50][pointBX/50] = 2
+array[pointBY/50][pointBX/50] = 5
 
 
 ctx.fillRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 2
+array[pointEY/50][pointEX/50] = 5
 
 ctx.fillRect (pFX,pFY, 48,48)
-array[pointFY/50][pointFX/50] = 2
+array[pointFY/50][pointFX/50] = 5
 
 
 }
@@ -45,16 +45,16 @@ array[pointHY/50][pointHX/50] = 0
 
 function fillRStateZ1 () {
 ctx.fillRect(pCX,pCY,48,48)
-array[pointCY/50][pointCX/50] = 2
+array[pointCY/50][pointCX/50] = 5
 
 ctx.fillRect (pFX,pFY,48,48)
-array[pointFY/50][pointFX/50] = 2
+array[pointFY/50][pointFX/50] = 5
 
 ctx.fillRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 2
+array[pointEY/50][pointEX/50] = 5
 
 ctx.fillRect (pHX,pHY, 48,48)
-array[pointHY/50][pointHX/50] = 2
+array[pointHY/50][pointHX/50] = 5
 }
 
 function clearRStateZ2 () {
@@ -73,16 +73,16 @@ array[pointHY/50][pointHX/50] = 0
 
 function fillRStateZ2 () {
 ctx.fillRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 2
+array[pointEY/50][pointEX/50] = 5
 
 ctx.fillRect (pDX,pDY,48,48)
-array[pointDY/50][pointDX/50] = 2   
+array[pointDY/50][pointDX/50] = 5   
 
 ctx.fillRect(pIX,pIY,48,48)
-array[pointIY/50][pointIX/50] = 2
+array[pointIY/50][pointIX/50] = 5
 
 ctx.fillRect (pHX,pHY, 48,48)
-array[pointHY/50][pointHX/50] = 2
+array[pointHY/50][pointHX/50] = 5
 }
 
 function clearRStateZ3 () {
@@ -101,16 +101,16 @@ array[pointGY/50][pointGX/50] = 0
 
 function fillRStateZ3 () {
 ctx.fillRect (pBX,pBY,48,48)
-array[pointBY/50][pointBX/50] = 2   
+array[pointBY/50][pointBX/50] = 5
 
 ctx.fillRect(pDX,pDY,48,48)
-array[pointDY/50][pointDX/50] = 2
+array[pointDY/50][pointDX/50] = 5
 
 ctx.fillRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 2
+array[pointEY/50][pointEX/50] = 5
 
 ctx.fillRect (pGX,pGY, 48,48)
-array[pointGY/50][pointGX/50] = 2
+array[pointGY/50][pointGX/50] = 5
 }
 
 

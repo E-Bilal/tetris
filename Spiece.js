@@ -14,16 +14,16 @@ array[pointDY/50][pointDX/50] = 0
 
 function fillRStateS0 () {
 ctx.fillRect(pBX,pBY,48,48)
-array[pointBY/50][pointBX/50] = 2
+array[pointBY/50][pointBX/50] = 3
 
 ctx.fillRect (pCX,pCY,48,48)
-array[pointCY/50][pointCX/50] = 2
+array[pointCY/50][pointCX/50] = 3
 
 ctx.fillRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 2
+array[pointEY/50][pointEX/50] = 3
 
 ctx.fillRect (pDX,pDY, 48,48)
-array[pointDY/50][pointDX/50] = 2
+array[pointDY/50][pointDX/50] = 3
 
 
 }
@@ -44,16 +44,16 @@ array[pointIY/50][pointIX/50] = 0
 
 function fillRStateS1 () {
 ctx.fillRect(pBX,pBY,48,48)
-array[pointBY/50][pointBX/50] = 2
+array[pointBY/50][pointBX/50] = 3
 
 ctx.fillRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 2
+array[pointEY/50][pointEX/50] = 3
 
 ctx.fillRect (pFX,pFY,48,48)
-array[pointFY/50][pointFX/50] = 2
+array[pointFY/50][pointFX/50] = 3
 
 ctx.fillRect (pIX,pIY, 48,48)
-array[pointIY/50][pointIX/50] = 2
+array[pointIY/50][pointIX/50] = 3
 }
 
 function clearRStateS2 () {
@@ -72,16 +72,16 @@ array[pointHY/50][pointHX/50] = 0
 
 function fillRStateS2 () {
 ctx.fillRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 2
+array[pointEY/50][pointEX/50] = 3
 
 ctx.fillRect (pFX,pFY,48,48)
-array[pointFY/50][pointFX/50] = 2   
+array[pointFY/50][pointFX/50] = 3   
 
 ctx.fillRect(pGX,pGY,48,48)
-array[pointGY/50][pointGX/50] = 2
+array[pointGY/50][pointGX/50] = 3
 
 ctx.fillRect (pHX,pHY, 48,48)
-array[pointHY/50][pointHX/50] = 2
+array[pointHY/50][pointHX/50] = 3
 }
 
 function clearRStateS3 () {
@@ -100,16 +100,16 @@ array[pointHY/50][pointHX/50] = 0
 
 function fillRStateS3 () {
 ctx.fillRect (pAX,pAY,48,48)
-array[pointAY/50][pointAX/50] = 2   
+array[pointAY/50][pointAX/50] = 3
 
 ctx.fillRect(pDX,pDY,48,48)
-array[pointDY/50][pointDX/50] = 2
+array[pointDY/50][pointDX/50] = 3
 
 ctx.fillRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 2
+array[pointEY/50][pointEX/50] = 3
 
 ctx.fillRect (pHX,pHY, 48,48)
-array[pointHY/50][pointHX/50] = 2
+array[pointHY/50][pointHX/50] = 3
 }
 
 

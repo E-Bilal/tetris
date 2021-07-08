@@ -16,33 +16,33 @@ array[pointFY/50][pointFX/50] = 0
 }
 function fillRStateT0 () {
 ctx.fillRect(pBX,pBY,48,48)
-array[pointBY/50][pointBX/50] = 2
+array[pointBY/50][pointBX/50] = 4
 
 ctx.fillRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 2
+array[pointEY/50][pointEX/50] = 4
 
 
 ctx.fillRect (pDX,pDY, 48,48)
-array[pointDY/50][pointDX/50] = 2
+array[pointDY/50][pointDX/50] = 4
 
 ctx.fillRect (pFX,pFY,48,48)
-array[pointFY/50][pointFX/50] = 2
+array[pointFY/50][pointFX/50] = 4
 }
 
 
 function fillRStateT1 () {
 ctx.fillRect(pBX,pBY,48,48)
-array[pointBY/50][pointBX/50] = 2
+array[pointBY/50][pointBX/50] = 4
 
 ctx.fillRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 2
+array[pointEY/50][pointEX/50] = 4
 
 
 ctx.fillRect (pDX,pDY, 48,48)
-array[pointDY/50][pointDX/50] = 2
+array[pointDY/50][pointDX/50] = 4
 
 ctx.fillRect (pHX,pHY,48,48)
-array[pointHY/50][pointHX/50] = 2
+array[pointHY/50][pointHX/50] = 4
 
 }
 
@@ -64,17 +64,17 @@ array[pointHY/50][pointHX/50] = 0
 
 function fillRStateT2 () {
 ctx.fillRect(pFX,pFY,48,48)
-array[pointFY/50][pointFX/50] = 2
+array[pointFY/50][pointFX/50] = 4
 
 ctx.fillRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 2
+array[pointEY/50][pointEX/50] = 4
 
 
 ctx.fillRect (pDX,pDY, 48,48)
-array[pointDY/50][pointDX/50] = 2
+array[pointDY/50][pointDX/50] = 4
 
 ctx.fillRect (pHX,pHY,48,48)
-array[pointHY/50][pointHX/50] = 2
+array[pointHY/50][pointHX/50] = 4
 }
 
 function clearRStateT2 () {
@@ -94,17 +94,17 @@ array[pointHY/50][pointHX/50] = 0
 function fillRStateT3 () 
 {
 ctx.fillRect(pFX,pFY,48,48)
-array[pointFY/50][pointFX/50] = 2
+array[pointFY/50][pointFX/50] = 4
 
 ctx.fillRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 2
+array[pointEY/50][pointEX/50] = 4
 
 
 ctx.fillRect (pBX,pBY, 48,48)
-array[pointBY/50][pointBX/50] = 2
+array[pointBY/50][pointBX/50] = 4
 
 ctx.fillRect (pHX,pHY,48,48)
-array[pointHY/50][pointHX/50] = 2
+array[pointHY/50][pointHX/50] = 4
 }
 function clearRStateT3 () {
 ctx.clearRect(pFX,pFY,48,48)
