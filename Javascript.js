@@ -1,5 +1,4 @@
 function drawCanvas() {
-       console.log("ss")
     canvasDiv = "";
     for( let y = 0; y < 20; y++) {
         canvasDiv += "<div class='row'>"
@@ -7,13 +6,14 @@ function drawCanvas() {
             if(array[y][x] !==0) {
                 canvasDiv += "<div class='full'></div>"
             } else {
-                canvasDiv += "<div class='empty></div>'"
+                canvasDiv += "<div class='empty'></div>"
             }
             }
             
             canvasDiv += "</div>"
             
     }
+    console.log(canvasDiv)
 document.getElementById("test").innerHTML = canvasDiv
 }
 

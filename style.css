@@ -9,6 +9,7 @@ canvas {
   background-color: #eaeaea;
   margin: 0;
   padding: 0;
+  display: none;
 }
 
 /*.line {
@@ -35,6 +36,11 @@ canvas {
   left: 300px;
 }*/
 #test {
+  border: solid black 1px;
+  width: 500px;
+  height: 1000px;
+}
+.row {
   display: flex;
   justify-content: flex-start;
 }
