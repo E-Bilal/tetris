@@ -1,3 +1,31 @@
+function drawCanvas() {
+       console.log("ss")
+    canvasDiv = "";
+    for( let y = 0; y < 20; y++) {
+        canvasDiv += "<div class='row'>"
+        for( let x = 0; x < 10; x++) {
+            if(array[y][x] !==0) {
+                canvasDiv += "<div class='full'></div>"
+            } else {
+                canvasDiv += "<div class='empty></div>'"
+            }
+            }
+            
+            canvasDiv += "</div>"
+            
+    }
+document.getElementById("test").innerHTML = canvasDiv
+}
+
+
+
+
+
+
+
+
+
+
 let canvas = document.getElementById("canvas")
 //canvas.getContext("2d")
 canvas.width = 500
@@ -48,7 +76,7 @@ ctx.fillRect(j,i,50, 50);
 j +=50}*/}}}
 drawArea()
 
-const tetrimino = ["o","t","s","z","i","l","j"];
+const tetrimino = [/*"o","t","s","z","i",*/"l","j"];
 
 let random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
@@ -800,24 +828,31 @@ if (pointHY <1000 && rotationState === 0 && array[(pointGY/50)][pointGX/50]===0 
 {clearRStateL0()
 plusY(50)
 fillRStateL0()
+drawCanvas()
 }
 //Rotation state of 1
 else if (pointHY <1000 && rotationState === 1 && array[(pointHY/50)+1][pointHX/50]===0 && array[(pointIY/50)+1][pointIX/50]===0)
 {clearRStateL1()
 plusY(50)
 fillRStateL1()
+drawCanvas()
+
 }
 //Rotation state of 2
 else if (pointHY <1000 && rotationState === 2 && array[(pointHY/50)][pointHX/50]===0 && array[(pointGY/50)+1][pointGX/50]===0 && array[(pointIY/50)][pointIX/50]===0)
 {clearRStateL2()
 plusY(50)
 fillRStateL2()
+drawCanvas()
+
 }
 //Rotation state of 3
 else if (pointHY <1000 && rotationState === 3 && array[(pointHY/50)+1][pointHX/50]===0 && array[(pointDY/50)][pointDX/50]===0 )
 {clearRStateL3()
 plusY(50)
 fillRStateL3()
+drawCanvas()
+
 }
 else { 
       
@@ -904,12 +939,16 @@ if (pointHY <1000 && rotationState === 0 && array[(pointGY/50)][pointGX/50]===0 
 {clearRStateJ0()
 plusY(50)
 fillRStateJ0()
+drawCanvas()
+
 }
 //Rotation state of 1
 else if (pointHY <1000 && rotationState === 1 && array[(pointHY/50)+1][pointHX/50]===0 && array[(pointFY/50)][pointFX/50]===0)
 {clearRStateJ1()
 plusY(50)
 fillRStateJ1()
+drawCanvas()
+
 }
 //Rotation state of 2
 else if (pointHY <1000 && rotationState === 2 && array[(pointHY/50)][pointHX/50]===0 && array[(pointGY/50)][pointGX/50]===0 && array[(pointIY/50)+1][pointIX/50]===0)
@@ -917,12 +956,16 @@ else if (pointHY <1000 && rotationState === 2 && array[(pointHY/50)][pointHX/50]
 clearRStateJ2()
 plusY(50)
 fillRStateJ2()
+drawCanvas()
+
 }
 //Rotation state of 3
 else if (pointHY <1000 && rotationState === 3 && array[(pointHY/50)+1][pointHX/50]===0 && array[(pointGY/50)+1][pointGX/50]===0 )
 {clearRStateJ3()
 plusY(50)
 fillRStateJ3()
+drawCanvas()
+
 }
 else { 
       
