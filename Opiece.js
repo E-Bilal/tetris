@@ -1,54 +1,59 @@
 function clearRStateO0 () {
 
-ctx.clearRect(pBX,pBY,48,48)
-array[pointBY/50][pointBX/50] = 0
+ctx.clearRect(pBX,pBY,28,28)
+array[pointBY/30][pointBX/30] = 0
 
-ctx.clearRect (pCX,pCY, 48,48)
-array[pointCY/50][pointCX/50] = 0
+ctx.clearRect (pCX,pCY, 28,28)
+array[pointCY/30][pointCX/30] = 0
 
-ctx.clearRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 0
+ctx.clearRect (pEX,pEY,28,28)
+array[pointEY/30][pointEX/30] = 0
 
-ctx.clearRect (pFX,pFY,48,48)
-array[pointFY/50][pointFX/50] = 0
+ctx.clearRect (pFX,pFY,28,28)
+array[pointFY/30][pointFX/30] = 0
 
 }
 function fillRStateO0 () {
-ctx.fillRect(pBX,pBY,48,48)
-array[pointBY/50][pointBX/50] = 1
+ctx.fillRect(pBX,pBY,28,28)
+array[pointBY/30][pointBX/30] = 1
 
-ctx.fillRect (pEX,pEY,48,48)
-array[pointEY/50][pointEX/50] = 1
+ctx.fillRect (pEX,pEY,28,28)
+array[pointEY/30][pointEX/30] = 1
 
 
-ctx.fillRect (pCX,pCY, 48,48)
-array[pointCY/50][pointCX/50] = 1
+ctx.fillRect (pCX,pCY, 28,28)
+array[pointCY/30][pointCX/30] = 1
 
-ctx.fillRect (pFX,pFY,48,48)
-array[pointFY/50][pointFX/50] = 1
+ctx.fillRect (pFX,pFY,28,28)
+array[pointFY/30][pointFX/30] = 1
 }
 
 
 function moveDownO() {
+
 o()
+
+
 }
-function moveLeftO () { if (rotationState === 0 &&  array[(pointAY/50)][(pointAX/50)] === 0 && array[(pointDY/50)][(pointDX/50)] === 0 )
+function moveLeftO () { if (rotationState === 0 &&  array[(pointAY/30)][(pointAX/30)] === 0 && array[(pointDY/30)][(pointDX/30)] === 0 )
 //Left movement , rotationstate 0
 {
 clearRStateO0 ()
-minusX (50)
+minusX (30)
 fillRStateO0 ()
+
 }
 
 else {}}
 
 
-function moveRightO () { if (rotationState === 0 && array[(pointCY/50)][(pointCX/50)+1] === 0 && array[(pointFY/50)][(pointFX/50)+1] === 0 )
+function moveRightO () { if (rotationState === 0 && array[(pointCY/30)][(pointCX/30)+1] === 0 && array[(pointFY/30)][(pointFX/30)+1] === 0 )
 //Right movement , rotation state 0
 {
 clearRStateO0 ()
-plusX(50)
+plusX(30)
 fillRStateO0 ()
+
 }
   else {}}
 
