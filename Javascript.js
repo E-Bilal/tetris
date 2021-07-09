@@ -6,6 +6,10 @@ let canvas = document.getElementById("canvas")
 canvas.width = 300
 canvas.height = 600
 let ctx = canvas.getContext("2d")
+let nextOne = document.getElementById("nextone")
+nextOne.width = 210
+nextOne.height = 120
+let ctx1 = nextOne.getContext("2d")
 let array = [
        
        [0,0,0,0,0,0,0,0,0,0],
@@ -149,9 +153,83 @@ array[0][6] = 2
 
 }
 }
+
+
 randomizerTetrimino ()
+function nextTetrimino () {
 
+ctx1.clearRect(0, 0, nextOne.width, nextOne.height);
+if (random2 === "o") {
+// O tetrimino   
+ctx1.fillStyle = "#ffff00"
+ctx1.fillRect (76,31,28,28)
+ctx1.fillRect (106,31,28,28)
+ctx1.fillRect (76,61,28,28)
+ctx1.fillRect (106,61,28,28)
 
+}
+
+else if (random2 === "s")
+{
+//S tetrimino
+ctx1.fillStyle = "#00ff80"
+ctx1.fillRect (121,31,28,28)
+ctx1.fillRect (91,31,28,28)
+ctx1.fillRect (91,61,28,28)
+ctx1.fillRect (61,61,28,28)
+}
+
+else if (random2 === "t")
+
+{
+    //T tetrimino   
+ctx1.fillStyle = "#6a0dad"
+ctx1.fillRect (91,31,28,28)
+ctx1.fillRect (61,61,28,28)
+ctx1.fillRect (91,61,28,28)
+ctx1.fillRect (121,61,28,28)
+}
+else if (random2 === "z")
+{
+//Z tetrimino
+ctx1.fillStyle = "#ff0000"
+ctx1.fillRect (61,31,28,28)
+ctx1.fillRect (91,31,28,28)
+ctx1.fillRect (91,61,28,28)
+ctx1.fillRect (121,61,28,28)
+}
+else if (random2 === "l")
+{
+//L tetrimino
+ctx1.fillStyle = "#FFA500"
+ctx1.fillRect (121,31,28,28)
+ctx1.fillRect (61,61,28,28)
+ctx1.fillRect (91,61,28,28)
+ctx1.fillRect (121,61,28,28)
+
+}
+else if (random2 === "j")
+{
+//J tetrimino
+ctx1.fillStyle = "#2e8bc0"
+ctx1.fillRect (61,31,28,28)
+ctx1.fillRect (61,61,28,28)
+ctx1.fillRect (91,61,28,28)
+ctx1.fillRect (121,61,28,28)
+}
+else if (random2 === "i")
+{
+//I tetrimino
+ctx1.fillStyle = "#72bcd4"
+ctx1.fillRect (46,46,28,28)
+ctx1.fillRect (76,46,28,28)
+ctx1.fillRect (106,46,28,28)
+ctx1.fillRect (136,46,28,28)
+
+}
+}
+let random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
+nextTetrimino()
 function downChecker () {
        if(random === "o"){moveDownO()}
        else if(random === "t"){moveDownT()}
@@ -469,7 +547,7 @@ else if (array[z/30][v/30] === 3)
        ctx.strokeRect (v,z,30,30)
   }
   else if (array[z/30][v/30] === 6)
-  {
+  {   
        ctx.fillStyle = "#FFA500"
        ctx.fillRect(v,z,30, 30);
        ctx.strokeStyle = "#000000";
@@ -488,16 +566,13 @@ else if (array[z/30][v/30] === 3)
 }}}
 
 
-
-
 function lineChecker () {
 for (let i = 0 ; i< 20 ; i++){ 
   array[i].forEach(numberChecker)
-  if (m === 10) {array2 = array.slice(0,i)
-
+  if (m === 10) {
+array2 = array.slice(0,i)
 for (let s = i+1 ; s <23 ; s++ )
 {array2.push(array[s])}
-
 array = array2
 
 array.unshift([0,0,0,0,0,0,0,0,0,0])
@@ -615,8 +690,10 @@ pointAX = 90
 rotationState = 0
 clearInterval(id2)
 lineChecker()
-random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
+random = random2
+random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()
+nextTetrimino()
 if (random === "o")
 {id = setInterval(o,1000)}
 else if (random === "t")
@@ -722,8 +799,10 @@ pointAX = 90
 rotationState = 0
 clearInterval(id3)
 lineChecker ()
-random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
+random = random2
+random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()
+nextTetrimino()
 if (random === "o")
 {id = setInterval(o,1000)}
 else if (random === "t")
@@ -827,8 +906,10 @@ pointAX = 90
 rotationState = 0
 clearInterval(id4)
 lineChecker ()
-random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
+random = random2
+random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()
+nextTetrimino()
 if (random === "o")
 {id = setInterval(o,1000)}
 else if (random === "t")
@@ -935,8 +1016,10 @@ pointAX = 90
 rotationState = 0
 clearInterval(id5)
 lineChecker()
-random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
+random = random2
+random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()
+nextTetrimino()
 if (random === "o")
 {id = setInterval(o,1000)}
 else if (random === "t")
@@ -1040,8 +1123,11 @@ pointAX = 90
 rotationState = 0
 clearInterval(id6)
 lineChecker()
-random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
+random = random2
+random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()
+nextTetrimino()
+
 if (random === "o")
 {id = setInterval(o,1000)}
 else if (random === "t")
@@ -1093,8 +1179,10 @@ else {
 
 clearInterval(id7)
 lineChecker()
-random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
+random = random2
+random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()
+nextTetrimino()
 if (random === "o")
 {id = setInterval(o,1000)}
 else if (random === "t")
@@ -1218,7 +1306,7 @@ function o ()
 clearRStateO0 ()
 plusY(30)
 fillRStateO0()
-console.log(random)
+
 }
 
 else { 
@@ -1280,8 +1368,10 @@ rotationState = 0
 clearInterval(id)
 lineChecker()
 //drawArea()
-random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
+random = random2
+random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()
+nextTetrimino()
 if (random === "o")
 {id = setInterval(o,1000)}
 else if (random === "t")

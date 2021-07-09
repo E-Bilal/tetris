@@ -1,18 +1,28 @@
 html,
 body {
-  margin: 0;
+  margin: auto;
   padding: 0;
 }
 
-canvas {
+#canvas {
   border: 2px solid black;
   background-color: #eaeaea;
-  position: absolute;
-  z-index: -1;
-  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 150px;
+  display: block;
   padding: 0;
 }
-
+#nextone {
+  border: 2px solid black;
+  background-color: #eaeaea;
+  padding-left: 0;
+  padding-right: 0;
+  position: absolute;
+  left: 1150px;
+}
 /*.line {
   width: 1px;
   height: 1001px;
