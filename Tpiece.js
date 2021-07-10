@@ -535,7 +535,56 @@ else if (rotationState === 3 && (array[(pointIY/30)][(pointIX/30)+1] !== 0 || ar
 
 }
 
+function hardDropT () {
+       for (let k =0 ; k<100; k++) {
+           if (rotationState === 0 && (array[(pointHY/30)+k][pointHX/30] !==0 || array[(pointIY/30)+k][pointIX/30] !==0  || array[(pointGY/30)+k][pointGX/30] !==0 ))
 
+{     
+clearRStateT0()
+multiplY(0)
+plusHardDrop(0)
+plusY(k*30) 
+fillRStateT0()
+clearInterval(id2)
+id2 = setInterval(t,0) 
+break; 
+}
+
+else if (rotationState === 1 && array[(pointHY/30)+k+1][pointHX/30] !==0){    
+clearRStateT1()
+multiplY(0)
+plusHardDrop(0)
+plusY(k*30) 
+fillRStateT1()
+clearInterval(id2)
+id2 = setInterval(t,0) 
+break; 
+}
+else if (rotationState === 2 && (array[(pointHY/30)+k+1][pointHX/30] !==0 || array[(pointDY/30)+k+1][pointDX/30] !==0  || array[(pointFY/30)+k+1][pointFX/30] !==0 )){    
+console.log('s')        
+clearRStateT2()
+multiplY(0)
+plusHardDrop(0)
+plusY(k*30) 
+fillRStateT2()
+clearInterval(id2)
+id2 = setInterval(t,0) 
+break; 
+}
+else if (rotationState === 3 && array[(pointHY/30)+k+1][pointHX/30] !==0){    
+console.log('s')        
+clearRStateT3()
+multiplY(0)
+plusHardDrop(0)
+plusY(k*30) 
+fillRStateT3()
+clearInterval(id2)
+id2 = setInterval(t,0) 
+break; 
+}
+
+
+}}
 
 
 

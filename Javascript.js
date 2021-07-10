@@ -50,7 +50,7 @@ ctx.strokeRect (j,i,30,30)}
 }}}
 drawArea()
 
-const tetrimino = ["o","t","s","z","i","l","j"];
+const tetrimino = [/*"o","t",*/"s"/*,"z","i","l","j"*/];
 
 let random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
@@ -231,6 +231,7 @@ ctx1.fillRect (136,46,28,28)
 let random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 nextTetrimino()
 function downChecker () {
+
        if(random === "o"){moveDownO()}
        else if(random === "t"){moveDownT()}
        else if (random === "s") {moveDownS()}
@@ -300,6 +301,26 @@ function zChecker () {
 
 
 }
+
+
+function hardDrop () {
+if (random === "o")
+{hardDropO()}
+else if (random === "t")
+{hardDropT()}
+else if (random === "s")
+{hardDropS()}
+/*else if (random === "z")
+{id4 = setInterval (z,1000)}
+else if (random === "l")
+{id5 = setInterval (l,1000)}
+else if (random === "j")
+{id6 = setInterval (j,1000)} */
+else if (random === "i")
+{hardDropI()}
+
+}
+
 function getKeyAndMove(e) {				
 		let key_code=e.which||e.keyCode;
 		switch(key_code){
@@ -324,6 +345,9 @@ break;
 
 case 90: //Z key
 zChecker();
+break;
+case 32: //Space key
+hardDrop()
 break;}
 }
 
@@ -384,6 +408,10 @@ let pointHY = 60
 
 let pointIX = 150
 let pointIY = 60
+
+
+
+
 
 
 function plusY (amount) 
@@ -477,7 +505,48 @@ pHX -= amount
 pIX -= amount
 
 }
+ function multiplY (amount)
+{
+pointAY *= amount
+pointBY *= amount 
+pointCY *= amount
+pointDY *= amount
+pointEY *= amount
+pointFY *= amount
+pointGY *= amount
+pointHY *= amount
+pointIY *= amount
+pAY *= amount 
+pBY *= amount 
+pCY *= amount 
+pDY *=amount 
+pEY *= amount 
+pFY *=amount 
+pGY *= amount 
+pHY *= amount 
+pIY *= amount 
+}
 
+function plusHardDrop (amount) {
+pAY += amount +1
+pBY += amount  +1
+pCY += amount  +1
+pointDY += amount +30 
+pointEY += amount +30 
+pointFY += amount +30
+
+pDY +=amount +31
+pEY += amount +31
+pFY +=amount +31
+
+pointGY += amount +60
+pointHY += amount +60
+pointIY += amount +60
+
+pGY += amount +61
+pHY += amount +61
+pIY += amount +61
+}
 let rotationState = 0
 let counter = 1
 
@@ -1152,7 +1221,6 @@ function i () { if (pontNY <630 && rotationState === 0 && array[(pontIY/30)][pon
 clearRStateI0 ()
 pY (30)
 fillRStateI0()
-console.log(pontAY)
 }
 //Rotation state of 1
 else if (pontNY <660 && rotationState === 1 && array[(pontOY/30)+1][pontOX/30]===0 )
@@ -1301,11 +1369,14 @@ rotationState =0
 
 function o ()
 //Rotation state of 0 
-{if (rotationState === 0 &&  pointHY <600  && array[(pointHY/30)][pointHX/30]===0 &&array[(pointIY/30)][pointIX/30]===0 ) 
 {
+       if (rotationState === 0 &&  pointHY <600  && array[(pointHY/30)][pointHX/30]===0 &&array[(pointIY/30)][pointIX/30]===0 ) 
+{
+
 clearRStateO0 ()
 plusY(30)
 fillRStateO0()
+
 
 }
 
@@ -1365,6 +1436,7 @@ pointAX = 90
  pointIY = 60
 
 rotationState = 0
+fod = 0
 clearInterval(id)
 lineChecker()
 //drawArea()

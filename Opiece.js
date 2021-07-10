@@ -35,7 +35,7 @@ o()
 
 
 }
-function moveLeftO () { if (rotationState === 0 &&  array[(pointAY/30)][(pointAX/30)] === 0 && array[(pointDY/30)][(pointDX/30)] === 0 )
+function moveLeftO () { if (rotationState === 0  && array[(pointAY/30)][(pointAX/30)] === 0 && array[(pointDY/30)][(pointDX/30)] === 0 )
 //Left movement , rotationstate 0
 {
 clearRStateO0 ()
@@ -47,7 +47,7 @@ fillRStateO0 ()
 else {}}
 
 
-function moveRightO () { if (rotationState === 0 && array[(pointCY/30)][(pointCX/30)+1] === 0 && array[(pointFY/30)][(pointFX/30)+1] === 0 )
+function moveRightO () { if (rotationState === 0  && array[(pointCY/30)][(pointCX/30)+1] === 0 && array[(pointFY/30)][(pointFX/30)+1] === 0 )
 //Right movement , rotation state 0
 {
 clearRStateO0 ()
@@ -57,3 +57,23 @@ fillRStateO0 ()
 }
   else {}}
 
+
+
+ 
+
+
+function hardDropO () {
+       for (let k =0 ; k<100; k++) {
+           if (array[(pointHY/30)+k][pointHX/30] !==0 || array[(pointIY/30)+k][pointIX/30] !==0 )
+
+{     
+       clearRStateO0()
+
+multiplY(0)
+plusHardDrop(0)
+plusY(k*30) 
+fillRStateO0()
+clearInterval(id)
+id = setInterval(o,0) 
+break; // Zonder break werkt niet ??
+}}}
