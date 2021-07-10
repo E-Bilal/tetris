@@ -50,7 +50,7 @@ ctx.strokeRect (j,i,30,30)}
 }}}
 drawArea()
 
-const tetrimino = [/*"o","t",*/"s"/*,"z","i","l","j"*/];
+const tetrimino = ["o","t","s","z","i","l","j"];
 
 let random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
@@ -310,12 +310,12 @@ else if (random === "t")
 {hardDropT()}
 else if (random === "s")
 {hardDropS()}
-/*else if (random === "z")
-{id4 = setInterval (z,1000)}
+else if (random === "z")
+{hardDropZ()}
 else if (random === "l")
-{id5 = setInterval (l,1000)}
+{hardDropL()}
 else if (random === "j")
-{id6 = setInterval (j,1000)} */
+{hardDropJ()} 
 else if (random === "i")
 {hardDropI()}
 
@@ -505,48 +505,7 @@ pHX -= amount
 pIX -= amount
 
 }
- function multiplY (amount)
-{
-pointAY *= amount
-pointBY *= amount 
-pointCY *= amount
-pointDY *= amount
-pointEY *= amount
-pointFY *= amount
-pointGY *= amount
-pointHY *= amount
-pointIY *= amount
-pAY *= amount 
-pBY *= amount 
-pCY *= amount 
-pDY *=amount 
-pEY *= amount 
-pFY *=amount 
-pGY *= amount 
-pHY *= amount 
-pIY *= amount 
-}
-
-function plusHardDrop (amount) {
-pAY += amount +1
-pBY += amount  +1
-pCY += amount  +1
-pointDY += amount +30 
-pointEY += amount +30 
-pointFY += amount +30
-
-pDY +=amount +31
-pEY += amount +31
-pFY +=amount +31
-
-pointGY += amount +60
-pointHY += amount +60
-pointIY += amount +60
-
-pGY += amount +61
-pHY += amount +61
-pIY += amount +61
-}
+ 
 let rotationState = 0
 let counter = 1
 
@@ -906,6 +865,7 @@ fillRStateZ1()
 }
 //Rotation state of 2
 else if (pointHY <800 && rotationState === 2 && array[(pointHY/30)+1][pointHX/30]===0 && array[(pointGY/30)][pointGX/30]===0 &&array[(pointIY/30)+1][pointIX/30]===0)
+
 {clearRStateZ2()
 plusY(30)
 fillRStateZ2()

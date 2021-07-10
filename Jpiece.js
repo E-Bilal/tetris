@@ -323,6 +323,48 @@ rotationState = 0
 
 
 
+function hardDropJ () {
+       for (let k =0 ; k<100; k++) {
+           if (rotationState === 0 && (array[(pointGY/30)+k][pointGX/30]!==0 || array[(pointHY/30)+k][pointHX/30]!==0 ||array[(pointIY/30)+k][pointIX/30] !==0))
 
+{   
+clearRStateJ0()
+plusY(k*30) 
+fillRStateJ0()
+clearInterval(id6)
+id6 = setInterval(j,0) 
+break; 
+}
+
+else if ( rotationState === 1 && (array[(pointHY/30)+1+k][pointHX/30]!==0 || array[(pointFY/30)+k][pointFX/30]!==0)){
+    
+clearRStateJ1()
+plusY(k*30) 
+fillRStateJ1()
+clearInterval(id6)
+id6 = setInterval(j,0) 
+break; 
+}
+else if (rotationState === 2 && (array[(pointHY/30)+k][pointHX/30]!==0 || array[(pointGY/30)+k][pointGX/30]!==0 || array[(pointIY/30)+1+k][pointIX/30]!==0)){ 
+
+clearRStateJ2()
+plusY(k*30) 
+fillRStateJ2()
+clearInterval(id6)
+id6 = setInterval(j,0) 
+break; 
+}
+else if (rotationState === 3 && (array[(pointHY/30)+1+k][pointHX/30]!==0 || array[(pointGY/30)+1+k][pointGX/30]!==0))
+{
+clearRStateJ3()
+plusY(k*30) 
+fillRStateJ3()
+clearInterval(id6)
+id6 = setInterval(j,0) 
+break; 
+}
+
+
+}}
 
 

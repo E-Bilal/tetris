@@ -246,81 +246,7 @@ iOX -= amount
 iPX -= amount
 }
 
-function multiplYI (amount) {
-pontAY *= amount
-pontBY *= amount
-pontCY *= amount
-pontDY *= amount
-pontEY *= amount
-pontFY *= amount
-pontGY *= amount
-pontHY *= amount
-pontIY *= amount
-pontJY *= amount
-pontKY *= amount
-pontLY *= amount
-pontMY *= amount
-pontNY *= amount
-pontOY *= amount
-pontPY *= amount
 
-iAY *= amount
-iBY *= amount
-iCY *= amount
-iDY *= amount
-iEY *= amount
-iFY *= amount
-iGY *= amount
-iHY *= amount
-iIY *= amount
-iJY *= amount
-iKY *= amount
-iLY *= amount
-iMY *= amount
-iNY *= amount
-iOY *= amount
-iPY *= amount
-
-
-}
-
-function plusHardDropI (amount) {
-pontAY += amount
-pontBY += amount
-pontCY += amount
-pontDY += amount
-pontEY += amount+30
-pontFY += amount+30
-pontGY += amount+30
-pontHY += amount+30
-pontIY += amount+60
-pontJY += amount+60
-pontKY += amount+60
-pontLY += amount+60
-pontMY += amount+90
-pontNY += amount+90
-pontOY += amount+90
-pontPY += amount+90
-
-iAY += amount+1
-iBY += amount+1
-iCY += amount+1
-iDY += amount+1
-iEY += amount+31
-iFY += amount+31
-iGY += amount+31
-iHY += amount+31
-iIY += amount+61
-iJY += amount+61
-iKY += amount+61
-iLY += amount+61
-iMY += amount+91
-iNY += amount+91
-iOY += amount+91
-iPY += amount+91
-
-
-}
 
 mY(30)
 function fillRStateI0 () {
@@ -709,9 +635,6 @@ function hardDropI () {
 
 {  
 clearRStateI0()
-multiplYI(0)
-mY(30)
-plusHardDropI(0)
 pY(k*30) 
 fillRStateI0()
 clearInterval(id7)
@@ -721,8 +644,6 @@ break;
 
 else if (rotationState === 1 && array[(pontOY/30)+k+1][pontOX/30]!==0 ){    
 clearRStateI1()
-multiplYI(0)
-plusHardDropI(0)
 pY(k*30) 
 fillRStateI1()
 clearInterval(id7)
@@ -731,8 +652,6 @@ break;
 }
 else if ( rotationState === 2 && array[(pontMY/30)+k][pontMX/30]!==0 && array[(pontNY/30)+k][pontNX/30]!==0 && array[(pontOY/30)+k][pontOX/30]!==0  && array[(pontPY/30)+k][pontPX/30]!==0){    
 clearRStateI2()
-multiplYI(0)
-plusHardDropI(0)
 pY(k*30) 
 fillRStateI2()
 clearInterval(id7)
@@ -742,14 +661,10 @@ break;
 else if ( rotationState === 3 && array[(pontNY/30)+1+k][pontNX/30]!==0 ){    
        
 clearRStateI3()
-multiplYI(0)
-plusHardDropI(0)
 pY(k*30) 
 fillRStateI3()
 clearInterval(id7)
 id7 = setInterval(i,0)   
 break; 
 }
-
-
 }}

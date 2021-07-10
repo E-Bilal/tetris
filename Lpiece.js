@@ -319,7 +319,50 @@ rotationState = 0
 }
 
 
+function hardDropL () {
+       for (let k =0 ; k<100; k++) {
+           if (rotationState === 0 && (array[(pointGY/30)+k][pointGX/30]!==0 || array[(pointHY/30)+k][pointHX/30]!==0 ||array[(pointIY/30)+k][pointIX/30] !==0))
 
+{    
+clearRStateL0()
+
+plusY(k*30) 
+fillRStateL0()
+clearInterval(id5)
+id5 = setInterval(l,0) 
+break; 
+}
+
+else if ( rotationState === 1 && (array[(pointHY/30)+1+k][pointHX/30]!==0 || array[(pointIY/30)+1+k][pointIX/30]!==0)){
+    
+clearRStateL1()
+plusY(k*30) 
+fillRStateL1()
+clearInterval(id5)
+id5 = setInterval(l,0) 
+break;
+}
+else if (rotationState === 2 && (array[(pointHY/30)+k][pointHX/30]!==0 || array[(pointGY/30)+1+k][pointGX/30]!==0 || array[(pointIY/30)+k][pointIX/30]!==0)){ 
+
+clearRStateL2()
+plusY(k*30) 
+fillRStateL2()
+clearInterval(id5)
+id5 = setInterval(l,0) 
+break;
+}
+else if (rotationState === 3 && (array[(pointHY/30)+1+k][pointHX/30]!==0 || array[(pointDY/30)+k][pointDX/30]!==0))
+{   
+clearRStateL3()
+plusY(k*30) 
+fillRStateL3()
+clearInterval(id5)
+id5 = setInterval(l,0) 
+break;
+}
+
+
+}}
 
 
 

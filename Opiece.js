@@ -67,10 +67,7 @@ function hardDropO () {
            if (array[(pointHY/30)+k][pointHX/30] !==0 || array[(pointIY/30)+k][pointIX/30] !==0 )
 
 {     
-       clearRStateO0()
-
-multiplY(0)
-plusHardDrop(0)
+clearRStateO0()
 plusY(k*30) 
 fillRStateO0()
 clearInterval(id)

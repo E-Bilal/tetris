@@ -295,8 +295,6 @@ function hardDropS () {
 
 {     
 clearRStateS0()
-multiplY(0)
-plusHardDrop(0)
 plusY(k*30) 
 fillRStateS0()
 clearInterval(id3)
@@ -306,8 +304,6 @@ break;
 
 else if ( rotationState === 1 && (array[(pointHY/30)+k][pointHX/30]!==0 || array[(pointIY/30)+1+k][pointIX/30]!==0)){    
 clearRStateS1()
-multiplY(0)
-plusHardDrop(0)
 plusY(k*30) 
 fillRStateS1()
 clearInterval(id3)
@@ -316,8 +312,6 @@ break;
 }
 else if (rotationState === 2 && (array[(pointHY/30)+1+k][pointHX/30]!==0 || array[(pointGY/30)+1+k][pointGX/30]!==0 || array[(pointIY/30)+k][pointIX/30]!==0)){    
 clearRStateS2()
-multiplY(0)
-plusHardDrop(0)
 plusY(k*30) 
 fillRStateS2()
 clearInterval(id3)
@@ -327,8 +321,6 @@ break;
 else if (rotationState === 3 && (array[(pointHY/30)+1+k][pointHX/30]!==0 || array[(pointGY/30)+k][pointGX/30]!==0))
 {    
 clearRStateS3()
-multiplY(0)
-plusHardDrop(0)
 plusY(k*30) 
 fillRStateS3()
 clearInterval(id3)
