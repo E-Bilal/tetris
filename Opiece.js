@@ -38,6 +38,7 @@ o()
 function moveLeftO () { if (rotationState === 0  && array[(pointAY/30)][(pointAX/30)] === 0 && array[(pointDY/30)][(pointDX/30)] === 0 )
 //Left movement , rotationstate 0
 {
+  
 clearRStateO0 ()
 minusX (30)
 fillRStateO0 ()

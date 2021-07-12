@@ -343,6 +343,30 @@ function linesCleared () {
        cleared += counters
        document.getElementById("linenumber").innerHTML = Number(cleared)
 }
+let test = 0
+let ticker = 0
+
+
+document.addEventListener("keydown", function(event) {
+  if (event.keyCode == 37) {
+   timerInterval = setInterval(function(){
+    ticker += 1;
+  
+  }, 50);
+    
+  }
+});
+let mustang = ticker
+document.addEventListener("keyup", function() {
+  clearInterval(timerInterval);
+  console.log(ticker)
+  ticker = 0;
+});
+console.log(mustang)
+
+
+if (mustang >4)
+{
 
 function getKeyAndMove(e) {				
 		let key_code=e.which||e.keyCode;
@@ -376,6 +400,32 @@ case 32: //Space key
 hardDrop()
 break;}
 }
+}
+
+else
+
+{
+
+
+document.onkeydown = onKeyDownListener;
+var keyDown = false;
+function onKeyDownListener(evt) {
+   if(evt.keyCode == 37) {
+keyDown = true;
+   }
+}
+
+document.onkeyup = function(evt){
+ if(evt.keyCode == 37) {
+keyDown = false;
+   }
+}
+
+setInterval(function(){
+if(keyDown){
+leftChecker()
+}
+},40)}
 
 
 let pAX = 91
@@ -547,7 +597,7 @@ let id7 = null;
 
 function startGame () {
 if (random === "o")
-{id = setInterval(o,1000)}
+{id = setInterval(o,100)}
 else if (random === "t")
 {id2 = setInterval(t,1000)}
 else if (random === "s")
@@ -646,7 +696,6 @@ counters++
 draw()}
 else {m=0}
   }
-console.log(counters)
 linesCleared()
 counters = 0}
 
@@ -1376,10 +1425,10 @@ function o ()
        if (rotationState === 0 &&  pointHY <600  && array[(pointHY/30)][pointHX/30]===0 &&array[(pointIY/30)][pointIX/30]===0 ) 
 {
 
-clearRStateO0 ()
+
+   clearRStateO0 ()
 plusY(30)
 fillRStateO0()
-
 
 }
 
@@ -1446,7 +1495,7 @@ random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()
 nextTetrimino()
 if (random === "o")
-{id = setInterval(o,1000)}
+{id = setInterval(o,100)}
 else if (random === "t")
 {id2 = setInterval(t,1000)}
 else if (random === "s")
