@@ -66,11 +66,13 @@ function hardDropO () {
        for (let k =0 ; k<100; k++) {
            if (array[(pointHY/30)+k][pointHX/30] !==0 || array[(pointIY/30)+k][pointIX/30] !==0 )
 
-{     
+{  
 clearRStateO0()
 plusY(k*30) 
 fillRStateO0()
 clearInterval(id)
-id = setInterval(o,0) 
+id = setInterval(o,0)
+
+
 break; // Zonder break werkt niet ??
 }}}

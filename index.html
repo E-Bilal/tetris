@@ -12,9 +12,19 @@
   </head>
 
   <body onkeydown="getKeyAndMove(event) ">
-    <div>
-      <canvas id="nextone"></canvas>
-      <canvas id="canvas"> </canvas>
+    <div id="main">
+      <div id="menu">
+        <button id="startgame" onclick="startGame()">start</button>
+      </div>
+      <div id="gameArea">
+        <canvas id="canvas"> </canvas>
+        <div id="stats">
+          <canvas id="nextone"></canvas>
+          <label>
+            <p id="line">Lines:<label id="linenumber"></label></p
+          ></label>
+        </div>
+      </div>
     </div>
   </body>
 

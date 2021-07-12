@@ -44,15 +44,18 @@ for (let i =0 ; i <600; i+=30)
 {if (array[i/30][j/30] === 0){
 ctx.fillStyle = "#f1f1f1"
 ctx.fillRect(j,i,30, 30);
-ctx.strokeStyle = "#000000";
+ctx.strokeStyle = "#FFFFFF";
 ctx.lineWidth  = 2
 ctx.strokeRect (j,i,30,30)}
 }}}
 drawArea()
 
-const tetrimino = ["o","t","s","z","i","l","j"];
+const tetrimino = ["o"/*,"t","s","z","i","l","j"*/];
 
-let random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
+
+
+
+random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
 function randomizerTetrimino () {
 
@@ -153,7 +156,6 @@ array[0][6] = 2
 
 }
 }
-
 
 randomizerTetrimino ()
 function nextTetrimino () {
@@ -321,6 +323,27 @@ else if (random === "i")
 
 }
 
+let pauseChecker = 0
+let btn = document.createElement("button")
+ let menu = document.getElementById("menu");
+ btn.innerHTML = "hello"
+function pause () {
+      if (pauseChecker=== 0) {
+clearInterval(id)
+pauseChecker = 1
+document.getElementById("main").appendChild(menu)
+document.getElementById("menu").appendChild(btn)
+}
+else {id = setInterval(o,1000)
+pauseChecker = 0}
+
+}
+let cleared = 0
+function linesCleared () {
+       cleared += counters
+       document.getElementById("linenumber").innerHTML = Number(cleared)
+}
+
 function getKeyAndMove(e) {				
 		let key_code=e.which||e.keyCode;
 		switch(key_code){
@@ -341,6 +364,9 @@ break;
 
 case 37: //left arrow key
 leftChecker()
+break;
+case 27: //escape key
+pause()
 break;
 
 case 90: //Z key
@@ -509,11 +535,17 @@ pIX -= amount
 let rotationState = 0
 let counter = 1
 
+let id = null;
+let id2 = null;
+let id3 = null;
+let id4 = null;
+let id5 = null;
+let id6 = null;
+let id7 = null;
 
 
 
-
-//id = setInterval(square, 60);
+function startGame () {
 if (random === "o")
 {id = setInterval(o,1000)}
 else if (random === "t")
@@ -528,6 +560,9 @@ else if (random === "j")
 {id6 = setInterval (j,1000)} 
 else if (random === "i")
 {id7 = setInterval (i,1000)}
+document.getElementById("menu").remove()
+
+}
 
 let m = 0
 let array2 = []
@@ -593,6 +628,7 @@ else if (array[z/30][v/30] === 3)
   }
 }}}
 
+let counters = 0
 
 function lineChecker () {
 for (let i = 0 ; i< 20 ; i++){ 
@@ -602,13 +638,17 @@ array2 = array.slice(0,i)
 for (let s = i+1 ; s <23 ; s++ )
 {array2.push(array[s])}
 array = array2
-
 array.unshift([0,0,0,0,0,0,0,0,0,0])
 m=0
+counters++
+
+
 draw()}
 else {m=0}
-  }}
-
+  }
+console.log(counters)
+linesCleared()
+counters = 0}
 
 
 
@@ -722,6 +762,9 @@ random = random2
 random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()
 nextTetrimino()
+
+
+
 if (random === "o")
 {id = setInterval(o,1000)}
 else if (random === "t")
@@ -1396,10 +1439,8 @@ pointAX = 90
  pointIY = 60
 
 rotationState = 0
-fod = 0
 clearInterval(id)
 lineChecker()
-//drawArea()
 random = random2
 random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()

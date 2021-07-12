@@ -1,48 +1,57 @@
 html,
 body {
-  margin: auto;
   padding: 0;
 }
 
+#gameArea {
+  width: 540px;
+  height: 620px;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -310px 0 0 -270px;
+  z-index: -1;
+}
+
 #canvas {
-  border: 2px solid black;
+  border: 1px solid black;
   background-color: #eaeaea;
-  padding-left: 0;
-  padding-right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 150px;
-  display: block;
-  padding: 0;
+}
+
+#stats {
+  display: flex;
+  flex-direction: column;
 }
 #nextone {
   border: 2px solid black;
   background-color: #eaeaea;
+  height: 120px;
+  width: 210px;
   padding-left: 0;
   padding-right: 0;
+  margin-left: 4px;
+  /*position: absolute;
+  left: 1150px;*/
+}
+#line {
+  display: inline-block;
+}
+
+#menu {
+  display: flex;
+  flex-direction: column;
+  width: 540px;
+  height: 620px;
+  background-color: cyan;
   position: absolute;
-  left: 1150px;
+  top: 50%;
+  left: 50%;
+  margin: -310px 0 0 -270px;
 }
-/*.line {
-  width: 1px;
-  height: 1001px;
-  color: black;
-  background-color: black;
-  position: absolute;
-  z-index: 5;
+#startgame {
+  width: 200px;
+  height: 100px;
+  margin: auto;
 }
-#one {
-  left: 150px;
-}
-
-#two {
-  left: 200px;
-}
-
-#three {
-  left: 250px;
-}
-
-#four {
-  left: 300px;
-}*/
