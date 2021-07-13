@@ -9,6 +9,8 @@ let ctx = canvas.getContext("2d")
 let nextOne = document.getElementById("nextone")
 nextOne.width = 210
 nextOne.height = 120
+
+let rotationState = 0;
 let ctx1 = nextOne.getContext("2d")
 let array = [
        
@@ -345,87 +347,58 @@ function linesCleared () {
 }
 let test = 0
 let ticker = 0
-
+let mustang = 0
+let interval;
 
 document.addEventListener("keydown", function(event) {
-  if (event.keyCode == 37) {
-   timerInterval = setInterval(function(){
-    ticker += 1;
-  
-  }, 50);
-    
+       ticker = 0;
+       if (event.keyCode == 37) {
+              ticker += 1;
+              mustang = ticker
   }
 });
-let mustang = ticker
+
 document.addEventListener("keyup", function() {
-  clearInterval(timerInterval);
-  console.log(ticker)
-  ticker = 0;
+       console.log('stopping interval')
+       interval = setInterval(intervalFunction, 10);
+
+       ticker = 0;
 });
-console.log(mustang)
 
+intervalFunction = function () {
+       if (mustang < 4)
+       {
+              console.log(mustang)
+              getKeyAndMove()
+              mustang = 0;
+              clearInterval(interval)
 
-if (mustang >4)
-{
+       } else {
+       console.log(mustang+ 'in mustang else')
+       var keyDown = false;
+       document.addEventListener("keydown", function onKeyDownListener(evt) {
+       keyDown = false;
+       if(evt.keyCode == 37) {
+              keyDown = true;
+       }
+       
+       
+       })
+       document.addEventListener("keyup", function(evt){
+              if(evt.keyCode == 37) {
+       keyDown = false;
+              }
+       })
 
-function getKeyAndMove(e) {				
-		let key_code=e.which||e.keyCode;
-		switch(key_code){
-case 40:
-                     
-// down arrow key
-downChecker()
-break;
+       setInterval(function(){
+       if(keyDown){
+       leftChecker()
+       mustang = 0;
+       }
+       },40)}
+       clearInterval(interval)
+       }
 
-case 38 : // up arrow key
-upChecker ()
-break;	
-
-case 39: //right arrow key
-
-rightChecker ();
-break;
-
-case 37: //left arrow key
-leftChecker()
-break;
-case 27: //escape key
-pause()
-break;
-
-case 90: //Z key
-zChecker();
-break;
-case 32: //Space key
-hardDrop()
-break;}
-}
-}
-
-else
-
-{
-
-
-document.onkeydown = onKeyDownListener;
-var keyDown = false;
-function onKeyDownListener(evt) {
-   if(evt.keyCode == 37) {
-keyDown = true;
-   }
-}
-
-document.onkeyup = function(evt){
- if(evt.keyCode == 37) {
-keyDown = false;
-   }
-}
-
-setInterval(function(){
-if(keyDown){
-leftChecker()
-}
-},40)}
 
 
 let pAX = 91
@@ -582,8 +555,25 @@ pIX -= amount
 
 }
  
-let rotationState = 0
 let counter = 1
+function getKeyAndMove(e) {
+       if(e) {
+              let key_code=e.which||e.keyCode;
+              switch(key_code) {
+                     case 37: //left arrow key
+                     leftChecker()
+                     break;
+              }
+       }
+}
+document.addEventListener("keydown", function getKeyAndMove(e) {
+       let key_code=e.which||e.keyCode;
+       switch(key_code){
+              case 37: //left arrow key
+              leftChecker()
+              break;}
+})
+
 
 let id = null;
 let id2 = null;
