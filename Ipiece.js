@@ -95,318 +95,294 @@ let iOY = 91
 let iPX = 181
 let iPY = 91
 
-function pY (amount) 
-{
-pontAY += amount
-pontBY += amount
-pontCY += amount
-pontDY += amount
-pontEY += amount
-pontFY += amount
-pontGY += amount
-pontHY += amount
-pontIY += amount
-pontJY += amount
-pontKY += amount
-pontLY += amount
-pontMY += amount
-pontNY += amount
-pontOY += amount
-pontPY += amount
+function pY (amount) {
+    pontAY += amount
+    pontBY += amount
+    pontCY += amount
+    pontDY += amount
+    pontEY += amount
+    pontFY += amount
+    pontGY += amount
+    pontHY += amount
+    pontIY += amount
+    pontJY += amount
+    pontKY += amount
+    pontLY += amount
+    pontMY += amount
+    pontNY += amount
+    pontOY += amount
+    pontPY += amount
 
-iAY += amount
-iBY += amount
-iCY += amount
-iDY += amount
-iEY += amount
-iFY += amount
-iGY += amount
-iHY += amount
-iIY += amount
-iJY += amount
-iKY += amount
-iLY += amount
-iMY += amount
-iNY += amount
-iOY += amount
-iPY += amount
-
-}
-function mY (amount)
-{
-pontAY -= amount
-pontBY -= amount
-pontCY -= amount
-pontDY -= amount
-pontEY -= amount
-pontFY -= amount
-pontGY -= amount
-pontHY -= amount
-pontIY -= amount
-pontJY -= amount
-pontKY -= amount
-pontLY -= amount
-pontMY -= amount
-pontNY -= amount
-pontOY -= amount
-pontPY -= amount
-
-iAY -= amount
-iBY -= amount
-iCY -= amount
-iDY -= amount
-iEY -= amount
-iFY -= amount
-iGY -= amount
-iHY -= amount
-iIY -= amount
-iJY -= amount
-iKY -= amount
-iLY -= amount
-iMY -= amount
-iNY -= amount
-iOY -= amount
-iPY -= amount
-
-
-
-}
-function pX (amount) 
-{
-pontAX += amount
-pontBX += amount
-pontCX += amount
-pontDX += amount
-pontEX += amount
-pontFX += amount
-pontGX += amount
-pontHX += amount
-pontIX += amount
-pontJX += amount
-pontKX += amount
-pontLX += amount
-pontMX += amount
-pontNX += amount
-pontOX += amount
-pontPX += amount
-
-iAX += amount
-iBX += amount
-iCX += amount
-iDX += amount
-iEX += amount
-iFX += amount
-iGX += amount
-iHX += amount
-iIX += amount
-iJX += amount
-iKX += amount
-iLX += amount
-iMX += amount
-iNX += amount
-iOX += amount
-iPX += amount
-
-
-}
-function mX (amount) 
-{
-pontAX -= amount
-pontBX -= amount
-pontCX -= amount
-pontDX -= amount
-pontEX -= amount
-pontFX -= amount
-pontGX -= amount
-pontHX -= amount
-pontIX -= amount
-pontJX -= amount
-pontKX -= amount
-pontLX -= amount
-pontMX -= amount
-pontNX -= amount
-pontOX -= amount
-pontPX -= amount
-
-iAX -= amount
-iBX -= amount
-iCX -= amount
-iDX -= amount
-iEX -= amount
-iFX -= amount
-iGX -= amount
-iHX -= amount
-iIX -= amount
-iJX -= amount
-iKX -= amount
-iLX -= amount
-iMX -= amount
-iNX -= amount
-iOX -= amount
-iPX -= amount
+    iAY += amount
+    iBY += amount
+    iCY += amount
+    iDY += amount
+    iEY += amount
+    iFY += amount
+    iGY += amount
+    iHY += amount
+    iIY += amount
+    iJY += amount
+    iKY += amount
+    iLY += amount
+    iMY += amount
+    iNY += amount
+    iOY += amount
+    iPY += amount
 }
 
+function mY (amount) {
+    pontAY -= amount
+    pontBY -= amount
+    pontCY -= amount
+    pontDY -= amount
+    pontEY -= amount
+    pontFY -= amount
+    pontGY -= amount
+    pontHY -= amount
+    pontIY -= amount
+    pontJY -= amount
+    pontKY -= amount
+    pontLY -= amount
+    pontMY -= amount
+    pontNY -= amount
+    pontOY -= amount
+    pontPY -= amount
 
+    iAY -= amount
+    iBY -= amount
+    iCY -= amount
+    iDY -= amount
+    iEY -= amount
+    iFY -= amount
+    iGY -= amount
+    iHY -= amount
+    iIY -= amount
+    iJY -= amount
+    iKY -= amount
+    iLY -= amount
+    iMY -= amount
+    iNY -= amount
+    iOY -= amount
+    iPY -= amount
+}
+
+function pX (amount) {
+    pontAX += amount
+    pontBX += amount
+    pontCX += amount
+    pontDX += amount
+    pontEX += amount
+    pontFX += amount
+    pontGX += amount
+    pontHX += amount
+    pontIX += amount
+    pontJX += amount
+    pontKX += amount
+    pontLX += amount
+    pontMX += amount
+    pontNX += amount
+    pontOX += amount
+    pontPX += amount
+
+    iAX += amount
+    iBX += amount
+    iCX += amount
+    iDX += amount
+    iEX += amount
+    iFX += amount
+    iGX += amount
+    iHX += amount
+    iIX += amount
+    iJX += amount
+    iKX += amount
+    iLX += amount
+    iMX += amount
+    iNX += amount
+    iOX += amount
+    iPX += amount
+}
+
+function mX (amount) {
+    pontAX -= amount
+    pontBX -= amount
+    pontCX -= amount
+    pontDX -= amount
+    pontEX -= amount
+    pontFX -= amount
+    pontGX -= amount
+    pontHX -= amount
+    pontIX -= amount
+    pontJX -= amount
+    pontKX -= amount
+    pontLX -= amount
+    pontMX -= amount
+    pontNX -= amount
+    pontOX -= amount
+    pontPX -= amount
+
+    iAX -= amount
+    iBX -= amount
+    iCX -= amount
+    iDX -= amount
+    iEX -= amount
+    iFX -= amount
+    iGX -= amount
+    iHX -= amount
+    iIX -= amount
+    iJX -= amount
+    iKX -= amount
+    iLX -= amount
+    iMX -= amount
+    iNX -= amount
+    iOX -= amount
+    iPX -= amount
+}
 
 mY(30)
+
 function fillRStateI0 () {
-ctx.fillRect(iEX,iEY,28,28)
-array[pontEY/30][pontEX/30] = 2
+    ctx.fillRect(iEX,iEY,28,28)
+    array[pontEY/30][pontEX/30] = 2
 
-ctx.fillRect (iFX,iFY,28,28)
-array[pontFY/30][pontFX/30] = 2
+    ctx.fillRect (iFX,iFY,28,28)
+    array[pontFY/30][pontFX/30] = 2
 
+    ctx.fillRect (iGX,iGY, 28,28)
+    array[pontGY/30][pontGX/30] = 2
 
-ctx.fillRect (iGX,iGY, 28,28)
-array[pontGY/30][pontGX/30] = 2
-
-ctx.fillRect (iHX,iHY,28,28)
-array[pontHY/30][pontHX/30] = 2
+    ctx.fillRect (iHX,iHY,28,28)
+    array[pontHY/30][pontHX/30] = 2
 }
 
 function clearRStateI0() {
-ctx.clearRect(iEX,iEY,28,28)
-array[pontEY/30][pontEX/30] = 0
+    ctx.clearRect(iEX,iEY,28,28)
+    array[pontEY/30][pontEX/30] = 0
 
-ctx.clearRect (iFX,iFY,28,28)
-array[pontFY/30][pontFX/30] = 0
+    ctx.clearRect (iFX,iFY,28,28)
+    array[pontFY/30][pontFX/30] = 0
 
-ctx.clearRect (iGX,iGY, 28,28)
-array[pontGY/30][pontGX/30] = 0
+    ctx.clearRect (iGX,iGY, 28,28)
+    array[pontGY/30][pontGX/30] = 0
 
-ctx.clearRect (iHX,iHY,28,28)
-array[pontHY/30][pontHX/30] = 0
-
+    ctx.clearRect (iHX,iHY,28,28)
+    array[pontHY/30][pontHX/30] = 0
 }
 
 function fillRStateI1 () {
-ctx.fillRect(iCX,iCY,28,28)
-array[pontCY/30][pontCX/30] = 2
+    ctx.fillRect(iCX,iCY,28,28)
+    array[pontCY/30][pontCX/30] = 2
 
-ctx.fillRect (iKX,iKY,28,28)
-array[pontKY/30][pontKX/30] = 2
+    ctx.fillRect (iKX,iKY,28,28)
+    array[pontKY/30][pontKX/30] = 2
 
+    ctx.fillRect (iGX,iGY, 28,28)
+    array[pontGY/30][pontGX/30] = 2
 
-ctx.fillRect (iGX,iGY, 28,28)
-array[pontGY/30][pontGX/30] = 2
-
-ctx.fillRect (iOX,iOY,28,28)
-array[pontOY/30][pontOX/30] = 2
+    ctx.fillRect (iOX,iOY,28,28)
+    array[pontOY/30][pontOX/30] = 2
 }
 
 function clearRStateI1() {
-ctx.clearRect(iCX,iCY,28,28)
-array[pontCY/30][pontCX/30] = 0
+    ctx.clearRect(iCX,iCY,28,28)
+    array[pontCY/30][pontCX/30] = 0
 
-ctx.clearRect (iKX,iKY,28,28)
-array[pontKY/30][pontKX/30] = 0
+    ctx.clearRect (iKX,iKY,28,28)
+    array[pontKY/30][pontKX/30] = 0
 
+    ctx.clearRect (iGX,iGY, 28,28)
+    array[pontGY/30][pontGX/30] = 0
 
-ctx.clearRect (iGX,iGY, 28,28)
-array[pontGY/30][pontGX/30] = 0
-
-ctx.clearRect (iOX,iOY,28,28)
-array[pontOY/30][pontOX/30] = 0
-
+    ctx.clearRect (iOX,iOY,28,28)
+    array[pontOY/30][pontOX/30] = 0
 }
 
 function fillRStateI2 () {
-ctx.fillRect(iIX,iIY,28,28)
-array[pontIY/30][pontIX/30] = 2
+    ctx.fillRect(iIX,iIY,28,28)
+    array[pontIY/30][pontIX/30] = 2
 
-ctx.fillRect (iKX,iKY,28,28)
-array[pontKY/30][pontKX/30] = 2
+    ctx.fillRect (iKX,iKY,28,28)
+    array[pontKY/30][pontKX/30] = 2
 
 
-ctx.fillRect (iJX,iJY, 28,28)
-array[pontJY/30][pontJX/30] = 2
+    ctx.fillRect (iJX,iJY, 28,28)
+    array[pontJY/30][pontJX/30] = 2
 
-ctx.fillRect (iLX,iLY,28,28)
-array[pontLY/30][pontLX/30] = 2
+    ctx.fillRect (iLX,iLY,28,28)
+    array[pontLY/30][pontLX/30] = 2
 }
 
 function clearRStateI2() {
-ctx.clearRect(iIX,iIY,28,28)
-array[pontIY/30][pontIX/30] = 0
+    ctx.clearRect(iIX,iIY,28,28)
+    array[pontIY/30][pontIX/30] = 0
 
-ctx.clearRect (iKX,iKY,28,28)
-array[pontKY/30][pontKX/30] = 0
+    ctx.clearRect (iKX,iKY,28,28)
+    array[pontKY/30][pontKX/30] = 0
 
+    ctx.clearRect (iJX,iJY, 28,28)
+    array[pontJY/30][pontJX/30] = 0
 
-ctx.clearRect (iJX,iJY, 28,28)
-array[pontJY/30][pontJX/30] = 0
-
-ctx.clearRect (iLX,iLY,28,28)
-array[pontLY/30][pontLX/30] = 0
-
+    ctx.clearRect (iLX,iLY,28,28)
+    array[pontLY/30][pontLX/30] = 0
 }
+
 function fillRStateI3 () {
-ctx.fillRect(iBX,iBY,28,28)
-array[pontBY/30][pontBX/30] = 2
+    ctx.fillRect(iBX,iBY,28,28)
+    array[pontBY/30][pontBX/30] = 2
 
-ctx.fillRect (iFX,iFY,28,28)
-array[pontFY/30][pontFX/30] = 2
+    ctx.fillRect (iFX,iFY,28,28)
+    array[pontFY/30][pontFX/30] = 2
 
+    ctx.fillRect (iJX,iJY, 28,28)
+    array[pontJY/30][pontJX/30] = 2
 
-ctx.fillRect (iJX,iJY, 28,28)
-array[pontJY/30][pontJX/30] = 2
-
-ctx.fillRect (iNX,iNY,28,28)
-array[pontNY/30][pontNX/30] = 2
+    ctx.fillRect (iNX,iNY,28,28)
+    array[pontNY/30][pontNX/30] = 2
 }
 
 function clearRStateI3() {
-ctx.clearRect(iBX,iBY,28,28)
-array[pontBY/30][pontBX/30] = 0
+    ctx.clearRect(iBX,iBY,28,28)
+    array[pontBY/30][pontBX/30] = 0
 
-ctx.clearRect (iFX,iFY,28,28)
-array[pontFY/30][pontFX/30] = 0
+    ctx.clearRect (iFX,iFY,28,28)
+    array[pontFY/30][pontFX/30] = 0
 
-ctx.clearRect (iJX,iJY, 28,28)
-array[pontJY/30][pontJX/30] = 0
+    ctx.clearRect (iJX,iJY, 28,28)
+    array[pontJY/30][pontJX/30] = 0
 
-ctx.clearRect (iNX,iNY,28,28)
-array[pontNY/30][pontNX/30] = 0
-
+    ctx.clearRect (iNX,iNY,28,28)
+    array[pontNY/30][pontNX/30] = 0
 }
 
 
 function moveDownI() {
-i()
+    i()
 }
-function moveLeftI () { if (rotationState === 0 &&  array[(pontEY/30)][(pontEX/30)-1] === 0)
+
+function moveLeftI () { if (rotationState === 0 &&  array[(pontEY/30)][(pontEX/30)-1] === 0) {
 //Left movement , rotationstate 0
-{
-clearRStateI0 ()
-mX (30)
-fillRStateI0 ()
-}
+        clearRStateI0 ()
+        mX (30)
+        fillRStateI0 ()
+    } else if (rotationState ===1 &&  array[(pontBY/30)][(pontBX/30)] === 0  &&  array[(pontFY/30)][(pontFX/30)] === 0  &&  
+    array[(pontJY/30)][(pontJX/30)] === 0  &&  array[(pontNY/30)][(pontNX/30)] === 0) {
 //Left movement , rotationstate 1
-
-else if (rotationState ===1 &&  array[(pontBY/30)][(pontBX/30)] === 0  &&  array[(pontFY/30)][(pontFX/30)] === 0  &&  array[(pontJY/30)][(pontJX/30)] === 0  &&  array[(pontNY/30)][(pontNX/30)] === 0)
-{
-clearRStateI1 ()
-mX(30)
-fillRStateI1()
-}
-
+        clearRStateI1 ()
+        mX(30)
+        fillRStateI1()
+    } else if (rotationState ===2 &&  array[(pontIY/30)][(pontIX/30)-1] === 0) {
 //Left movement , rotationstate 2
-else if (rotationState ===2 &&  array[(pontIY/30)][(pontIX/30)-1] === 0)
-{
-clearRStateI2 ()
-mX(30)
-fillRStateI2()
-}
-
+        clearRStateI2 ()
+        mX(30)
+        fillRStateI2()
+    } else if (rotationState === 3 &&  array[(pontAY/30)][(pontAX/30)] === 0  &&  array[(pontEY/30)][(pontEX/30)] === 0  &&  
+    array[(pontIY/30)][(pontIX/30)] === 0  &&  array[(pontMY/30)][(pontMX/30)] === 0) {
 //Left movement , rotationstate 3
-else if (rotationState === 3 &&  array[(pontAY/30)][(pontAX/30)] === 0  &&  array[(pontEY/30)][(pontEX/30)] === 0  &&  array[(pontIY/30)][(pontIX/30)] === 0  &&  array[(pontMY/30)][(pontMX/30)] === 0)
-{
-clearRStateI3 ()
-mX(30)
-fillRStateI3()
+        clearRStateI3 ()
+        mX(30)
+        fillRStateI3()
+    }else {}
 }
-
-else {}}
 
 
 function moveRightI () { if (rotationState === 0 &&  array[(pontHY/30)][(pontHX/30)+1] === 0)
@@ -625,46 +601,45 @@ rotationState =0
 }
 
 
-
-
-
-
 function hardDropI () {
-       for (let k =0 ; k<20; k++) {
-          if (rotationState === 0 && (array[(pontIY/30)+k][pontIX/30] !==0 || array[(pontJY/30)+k][pontJX/30]!==0 || array[(pontKY/30)+k][pontKX/30]!==0  || array[(pontLY/30)+k][pontLX/30]!==0))
-
-{  
-clearRStateI0()
-pY(k*30) 
-fillRStateI0()
-clearInterval(id7)
-id7 = setInterval(i,0)   
-break; 
+    for (let k =0 ; k<20; k++) {
+        if (rotationState === 0 && (array[(pontIY/30)+k][pontIX/30] !==0 || array[(pontJY/30)+k][pontJX/30]!==0 || 
+        array[(pontKY/30)+k][pontKX/30]!==0  || array[(pontLY/30)+k][pontLX/30]!==0)) {  
+            clearRStateI0()
+            pY(k*30) 
+            fillRStateI0()
+            clearInterval(id7)
+            id7 = setInterval(i,0)
+            hardDropScoring(k)
+            break; 
+        } else if (rotationState === 1 && array[(pontOY/30)+k+1][pontOX/30]!==0 ) {    
+            
+            clearRStateI1()
+            pY(k*30) 
+            fillRStateI1()
+            clearInterval(id7)
+            id7 = setInterval(i,0)
+            hardDropScoring(k)
+            break; 
+        } else if ( rotationState === 2 && array[(pontMY/30)+k][pontMX/30]!==0 && array[(pontNY/30)+k][pontNX/30]!==0 && 
+        array[(pontOY/30)+k][pontOX/30]!==0  && array[(pontPY/30)+k][pontPX/30]!==0) {    
+            
+            clearRStateI2()
+            pY(k*30) 
+            fillRStateI2()
+            clearInterval(id7)
+            id7 = setInterval(i,0)   
+            hardDropScoring(k)
+            break; 
+        } else if ( rotationState === 3 && array[(pontNY/30)+1+k][pontNX/30]!==0 ) {   
+            
+            clearRStateI3()
+            pY(k*30) 
+            fillRStateI3()
+            clearInterval(id7)
+            id7 = setInterval(i,0) 
+            hardDropScoring(k)
+            break; 
+        }
+    }
 }
-
-else if (rotationState === 1 && array[(pontOY/30)+k+1][pontOX/30]!==0 ){    
-clearRStateI1()
-pY(k*30) 
-fillRStateI1()
-clearInterval(id7)
-id7 = setInterval(i,0)   
-break; 
-}
-else if ( rotationState === 2 && array[(pontMY/30)+k][pontMX/30]!==0 && array[(pontNY/30)+k][pontNX/30]!==0 && array[(pontOY/30)+k][pontOX/30]!==0  && array[(pontPY/30)+k][pontPX/30]!==0){    
-clearRStateI2()
-pY(k*30) 
-fillRStateI2()
-clearInterval(id7)
-id7 = setInterval(i,0)   
-break; 
-}
-else if ( rotationState === 3 && array[(pontNY/30)+1+k][pontNX/30]!==0 ){    
-       
-clearRStateI3()
-pY(k*30) 
-fillRStateI3()
-clearInterval(id7)
-id7 = setInterval(i,0)   
-break; 
-}
-}}

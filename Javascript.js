@@ -1,266 +1,378 @@
-
+let score = 0
 
 
 let canvas = document.getElementById("canvas")
-//canvas.getContext("2d")
 canvas.width = 300
 canvas.height = 600
 let ctx = canvas.getContext("2d")
 let nextOne = document.getElementById("nextone")
 nextOne.width = 210
 nextOne.height = 120
-
 let rotationState = 0;
 let ctx1 = nextOne.getContext("2d")
 let array = [
-       
-       [0,0,0,0,0,0,0,0,0,0],
-       [0,0,0,0,0,0,0,0,0,0],
-       [0,0,0,0,0,0,0,0,0,0],
-       [0,0,0,0,0,0,0,0,0,0],
-       [0,0,0,0,0,0,0,0,0,0],
-       [0,0,0,0,0,0,0,0,0,0],
-       [0,0,0,0,0,0,0,0,0,0],
-       [0,0,0,0,0,0,0,0,0,0],
-       [0,0,0,0,0,0,0,0,0,0],
-       [0,0,0,0,0,0,0,0,0,0],
-       [0,0,0,0,0,0,0,0,0,0],
-       [0,0,0,0,0,0,0,0,0,0],
-       [0,0,0,0,0,0,0,0,0,0],
-       [0,0,0,0,0,0,0,0,0,0],
-       [0,0,0,0,0,0,0,0,0,0],
-       [0,0,0,0,0,0,0,0,0,0],
-       [0,0,0,0,0,0,0,0,0,0],
-       [0,0,0,0,0,0,0,0,0,0],
-       [0,0,0,0,0,0,0,0,0,0],
-       [0,0,0,0,0,0,0,0,0,0],
-       [1,1,1,1,1,1,1,1,1,1],
-       [1,1,1,1,1,1,1,1,1,1],
-       [1,1,1,1,1,1,1,1,1,1],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [1,1,1,1,1,1,1,1,1,1],
+    [1,1,1,1,1,1,1,1,1,1],
+    [1,1,1,1,1,1,1,1,1,1],
 ]
 
 function drawArea () {
-for (let i =0 ; i <600; i+=30)
-{for (let j=0 ; j< 300; j+=30)
-
-{if (array[i/30][j/30] === 0){
-ctx.fillStyle = "#f1f1f1"
-ctx.fillRect(j,i,30, 30);
-ctx.strokeStyle = "#FFFFFF";
-ctx.lineWidth  = 2
-ctx.strokeRect (j,i,30,30)}
-}}}
+    for (let i =0 ; i <600; i+=30) {
+        for (let j=0 ; j< 300; j+=30) {
+            if (array[i/30][j/30] === 0) {
+                ctx.fillStyle = "#f1f1f1"
+                ctx.fillRect(j,i,30, 30);
+                ctx.strokeStyle = "#FFFFFF";
+                ctx.lineWidth  = 2
+                ctx.strokeRect (j,i,30,30)
+            }
+        }
+    }
+}
 drawArea()
 
-const tetrimino = ["o"/*,"t","s","z","i","l","j"*/];
+
+let pAX = 91
+let pAY = 1
+
+let pBX = 121
+let pBY = 1
+
+let pCX = 151
+let pCY = 1
+
+let pDX = 91
+let pDY = 31
+
+let pEX = 121
+let pEY = 31
+
+let pFX = 151
+let pFY = 31
+
+let pGX = 91
+let pGY = 61
+
+let pHX = 121
+let pHY = 61
+
+let pIX = 151
+let pIY = 61
 
 
 
 
+let pointAX = 90
+let pointAY = 0
+
+let pointBX = 120
+let pointBY = 0
+
+let pointCX = 150
+let pointCY = 0
+
+let pointDX = 90
+let pointDY = 30
+
+let pointEX = 120
+let pointEY = 30
+
+let pointFX = 150
+let pointFY = 30
+
+let pointGX = 90
+let pointGY = 60
+
+let pointHX = 120
+let pointHY = 60
+
+let pointIX = 150
+let pointIY = 60
+
+
+function plusY (amount) {
+    pointAY += amount
+    pointBY += amount 
+    pointCY += amount
+    pointDY += amount
+    pointEY += amount
+    pointFY += amount
+    pointGY += amount
+    pointHY += amount
+    pointIY += amount
+    pAY += amount
+    pBY += amount
+    pCY += amount
+    pDY += amount
+    pEY += amount
+    pFY += amount
+    pGY += amount
+    pHY += amount
+    pIY += amount
+}
+
+function minusY (amount) {
+    pointAY -= amount
+    pointBY -= amount 
+    pointCY -= amount
+    pointDY -= amount
+    pointEY -= amount
+    pointFY -= amount
+    pointGY -= amount
+    pointHY -= amount
+    pointIY -= amount
+    pAY -= amount
+    pBY -= amount
+    pCY -= amount
+    pDY -= amount
+    pEY -= amount
+    pFY -= amount
+    pGY -= amount
+    pHY -= amount
+    pIY -= amount
+}
+
+function plusX (amount) {
+    pointAX += amount
+    pointBX += amount 
+    pointCX += amount
+    pointDX += amount
+    pointEX += amount
+    pointFX += amount
+    pointGX += amount
+    pointHX += amount
+    pointIX += amount
+    pAX += amount
+    pBX += amount
+    pCX += amount
+    pDX += amount
+    pEX += amount
+    pFX += amount
+    pGX += amount
+    pHX += amount
+    pIX += amount
+}
+
+function minusX (amount) {
+    pointAX -= amount
+    pointBX -= amount 
+    pointCX -= amount
+    pointDX -= amount
+    pointEX -= amount
+    pointFX -= amount
+    pointGX -= amount
+    pointHX -= amount
+    pointIX -= amount
+    pAX -= amount
+    pBX -= amount
+    pCX -= amount
+    pDX -= amount
+    pEX -= amount
+    pFX -= amount
+    pGX -= amount
+    pHX -= amount
+    pIX -= amount
+}
+
+
+const tetrimino = ["o","t","s","z","i","l","j"];
 random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
 function randomizerTetrimino () {
 
-if (random === "o") {
+    if (random === "o") {
 // O tetrimino   
-ctx.fillStyle = "#ffff00"
-ctx.fillRect (121,1,28,28)
-array[0][4] = 1
-ctx.fillRect (151,1,28,28)
-array[0][5] = 1
-ctx.fillRect (121,31,28,28)
-array[1][4] = 1
-ctx.fillRect (151,31,28,28)
-array[1][5] = 1
-
-}
-
-else if (random === "s")
-{
+        ctx.fillStyle = "#ffff00"
+        ctx.fillRect (121,1,28,28)
+        array[0][4] = 1
+        ctx.fillRect (151,1,28,28)
+        array[0][5] = 1
+        ctx.fillRect (121,31,28,28)
+        array[1][4] = 1
+        ctx.fillRect (151,31,28,28)
+        array[1][5] = 1
+    } else if (random === "s") {
 //S tetrimino
-ctx.fillStyle = "#00ff80"
-ctx.fillRect (121,1,28,28)
-array[0][4] = 3
-ctx.fillRect (151,1,28,28)
-array[0][5] = 3
-ctx.fillRect (121,31,28,28)
-array[1][4] = 3
-ctx.fillRect (91,31,28,28)
-array[1][3] = 3
-}
-
-else if (random === "t")
-
-{
+        ctx.fillStyle = "#00ff80"
+        ctx.fillRect (121,1,28,28)
+        array[0][4] = 3
+        ctx.fillRect (151,1,28,28)
+        array[0][5] = 3
+        ctx.fillRect (121,31,28,28)
+        array[1][4] = 3
+        ctx.fillRect (91,31,28,28)
+        array[1][3] = 3
+    } else if (random === "t") {
     //T tetrimino   
-ctx.fillStyle = "#6a0dad"
-ctx.fillRect (121,1,28,28)
-array[0][4] = 4
-ctx.fillRect (121,31,28,28)
-array[1][4] = 4
-ctx.fillRect (91,31,28,28)
-array[1][3] = 4
-ctx.fillRect (151,31,28,28)
-array[1][5] = 4
-}
-else if (random === "z")
-{
+        ctx.fillStyle = "#6a0dad"
+        ctx.fillRect (121,1,28,28)
+        array[0][4] = 4
+        ctx.fillRect (121,31,28,28)
+        array[1][4] = 4
+        ctx.fillRect (91,31,28,28)
+        array[1][3] = 4
+        ctx.fillRect (151,31,28,28)
+        array[1][5] = 4
+    } else if (random === "z") {
 //Z tetrimino
-ctx.fillStyle = "#ff0000"
-ctx.fillRect (91,1,28,28)
-array[0][3] = 5
-ctx.fillRect (121,1,28,28)
-array[0][4] = 5
-ctx.fillRect (121,31,28,28)
-array[1][4] = 5
-ctx.fillRect (151,31,28,28)
-array[1][5] = 5
-}
-else if (random === "l")
-{
+        ctx.fillStyle = "#ff0000"
+        ctx.fillRect (91,1,28,28)
+        array[0][3] = 5
+        ctx.fillRect (121,1,28,28)
+        array[0][4] = 5
+        ctx.fillRect (121,31,28,28)
+        array[1][4] = 5
+        ctx.fillRect (151,31,28,28)
+        array[1][5] = 5
+    } else if (random === "l") {
 //L tetrimino
-ctx.fillStyle = "#FFA500"
-ctx.fillRect (151,1,28,28)
-array[0][5] = 6
-ctx.fillRect (91,31,28,28)
-array[1][3] = 6
-ctx.fillRect (121,31,28,28)
-array[1][4] = 6
-ctx.fillRect (151,31,28,28)
-array[1][5] = 6
-
-}
-else if (random === "j")
-{
+        ctx.fillStyle = "#FFA500"
+        ctx.fillRect (151,1,28,28)
+        array[0][5] = 6
+        ctx.fillRect (91,31,28,28)
+        array[1][3] = 6
+        ctx.fillRect (121,31,28,28)
+        array[1][4] = 6
+        ctx.fillRect (151,31,28,28)
+        array[1][5] = 6
+    }  else if (random === "j") {
 //J tetrimino
-ctx.fillStyle = "#2e8bc0"
-ctx.fillRect (91,1,28,28)
-array[0][3] = 7
-ctx.fillRect (91,31,28,28)
-array[1][3] = 7
-ctx.fillRect (121,31,28,28)
-array[1][4] = 7
-ctx.fillRect (151,31,28,28)
-array[1][5] = 7
-}
-else if (random === "i")
-{
+        ctx.fillStyle = "#2e8bc0"
+        ctx.fillRect (91,1,28,28)
+        array[0][3] = 7
+        ctx.fillRect (91,31,28,28)
+        array[1][3] = 7
+        ctx.fillRect (121,31,28,28)
+        array[1][4] = 7
+        ctx.fillRect (151,31,28,28)
+        array[1][5] = 7
+    } else if (random === "i") {
 //I tetrimino
-ctx.fillStyle = "#72bcd4"
-ctx.fillRect (91,1,28,28)
-array[0][3] = 2
-ctx.fillRect (121,1,28,28)
-array[0][4] = 2
-ctx.fillRect (151,1,28,28)
-array[0][5] = 2
-ctx.fillRect (181,1,28,28)
-array[0][6] = 2
-
-}
+        ctx.fillStyle = "#72bcd4"
+        ctx.fillRect (91,1,28,28)
+        array[0][3] = 2
+        ctx.fillRect (121,1,28,28)
+        array[0][4] = 2
+        ctx.fillRect (151,1,28,28)
+        array[0][5] = 2
+        ctx.fillRect (181,1,28,28)
+        array[0][6] = 2
+    }
 }
 
 randomizerTetrimino ()
+
+
 function nextTetrimino () {
-
-ctx1.clearRect(0, 0, nextOne.width, nextOne.height);
-if (random2 === "o") {
+    ctx1.clearRect(0, 0, nextOne.width, nextOne.height);
+    if (random2 === "o") {
 // O tetrimino   
-ctx1.fillStyle = "#ffff00"
-ctx1.fillRect (76,31,28,28)
-ctx1.fillRect (106,31,28,28)
-ctx1.fillRect (76,61,28,28)
-ctx1.fillRect (106,61,28,28)
-
-}
-
-else if (random2 === "s")
-{
+        ctx1.fillStyle = "#ffff00"
+        ctx1.fillRect (76,31,28,28)
+        ctx1.fillRect (106,31,28,28)
+        ctx1.fillRect (76,61,28,28)
+        ctx1.fillRect (106,61,28,28)
+    } else if (random2 === "s") {
 //S tetrimino
-ctx1.fillStyle = "#00ff80"
-ctx1.fillRect (121,31,28,28)
-ctx1.fillRect (91,31,28,28)
-ctx1.fillRect (91,61,28,28)
-ctx1.fillRect (61,61,28,28)
-}
-
-else if (random2 === "t")
-
-{
-    //T tetrimino   
-ctx1.fillStyle = "#6a0dad"
-ctx1.fillRect (91,31,28,28)
-ctx1.fillRect (61,61,28,28)
-ctx1.fillRect (91,61,28,28)
-ctx1.fillRect (121,61,28,28)
-}
-else if (random2 === "z")
-{
+        ctx1.fillStyle = "#00ff80"
+        ctx1.fillRect (121,31,28,28)
+        ctx1.fillRect (91,31,28,28)
+        ctx1.fillRect (91,61,28,28)
+        ctx1.fillRect (61,61,28,28)
+    } else if (random2 === "t") {
+//T tetrimino   
+        ctx1.fillStyle = "#6a0dad"
+        ctx1.fillRect (91,31,28,28)
+        ctx1.fillRect (61,61,28,28)
+        ctx1.fillRect (91,61,28,28)
+        ctx1.fillRect (121,61,28,28)
+    } else if (random2 === "z") {
 //Z tetrimino
-ctx1.fillStyle = "#ff0000"
-ctx1.fillRect (61,31,28,28)
-ctx1.fillRect (91,31,28,28)
-ctx1.fillRect (91,61,28,28)
-ctx1.fillRect (121,61,28,28)
-}
-else if (random2 === "l")
-{
+        ctx1.fillStyle = "#ff0000"
+        ctx1.fillRect (61,31,28,28)
+        ctx1.fillRect (91,31,28,28)
+        ctx1.fillRect (91,61,28,28)
+        ctx1.fillRect (121,61,28,28)
+    } else if (random2 === "l") {
 //L tetrimino
-ctx1.fillStyle = "#FFA500"
-ctx1.fillRect (121,31,28,28)
-ctx1.fillRect (61,61,28,28)
-ctx1.fillRect (91,61,28,28)
-ctx1.fillRect (121,61,28,28)
-
-}
-else if (random2 === "j")
-{
+        ctx1.fillStyle = "#FFA500"
+        ctx1.fillRect (121,31,28,28)
+        ctx1.fillRect (61,61,28,28)
+        ctx1.fillRect (91,61,28,28)
+        ctx1.fillRect (121,61,28,28)
+    } else if (random2 === "j") {
 //J tetrimino
-ctx1.fillStyle = "#2e8bc0"
-ctx1.fillRect (61,31,28,28)
-ctx1.fillRect (61,61,28,28)
-ctx1.fillRect (91,61,28,28)
-ctx1.fillRect (121,61,28,28)
-}
-else if (random2 === "i")
-{
+        ctx1.fillStyle = "#2e8bc0"
+        ctx1.fillRect (61,31,28,28)
+        ctx1.fillRect (61,61,28,28)
+        ctx1.fillRect (91,61,28,28)
+        ctx1.fillRect (121,61,28,28)
+    } else if (random2 === "i") {
 //I tetrimino
-ctx1.fillStyle = "#72bcd4"
-ctx1.fillRect (46,46,28,28)
-ctx1.fillRect (76,46,28,28)
-ctx1.fillRect (106,46,28,28)
-ctx1.fillRect (136,46,28,28)
+        ctx1.fillStyle = "#72bcd4"
+        ctx1.fillRect (46,46,28,28)
+        ctx1.fillRect (76,46,28,28)
+        ctx1.fillRect (106,46,28,28)
+        ctx1.fillRect (136,46,28,28)
+    }
+}
 
-}
-}
 let random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 nextTetrimino()
 function downChecker () {
-
-       if(random === "o"){moveDownO()}
-       else if(random === "t"){moveDownT()}
-       else if (random === "s") {moveDownS()}
-       else if (random === "z") {moveDownZ()}
-       else if (random === "l") {moveDownL()}
-       else if (random === "j") {moveDownJ()}
-       else if (random === "i") {moveDownI()}
-
-
-
+    if(random === "o"){
+        moveDownO()
+    } else if(random === "t") {
+        moveDownT()
+    } else if (random === "s") {
+        moveDownS()
+    } else if (random === "z") {
+        moveDownZ()
+    } else if (random === "l") {
+        moveDownL()
+    } else if (random === "j") {
+        moveDownJ()
+    } else if (random === "i") {
+        moveDownI()
+    }
 }
 
 function leftChecker () {
-       if(random === "o"){moveLeftO()}
-       else if(random === "t"){moveLeftT()}
-       else if (random === "s") {moveLeftS()}
-       else if (random === "z") {moveLeftZ()}
-       else if (random === "l") {moveLeftL()}
-       else if (random === "j") {moveLeftJ()}
-       else if (random === "i") {moveLeftI()}
-
-       
-
-
-
+    if(random === "o") {
+        moveLeftO()
+    } else if(random === "t") {
+        moveLeftT()
+    } else if (random === "s") {
+        moveLeftS()
+    } else if (random === "z") {
+        moveLeftZ()
+    } else if (random === "l") {
+        moveLeftL()
+    } else if (random === "j") {
+        moveLeftJ()
+    } else if (random === "i") {
+        moveLeftI()
+    }
 }
 
 function rightChecker () {
@@ -340,239 +452,110 @@ else {id = setInterval(o,1000)
 pauseChecker = 0}
 
 }
-let cleared = 0
-function linesCleared () {
-       cleared += counters
-       document.getElementById("linenumber").innerHTML = Number(cleared)
-}
-let test = 0
-let ticker = 0
-let mustang = 0
-let interval;
 
-document.addEventListener("keydown", function(event) {
-       ticker = 0;
-       if (event.keyCode == 37) {
-              ticker += 1;
-              mustang = ticker
-  }
+
+
+
+
+// Keyboard input with customisable repeat (set to 0 for no key repeat)
+//
+KeyboardController({
+    32: {interval:0, callback: function() { hardDrop() } },
+    37: {interval:120, callback: function() { leftChecker() } },
+    38: {interval:1000, callback: function() { upChecker() } },
+    39: {interval:120, callback: function() { rightChecker() } },
+    40: {interval:90, callback: function() { downChecker() } }
 });
 
-document.addEventListener("keyup", function() {
-       console.log('stopping interval')
-       interval = setInterval(intervalFunction, 10);
 
-       ticker = 0;
-});
+function KeyboardController(keyset) {
+    // Lookup of key codes to timer ID, or null for no repeat
+    //
+    let timers= {};
 
-intervalFunction = function () {
-       if (mustang < 4)
-       {
-              console.log(mustang)
-              getKeyAndMove()
-              mustang = 0;
-              clearInterval(interval)
+    // When key is pressed and we don't already think it's pressed, call the
+    // key action callback and set a timer to generate another one after a delay
+    //
+    document.onkeydown= function(event) {
+        var key= (event || window.event).keyCode;
+        if (!(key in keyset))
+            return true;
+        if (!(key in timers)) {
+            timers[key]= null;
+            keyset[key].callback();
+            if (keyset[key].interval !== 0)
+                timers[key]= setInterval(keyset[key].callback, keyset[key].interval);
+        }
+        return false;
+    };
 
-       } else {
-       console.log(mustang+ 'in mustang else')
-       var keyDown = false;
-       document.addEventListener("keydown", function onKeyDownListener(evt) {
-       keyDown = false;
-       if(evt.keyCode == 37) {
-              keyDown = true;
-       }
-       
-       
-       })
-       document.addEventListener("keyup", function(evt){
-              if(evt.keyCode == 37) {
-       keyDown = false;
-              }
-       })
+    // Cancel timeout and mark key as released on keyup
+    //
+    document.onkeyup= function(event) {
+        var key= (event || window.event).keyCode;
+        if (key in timers) {
+            if (timers[key]!==null)
+                clearInterval(timers[key]);
+            delete timers[key];
+        }
+    };
 
-       setInterval(function(){
-       if(keyDown){
-       leftChecker()
-       mustang = 0;
-       }
-       },40)}
-       clearInterval(interval)
-       }
-
-
-
-let pAX = 91
-let pAY = 1
-
-let pBX = 121
-let pBY = 1
-
-let pCX = 151
-let pCY = 1
-
-let pDX = 91
-let pDY = 31
-
-let pEX = 121
-let pEY = 31
-
-let pFX = 151
-let pFY = 31
-
-let pGX = 91
-let pGY = 61
-
-let pHX = 121
-let pHY = 61
-
-let pIX = 151
-let pIY = 61
-
-
-
-
-let pointAX = 90
-let pointAY = 0
-
-let pointBX = 120
-let pointBY = 0
-
-let pointCX = 150
-let pointCY = 0
-
-let pointDX = 90
-let pointDY = 30
-
-let pointEX = 120
-let pointEY = 30
-
-let pointFX = 150
-let pointFY = 30
-
-let pointGX = 90
-let pointGY = 60
-
-let pointHX = 120
-let pointHY = 60
-
-let pointIX = 150
-let pointIY = 60
+    // When window is unfocused we may not get key events. To prevent this
+    // causing a key to 'get stuck down', cancel all held keys
+    //
+    window.onblur= function() {
+        for (key in timers)
+            if (timers[key]!==null)
+                clearInterval(timers[key]);
+        timers= {};
+    };
+};
 
 
 
 
 
-
-function plusY (amount) 
-{
-pointAY += amount
-pointBY += amount 
-pointCY += amount
-pointDY += amount
-pointEY += amount
-pointFY += amount
-pointGY += amount
-pointHY += amount
-pointIY += amount
-pAY += amount
-pBY += amount
-pCY += amount
-pDY +=amount
-pEY += amount
-pFY +=amount
-pGY += amount
-pHY += amount
-pIY += amount
-
-
-}
-function minusY (amount)
-{
-pointAY -= amount
-pointBY -= amount 
-pointCY -= amount
-pointDY -= amount
-pointEY -= amount
-pointFY -= amount
-pointGY -= amount
-pointHY -= amount
-pointIY -= amount
-pAY -= amount
-pBY -= amount
-pCY -= amount
-pDY -=amount
-pEY -= amount
-pFY -=amount
-pGY -= amount
-pHY -= amount
-pIY -= amount
-
-
-
-}
-function plusX (amount) 
-{
-pointAX += amount
-pointBX += amount 
-pointCX += amount
-pointDX += amount
-pointEX += amount
-pointFX += amount
-pointGX += amount
-pointHX += amount
-pointIX += amount
-pAX += amount
-pBX += amount
-pCX += amount
-pDX +=amount
-pEX += amount
-pFX +=amount
-pGX += amount
-pHX += amount
-pIX += amount
-
-}
-function minusX (amount) 
-{
-pointAX -= amount
-pointBX -= amount 
-pointCX -= amount
-pointDX -= amount
-pointEX -= amount
-pointFX -= amount
-pointGX -= amount
-pointHX -= amount
-pointIX -= amount
-pAX -= amount
-pBX -= amount
-pCX -= amount
-pDX -=amount
-pEX -= amount
-pFX -=amount
-pGX -= amount
-pHX -= amount
-pIX -= amount
-
-}
- 
 let counter = 1
-function getKeyAndMove(e) {
-       if(e) {
-              let key_code=e.which||e.keyCode;
-              switch(key_code) {
-                     case 37: //left arrow key
-                     leftChecker()
-                     break;
-              }
-       }
+let levelList = 
+{
+    10 : 1000,
+    20 : 900,
+    30 : 800,
+    40 : 700,
+    50 : 600,
+    60 : 500,
+    70 : 400,
+    80 : 300,
+    90 : 200,
+    100 :100,
+    110 : 95,
+    120 : 90,
+    130 : 85,
+    140 : 80
 }
-document.addEventListener("keydown", function getKeyAndMove(e) {
-       let key_code=e.which||e.keyCode;
-       switch(key_code){
-              case 37: //left arrow key
-              leftChecker()
-              break;}
-})
+let speed= 0
+let cleared = 0
+let level =  1
+let ons = 11
+
+
+function levelChanger () {
+    level++
+    if ( level > 14) {
+        level =1
+    }
+    document.getElementById("forso").innerHTML = Number(level);
+}
+
+
+function levelChecker () {
+    if (cleared >= ons ) {
+        level++
+        ons += 10
+    }
+    document.getElementById("levelnumber").innerHTML = Number(level)
+    speed = levelList[level*10]
+}
 
 
 let id = null;
@@ -582,116 +565,140 @@ let id4 = null;
 let id5 = null;
 let id6 = null;
 let id7 = null;
-
-
-
 function startGame () {
-if (random === "o")
-{id = setInterval(o,100)}
-else if (random === "t")
-{id2 = setInterval(t,1000)}
-else if (random === "s")
-{id3 = setInterval (s,1000)}
-else if (random === "z")
-{id4 = setInterval (z,1000)}
-else if (random === "l")
-{id5 = setInterval (l,1000)}
-else if (random === "j")
-{id6 = setInterval (j,1000)} 
-else if (random === "i")
-{id7 = setInterval (i,1000)}
-document.getElementById("menu").remove()
-
+    document.getElementById("menu").remove()
+    levelChecker ()
+    if (random === "o") {
+        id = setInterval(o,speed)
+    } else if (random === "t") {
+        id2 = setInterval(t,speed)
+    } else if (random === "s") {
+        id3 = setInterval (s,speed)
+    } else if (random === "z") {
+        id4 = setInterval (z,speed)
+    } else if (random === "l") {
+        id5 = setInterval (l,speed)
+    } else if (random === "j") {
+        id6 = setInterval (j,speed)
+    } else if (random === "i") {
+        id7 = setInterval (i,speed)
+    }
 }
 
 let m = 0
 let array2 = []
-function numberChecker (item) {if (item >0){m+=1}}
+function numberChecker (item) {
+    if (item >0){ 
+        m+=1
+    }
+}
 
 function draw () {
-for (let z = 0 ; z<600 ; z+=30){
-for (let v = 0 ; v<300 ; v+=30)
-{if (array[z/30][v/30] === 0){
-       ctx.fillStyle = "#f1f1f1"
-       ctx.fillRect(v,z,30, 30);
-       ctx.strokeStyle = "#000000";
-       ctx.lineWidth  = 2
-       ctx.strokeRect (v,z,30,30)
-  } else if (array[z/30][v/30] === 1)
-  {
-       ctx.fillStyle = "#ffff00"
-       ctx.fillRect(v,z,30, 30);
-       ctx.strokeStyle = "#000000";
-       ctx.lineWidth  = 2
-       ctx.strokeRect (v,z,30,30)
-  }
-else if (array[z/30][v/30] === 3)
-  {
-       ctx.fillStyle = "#00ff80"
-       ctx.fillRect(v,z,30, 30);
-       ctx.strokeStyle = "#000000";
-       ctx.lineWidth  = 2
-       ctx.strokeRect (v,z,30,30)
+    for (let z = 0 ; z<600 ; z+=30) {
+        for (let v = 0 ; v<300 ; v+=30) {
+            if (array[z/30][v/30] === 0)
+                {
+                ctx.fillStyle = "#f1f1f1"
+                ctx.fillRect(v,z,30, 30);
+                ctx.strokeStyle = "#000000";
+                ctx.lineWidth  = 2
+                ctx.strokeRect (v,z,30,30)
+            } else if (array[z/30][v/30] === 1) {
+                ctx.fillStyle = "#ffff00"
+                ctx.fillRect(v,z,30, 30);
+                ctx.strokeStyle = "#000000";
+                ctx.lineWidth  = 2
+                ctx.strokeRect (v,z,30,30)
+            } else if (array[z/30][v/30] === 2) {
+                ctx.fillStyle = "#72bcd4"
+                ctx.fillRect(v,z,30, 30);
+                ctx.strokeStyle = "#000000";
+                ctx.lineWidth  = 2
+                ctx.strokeRect (v,z,30,30)
+            } else if (array[z/30][v/30] === 3) {
+                ctx.fillStyle = "#00ff80"
+                ctx.fillRect(v,z,30, 30);
+                ctx.strokeStyle = "#000000";
+                ctx.lineWidth  = 2
+                ctx.strokeRect (v,z,30,30)
+            } else if (array[z/30][v/30] === 4) {
+                ctx.fillStyle = "#6a0dad"
+                ctx.fillRect(v,z,30, 30);
+                ctx.strokeStyle = "#000000";
+                ctx.lineWidth  = 2
+                ctx.strokeRect (v,z,30,30)
+            } else if (array[z/30][v/30] === 5) {
+                ctx.fillStyle = "#ff0000"
+                ctx.fillRect(v,z,30, 30);
+                ctx.strokeStyle = "#000000";
+                ctx.lineWidth  = 2
+                ctx.strokeRect (v,z,30,30)
+            } else if (array[z/30][v/30] === 6) {   
+                ctx.fillStyle = "#FFA500"
+                ctx.fillRect(v,z,30, 30);
+                ctx.strokeStyle = "#000000";
+                ctx.lineWidth  = 2
+                ctx.strokeRect (v,z,30,30)
+            } else if (array[z/30][v/30] === 7) {
+                ctx.fillStyle = "#2e8bc0"
+                ctx.fillRect(v,z,30, 30);
+                ctx.strokeStyle = "#000000";
+                ctx.lineWidth  = 2
+                ctx.strokeRect (v,z,30,30)
+            }
+        }
+    }
 }
-  else if (array[z/30][v/30] === 4)
-  {
-       ctx.fillStyle = "#6a0dad"
-       ctx.fillRect(v,z,30, 30);
-       ctx.strokeStyle = "#000000";
-       ctx.lineWidth  = 2
-       ctx.strokeRect (v,z,30,30)
-  }
-  else if (array[z/30][v/30] === 5)
-  {
-       ctx.fillStyle = "#ff0000"
-       ctx.fillRect(v,z,30, 30);
-       ctx.strokeStyle = "#000000";
-       ctx.lineWidth  = 2
-       ctx.strokeRect (v,z,30,30)
-  }
-  else if (array[z/30][v/30] === 6)
-  {   
-       ctx.fillStyle = "#FFA500"
-       ctx.fillRect(v,z,30, 30);
-       ctx.strokeStyle = "#000000";
-       ctx.lineWidth  = 2
-       ctx.strokeRect (v,z,30,30)
-  }
-  else if (array[z/30][v/30] === 7)
-  {
-       ctx.fillStyle = "#2e8bc0"
-       ctx.fillRect(v,z,30, 30);
-       ctx.strokeStyle = "#000000";
-       ctx.lineWidth  = 2
-       ctx.strokeRect (v,z,30,30)
-
-  }
-}}}
 
 let counters = 0
 
 function lineChecker () {
-for (let i = 0 ; i< 20 ; i++){ 
-  array[i].forEach(numberChecker)
-  if (m === 10) {
-array2 = array.slice(0,i)
-for (let s = i+1 ; s <23 ; s++ )
-{array2.push(array[s])}
-array = array2
-array.unshift([0,0,0,0,0,0,0,0,0,0])
-m=0
-counters++
+    for (let i = 0 ; i< 20 ; i++) { 
+        array[i].forEach(numberChecker)
+        if (m === 10) {
+            array2 = array.slice(0,i)
+            for (let s = i+1 ; s <23 ; s++ ) {
+                array2.push(array[s])
+            }
+            array = array2
+            array.unshift([0,0,0,0,0,0,0,0,0,0])
+            m=0
+            counters++
+            draw()
+        }
+        else {
+            m=0
+        }
+    }
+    linesCleared()
+    lineClearScoring (counters)
+    levelChecker()
+    counters = 0
+}
 
 
-draw()}
-else {m=0}
-  }
-linesCleared()
-counters = 0}
+function linesCleared () {
+    cleared += counters
+    document.getElementById("linenumber").innerHTML = Number(cleared)
+}
 
+function hardDropScoring (factor) {
+score += 1*factor
+    document.getElementById("scorenumber").innerHTML = Number(score)
+}
 
-
-
+function lineClearScoring (counterFactor) {
+    if (counterFactor === 1) {
+        score += 100 * level
+    } else if (counterFactor === 2) {
+        score += 300 * level
+    }else if (counterFactor === 3) {
+        score += 500 * level
+    } else if (counterFactor === 4) {
+        score += 800 * level
+    }
+    document.getElementById("scorenumber").innerHTML = Number(score)
+}
 
 
 
@@ -804,24 +811,22 @@ nextTetrimino()
 
 
 
-if (random === "o")
-{id = setInterval(o,1000)}
-else if (random === "t")
-{id2 = setInterval(t,1000)}
-else if (random === "s")
-{id3 = setInterval (s,1000)} 
-else if (random === "z")
-{id4 = setInterval (z,1000)}
-else if (random === "l")
-{id5 = setInterval (l,1000)} 
-else if (random === "j")
-{id6 = setInterval (j,1000)}
-else if (random === "i")
-{id7 = setInterval (i,1000)}  
-}
-
-
-
+        if (random === "o") {
+            id = setInterval(o,speed)
+        } else if (random === "t") {
+            id2 = setInterval(t,speed)
+        } else if (random === "s") {
+            id3 = setInterval (s,speed)
+        } else if (random === "z") {
+            id4 = setInterval (z,speed)
+        } else if (random === "l") {
+            id5 = setInterval (l,speed)
+        } else if (random === "j") {
+            id6 = setInterval (j,speed)
+        } else if (random === "i") {
+            id7 = setInterval (i,speed)
+        }
+    }
 }
 
 
@@ -913,23 +918,22 @@ random = random2
 random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()
 nextTetrimino()
-if (random === "o")
-{id = setInterval(o,1000)}
-else if (random === "t")
-{id2 = setInterval(t,1000)}
-else if (random === "s")
-{id3 = setInterval (s,1000)} 
-else if (random === "z")
-{id4 = setInterval(z,1000)} 
-else if (random === "l")
-{id5 = setInterval (l,1000)} 
-else if (random === "j")
-{id6 = setInterval (j,1000)}
-else if (random === "i")
-{id7 = setInterval (i,1000)} 
-
-}
-
+        if (random === "o") {
+            id = setInterval(o,speed)
+        } else if (random === "t") {
+            id2 = setInterval(t,speed)
+        } else if (random === "s") {
+            id3 = setInterval (s,speed)
+        } else if (random === "z") {
+            id4 = setInterval (z,speed)
+        } else if (random === "l") {
+            id5 = setInterval (l,speed)
+        } else if (random === "j") {
+            id6 = setInterval (j,speed)
+        } else if (random === "i") {
+            id7 = setInterval (i,speed)
+        }
+    }
 }
 
 function z () {
@@ -1021,25 +1025,22 @@ random = random2
 random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()
 nextTetrimino()
-if (random === "o")
-{id = setInterval(o,1000)}
-else if (random === "t")
-{id2 = setInterval(t,1000)}
-else if (random === "s")
-{id3 = setInterval (s,1000)} 
-else if (random === "z")
-{id4 = setInterval(z,1000)} 
-else if (random === "l")
-{id5 = setInterval (l,1000)} 
-else if (random === "j")
-{id6 = setInterval (j,1000)} 
-else if (random === "i")
-{id7 = setInterval (i,1000)} 
-}
-
-
-
-       
+        if (random === "o") {
+            id = setInterval(o,speed)
+        } else if (random === "t") {
+            id2 = setInterval(t,speed)
+        } else if (random === "s") {
+            id3 = setInterval (s,speed)
+        } else if (random === "z") {
+            id4 = setInterval (z,speed)
+        } else if (random === "l") {
+            id5 = setInterval (l,speed)
+        } else if (random === "j") {
+            id6 = setInterval (j,speed)
+        } else if (random === "i") {
+            id7 = setInterval (i,speed)
+        }
+    }
 }
 
 
@@ -1131,21 +1132,22 @@ random = random2
 random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()
 nextTetrimino()
-if (random === "o")
-{id = setInterval(o,1000)}
-else if (random === "t")
-{id2 = setInterval(t,1000)}
-else if (random === "s")
-{id3 = setInterval (s,1000)} 
-else if (random === "z")
-{id4 = setInterval(z,1000)}
-else if (random === "l")
-{id5 = setInterval (l,1000)}
-else if (random === "j")
-{id6 = setInterval (j,1000)} 
-else if (random === "i")
-{id7 = setInterval (i,1000)}  
-}
+        if (random === "o") {
+            id = setInterval(o,speed)
+        } else if (random === "t") {
+            id2 = setInterval(t,speed)
+        } else if (random === "s") {
+            id3 = setInterval (s,speed)
+        } else if (random === "z") {
+            id4 = setInterval (z,speed)
+        } else if (random === "l") {
+            id5 = setInterval (l,speed)
+        } else if (random === "j") {
+            id6 = setInterval (j,speed)
+        } else if (random === "i") {
+            id7 = setInterval (i,speed)
+        } 
+    }
 }
 
 
@@ -1239,264 +1241,118 @@ random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 randomizerTetrimino ()
 nextTetrimino()
 
-if (random === "o")
-{id = setInterval(o,1000)}
-else if (random === "t")
-{id2 = setInterval(t,1000)}
-else if (random === "s")
-{id3 = setInterval (s,1000)} 
-else if (random === "z")
-{id4 = setInterval(z,1000)}
-else if (random === "l")
-{id5 = setInterval (l,1000)}
-else if (random === "j")
-{id6 = setInterval (j,1000)} 
-else if (random === "i")
-{id7 = setInterval (i,1000)}  
-}
+        if (random === "o") {
+            id = setInterval(o,speed)
+        } else if (random === "t") {
+            id2 = setInterval(t,speed)
+        } else if (random === "s") {
+            id3 = setInterval (s,speed)
+        } else if (random === "z") {
+            id4 = setInterval (z,speed)
+        } else if (random === "l") {
+            id5 = setInterval (l,speed)
+        } else if (random === "j") {
+            id6 = setInterval (j,speed)
+        } else if (random === "i") {
+            id7 = setInterval (i,speed)
+        }
+    }
 }
 
 
-function i () { if (pontNY <630 && rotationState === 0 && array[(pontIY/30)][pontIX/30]===0 && array[(pontJY/30)][pontJX/30]===0 && array[(pontKY/30)][pontKX/30]===0  && array[(pontLY/30)][pontLX/30]===0)
+function i () { 
 //Rotation state of 0
-{
-clearRStateI0 ()
-pY (30)
-fillRStateI0()
-}
+    if (pontNY <630 && rotationState === 0 && array[(pontIY/30)][pontIX/30]===0 && array[(pontJY/30)][pontJX/30]===0 && 
+    array[(pontKY/30)][pontKX/30]===0  && array[(pontLY/30)][pontLX/30]===0) {
+        clearRStateI0 ()
+        pY (30)
+        fillRStateI0()
+    }
 //Rotation state of 1
-else if (pontNY <660 && rotationState === 1 && array[(pontOY/30)+1][pontOX/30]===0 )
-{
-clearRStateI1 ()
-pY (30)
-fillRStateI1()
-}
-else if (pontNY <630 && rotationState === 2 && array[(pontMY/30)][pontMX/30]===0 && array[(pontNY/30)][pontNX/30]===0 && array[(pontOY/30)][pontOX/30]===0  && array[(pontPY/30)][pontPX/30]===0)
+    else if (pontNY <660 && rotationState === 1 && array[(pontOY/30)+1][pontOX/30]===0 ) {
+        clearRStateI1 ()
+        pY (30)
+        fillRStateI1()
+    }
+
 //Rotation state of 2
-{
-clearRStateI2 ()
-pY (30)
-fillRStateI2()
-}
-else if (pontNY <630 && rotationState === 3 && array[(pontNY/30)+1][pontNX/30]===0 )
+    else if (pontNY <630 && rotationState === 2 && array[(pontMY/30)][pontMX/30]===0 && array[(pontNY/30)][pontNX/30]===0 && 
+    array[(pontOY/30)][pontOX/30]===0  && array[(pontPY/30)][pontPX/30]===0) {
+        clearRStateI2 ()
+        pY (30)
+        fillRStateI2()
+    }
+
 //Rotation state of 3
-{
-clearRStateI3 ()
-pY (30)
-fillRStateI3()
-}
-else {
+else if (pontNY <630 && rotationState === 3 && array[(pontNY/30)+1][pontNX/30]===0 ) {
+        clearRStateI3 ()
+        pY (30)
+        fillRStateI3()
+    }
 
-clearInterval(id7)
-lineChecker()
-random = random2
-random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
-randomizerTetrimino ()
-nextTetrimino()
-if (random === "o")
-{id = setInterval(o,1000)}
-else if (random === "t")
-{id2 = setInterval(t,1000)}
-else if (random === "s")
-{id3 = setInterval (s,1000)} 
-else if (random === "z")
-{id4 = setInterval(z,1000)}
-else if (random === "l")
-{id5 = setInterval (l,1000)}
-else if (random === "j")
-{id6 = setInterval (j,1000)} 
-else if (random === "i")
-{id7 = setInterval (i,1000)}  
-pontAX = 90
-pontAY = 0
+    else {
+        resetCoordinatesI ()
+        mY(30)
+        rotationState =0
+        clearInterval(id7)
+        lineChecker()
 
-pontBX = 120
-pontBY = 0
+        random = random2
+        random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
+        randomizerTetrimino ()
+        nextTetrimino()
 
-pontCX = 150
-pontCY = 0
-
-pontDX = 180
-pontDY = 0
-
-pontEX = 90
-pontEY = 30
-
-pontFX = 120
-pontFY = 30
-
-pontGX = 150
-pontGY = 30
-
-pontHX = 180
-pontHY = 30
-
-pontIX = 90
-pontIY = 60
-
-pontJX = 120
-pontJY = 60
-
-pontKX = 150
-pontKY = 60
-
-pontLX = 180
-pontLY = 60
-
-pontMX = 90
-pontMY = 90
-
-pontNX = 120
-pontNY = 90
-
-pontOX = 150
-pontOY = 90
-
-pontPX = 180
-pontPY = 90
-
-
-iAX = 91
-iAY = 1
-
-iBX = 121
-iBY = 1
-
-iCX = 151
-iCY = 1
-
-iDX = 181
-iDY = 1
-
-iEX = 91
-iEY = 31
-
-iFX = 121
-iFY = 31
-
-iGX = 151
-iGY = 31
-
-iHX = 181
-iHY = 31
-
-iIX = 91
-iIY = 61
-
-iJX = 121
-iJY = 61
-
-iKX = 151
-iKY = 61
-
-iLX = 181
-iLY = 61
-
-iMX = 91
-iMY = 91
-
-iNX = 121
-iNY = 91
-
-iOX = 151
-iOY = 91
-
-iPX = 181
-iPY = 91
-mY(30)
-rotationState =0
-}
+        if (random === "o") {
+            id = setInterval(o,speed)
+        } else if (random === "t") {
+            id2 = setInterval(t,speed)
+        } else if (random === "s") {
+            id3 = setInterval (s,speed)
+        } else if (random === "z") {
+            id4 = setInterval (z,speed)
+        } else if (random === "l") {
+            id5 = setInterval (l,speed)
+        } else if (random === "j") {
+            id6 = setInterval (j,speed)
+        } else if (random === "i") {
+            id7 = setInterval (i,speed)
+        } 
+    }
 }
 
 
-function o ()
+function o () {
 //Rotation state of 0 
-{
-       if (rotationState === 0 &&  pointHY <600  && array[(pointHY/30)][pointHX/30]===0 &&array[(pointIY/30)][pointIX/30]===0 ) 
-{
+    if (rotationState === 0 &&  pointHY <600  && array[(pointHY/30)][pointHX/30]===0 &&array[(pointIY/30)][pointIX/30]===0 ) {
+        clearRStateO0 ()
+        plusY(30)
+        fillRStateO0()
+    } else { 
 
+        resetCoordinates()
+        rotationState = 0
+        clearInterval(id)
+        lineChecker()
 
-   clearRStateO0 ()
-plusY(30)
-fillRStateO0()
+        random = random2
+        random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
+        randomizerTetrimino ()
+        nextTetrimino()
 
-}
-
-else { 
-      
-pAX = 91
-pAY = 1
-
-pBX = 121
-pBY = 1
-
-pCX = 151
-pCY = 1
-
-pDX = 91
-pDY = 31
-
-pEX = 121
-pEY = 31
-
-pFX = 151
-pFY = 31
-
-pGX = 91
-pGY = 61
-
-pHX = 121
-pHY = 61
-
-pIX = 151
-pIY = 61
-
-pointAX = 90
- pointAY =0
- pointBX = 120
- pointBY = 0
-
- pointCX = 150
- pointCY = 0
-
- pointDX = 90
- pointDY = 30
-
- pointEX = 120
- pointEY = 30
-
- pointFX = 150
- pointFY = 30
-
- pointGX = 90
- pointGY = 60
-
- pointHX = 120
- pointHY = 60
-
- pointIX = 150
- pointIY = 60
-
-rotationState = 0
-clearInterval(id)
-lineChecker()
-random = random2
-random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
-randomizerTetrimino ()
-nextTetrimino()
-if (random === "o")
-{id = setInterval(o,100)}
-else if (random === "t")
-{id2 = setInterval(t,1000)}
-else if (random === "s")
-{id3 = setInterval (s,1000)} 
-else if (random === "z")
-{id4 = setInterval (z,1000)}
-else if (random === "l")
-{id5 = setInterval (l,1000)} 
-else if (random === "j")
-{id6 = setInterval (j,1000)}
-else if (random === "i")
-{id7 = setInterval (i,1000)}  
-}
+        if (random === "o") {
+            id = setInterval(o,speed)
+        } else if (random === "t") {
+            id2 = setInterval(t,speed)
+        } else if (random === "s") {
+            id3 = setInterval (s,speed)
+        } else if (random === "z") {
+            id4 = setInterval (z,speed)
+        } else if (random === "l") {
+            id5 = setInterval (l,speed)
+        } else if (random === "j") {
+            id6 = setInterval (j,speed)
+        } else if (random === "i") {
+            id7 = setInterval (i,speed)
+        }
+    }
 }

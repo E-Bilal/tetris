@@ -1,6 +1,7 @@
 html,
 body {
   padding: 0;
+  background: blanchedalmond;
 }
 
 #gameArea {
@@ -38,13 +39,16 @@ body {
 #line {
   display: inline-block;
 }
+#level {
+  display: inline-block;
+}
 
 #menu {
   display: flex;
   flex-direction: column;
   width: 540px;
   height: 620px;
-  background-color: cyan;
+  background-color: #181620;
   position: absolute;
   top: 50%;
   left: 50%;

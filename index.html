@@ -1,38 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>Tetris</title>
-  </head>
-  <body>
-    <div id="main">
-      <div id="menu">
-        <button id="startgame" onclick="startGame()">start</button>
-      </div>
-      <div id="gameArea">
-        <canvas id="canvas"> </canvas>
-        <div id="stats">
-          <canvas id="nextone"></canvas>
-          <label>
-            <p id="line">Lines:<label id="linenumber"></label></p
-          ></label>
-        </div>
-      </div>
-    </div>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <title>Tetris</title>
+    </head>
 
-  <script src="./Javascript.js"></script>
-  <script src="./Tpiece.js"></script>
-  <script src="./Spiece.js"></script>
-  <script src="./Zpiece.js"></script>
-  <script src="./Lpiece.js"></script>
-  <script src="./Jpiece.js"></script>
-  <script src="./Ipiece.js"></script>
-  <script src="./Opiece.js"></script>
+    <body>
+        <div id="main">
+                <div id="menu">
+                <button id="startgame" onclick="startGame()">start</button>
+                <button id="levelchangeroo" onclick="levelChanger()"><label>Level:</label> <label id="forso" >1<label></button>
+                </div>
+            <div id="gameArea">
+            <canvas id="canvas"> </canvas>
+                <div id="stats">
+                <canvas id="nextone"></canvas>
+                <label>
+                <label id="line">Lines:<label id="linenumber">0</label></label></label>
+                <label id="level">Level:<label id="levelnumber"></label></label></label>
+                <label id="score">Score:<label id="scorenumber">0</label></label>
+                </label>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script src="./Javascript.js"></script>
+    <script src="./Resetcoordinates.js "></script>
+    <script src="./Tpiece.js"></script>
+    <script src="./Spiece.js"></script>
+    <script src="./Zpiece.js"></script>
+    <script src="./Lpiece.js"></script>
+    <script src="./Jpiece.js"></script>
+    <script src="./Ipiece.js"></script>
+    <script src="./Opiece.js"></script>
 </html>
