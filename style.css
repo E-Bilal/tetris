@@ -54,6 +54,16 @@ body {
   left: 50%;
   margin: -310px 0 0 -270px;
 }
+#gameovermenu {
+  flex-direction: column;
+  width: 540px;
+  height: 620px;
+  background-color: #181620;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -310px 0 0 -270px;
+}
 #startgame {
   width: 200px;
   height: 100px;

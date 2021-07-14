@@ -39,13 +39,12 @@ let array = [
 function drawArea () {
     for (let i =0 ; i <600; i+=30) {
         for (let j=0 ; j< 300; j+=30) {
-            if (array[i/30][j/30] === 0) {
-                ctx.fillStyle = "#f1f1f1"
-                ctx.fillRect(j,i,30, 30);
-                ctx.strokeStyle = "#FFFFFF";
-                ctx.lineWidth  = 2
-                ctx.strokeRect (j,i,30,30)
-            }
+            array[i/30][j/30] = 0
+            ctx.fillStyle = "#f1f1f1"
+            ctx.fillRect(j,i,30, 30);
+            ctx.strokeStyle = "#FFFFFF";
+            ctx.lineWidth  = 2
+            ctx.strokeRect (j,i,30,30)
         }
     }
 }
@@ -195,7 +194,7 @@ function minusX (amount) {
 }
 
 
-const tetrimino = ["o","t","s","z","i","l","j"];
+const tetrimino = [/*"o","t","s","z",*/"i"/*,"l","j"*/];
 random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
 function randomizerTetrimino () {
@@ -566,7 +565,8 @@ let id5 = null;
 let id6 = null;
 let id7 = null;
 function startGame () {
-    document.getElementById("menu").remove()
+    document.getElementById("menu").style.display = "none"
+    document.getElementById("gameovermenu").style.display = "none"
     levelChecker ()
     if (random === "o") {
         id = setInterval(o,speed)
@@ -1153,11 +1153,12 @@ nextTetrimino()
 
 function j () {
 //Rotation state of 0
-if (pointHY <800 && rotationState === 0 && array[(pointGY/30)][pointGX/30]===0 && array[(pointHY/30)][pointHX/30]===0 &&array[(pointIY/30)][pointIX/30]===0)
-{clearRStateJ0()
-plusY(30)
-fillRStateJ0()
-}
+    if (pointHY <800 && rotationState === 0 && array[(pointGY/30)][pointGX/30]===0 && array[(pointHY/30)][pointHX/30]===0 &&
+    array[(pointIY/30)][pointIX/30]===0) {
+        clearRStateJ0()
+        plusY(30)
+        fillRStateJ0()
+    }
 //Rotation state of 1
 else if (pointHY <800 && rotationState === 1 && array[(pointHY/30)+1][pointHX/30]===0 && array[(pointFY/30)][pointFX/30]===0)
 {clearRStateJ1()
@@ -1267,30 +1268,27 @@ function i () {
         clearRStateI0 ()
         pY (30)
         fillRStateI0()
-    }
-//Rotation state of 1
-    else if (pontNY <660 && rotationState === 1 && array[(pontOY/30)+1][pontOX/30]===0 ) {
+
+    } else if (pontNY <660 && rotationState === 1 && array[(pontOY/30)+1][pontOX/30]===0 ) {
+        //Rotation state of 1
         clearRStateI1 ()
         pY (30)
         fillRStateI1()
-    }
-
-//Rotation state of 2
-    else if (pontNY <630 && rotationState === 2 && array[(pontMY/30)][pontMX/30]===0 && array[(pontNY/30)][pontNX/30]===0 && 
+        
+    } else if (pontNY <630 && rotationState === 2 && array[(pontMY/30)][pontMX/30]===0 && array[(pontNY/30)][pontNX/30]===0 && 
     array[(pontOY/30)][pontOX/30]===0  && array[(pontPY/30)][pontPX/30]===0) {
+        //Rotation state of 2
         clearRStateI2 ()
         pY (30)
         fillRStateI2()
-    }
-
-//Rotation state of 3
-else if (pontNY <630 && rotationState === 3 && array[(pontNY/30)+1][pontNX/30]===0 ) {
+        
+    } else if (pontNY <630 && rotationState === 3 && array[(pontNY/30)+1][pontNX/30]===0 ) {
+        //Rotation state of 3
         clearRStateI3 ()
         pY (30)
         fillRStateI3()
-    }
-
-    else {
+        
+    } else {
         resetCoordinatesI ()
         mY(30)
         rotationState =0
@@ -1299,8 +1297,6 @@ else if (pontNY <630 && rotationState === 3 && array[(pontNY/30)+1][pontNX/30]==
 
         random = random2
         random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
-        randomizerTetrimino ()
-        nextTetrimino()
 
         if (random === "o") {
             id = setInterval(o,speed)
@@ -1316,7 +1312,21 @@ else if (pontNY <630 && rotationState === 3 && array[(pontNY/30)+1][pontNX/30]==
             id6 = setInterval (j,speed)
         } else if (random === "i") {
             id7 = setInterval (i,speed)
-        } 
+        }
+
+        if (array[0][4]!==0) {
+            randomizerTetrimino ()
+            nextTetrimino()
+            drawArea()
+            score = 0
+            cleared = 0
+            document.getElementById("scorenumber").innerHTML = 0
+            document.getElementById("linenumber").innerHTML = 0
+            document.getElementById("gameovermenu").style.display = "block"
+            clearInterval(id7)
+        }
+        randomizerTetrimino ()
+        nextTetrimino()
     }
 }
 
@@ -1336,8 +1346,6 @@ function o () {
 
         random = random2
         random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
-        randomizerTetrimino ()
-        nextTetrimino()
 
         if (random === "o") {
             id = setInterval(o,speed)
@@ -1354,5 +1362,19 @@ function o () {
         } else if (random === "i") {
             id7 = setInterval (i,speed)
         }
+
+        if (array[1][4]!==0) {
+            randomizerTetrimino ()
+            nextTetrimino()
+            drawArea()
+            score = 0
+            cleared = 0
+            document.getElementById("scorenumber").innerHTML = 0
+            document.getElementById("linenumber").innerHTML = 0
+            document.getElementById("gameovermenu").style.display = "block"
+            clearInterval(id)
+        }
+        randomizerTetrimino ()
+        nextTetrimino()
     }
 }
