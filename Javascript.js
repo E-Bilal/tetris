@@ -50,6 +50,7 @@ function drawArea () {
 }
 drawArea()
 
+//"#f1f1f1"
 
 let pAX = 91
 let pAY = 1
@@ -194,7 +195,7 @@ function minusX (amount) {
 }
 
 
-const tetrimino = [/*"o","t","s","z",*/"i"/*,"l","j"*/];
+const tetrimino = [/*"o","t","s","z",*/"i","l","j"];
 random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
 function randomizerTetrimino () {
@@ -338,6 +339,7 @@ function nextTetrimino () {
 
 let random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 nextTetrimino()
+
 function downChecker () {
     if(random === "o"){
         moveDownO()
@@ -436,7 +438,7 @@ else if (random === "i")
 
 }
 
-let pauseChecker = 0
+/*let pauseChecker = 0
 let btn = document.createElement("button")
  let menu = document.getElementById("menu");
  btn.innerHTML = "hello"
@@ -451,7 +453,7 @@ else {id = setInterval(o,1000)
 pauseChecker = 0}
 
 }
-
+*/
 
 
 
@@ -596,56 +598,28 @@ function numberChecker (item) {
 function draw () {
     for (let z = 0 ; z<600 ; z+=30) {
         for (let v = 0 ; v<300 ; v+=30) {
-            if (array[z/30][v/30] === 0)
-                {
+            ctx.strokeStyle = "#FFFFFF";
+            ctx.lineWidth  = 1
+            ctx.strokeRect (v,z,30,30)
+            if (array[z/30][v/30] === 0) {
                 ctx.fillStyle = "#f1f1f1"
-                ctx.fillRect(v,z,30, 30);
-                ctx.strokeStyle = "#000000";
-                ctx.lineWidth  = 2
-                ctx.strokeRect (v,z,30,30)
             } else if (array[z/30][v/30] === 1) {
                 ctx.fillStyle = "#ffff00"
-                ctx.fillRect(v,z,30, 30);
-                ctx.strokeStyle = "#000000";
-                ctx.lineWidth  = 2
-                ctx.strokeRect (v,z,30,30)
             } else if (array[z/30][v/30] === 2) {
                 ctx.fillStyle = "#72bcd4"
-                ctx.fillRect(v,z,30, 30);
-                ctx.strokeStyle = "#000000";
-                ctx.lineWidth  = 2
-                ctx.strokeRect (v,z,30,30)
             } else if (array[z/30][v/30] === 3) {
                 ctx.fillStyle = "#00ff80"
-                ctx.fillRect(v,z,30, 30);
-                ctx.strokeStyle = "#000000";
-                ctx.lineWidth  = 2
-                ctx.strokeRect (v,z,30,30)
             } else if (array[z/30][v/30] === 4) {
                 ctx.fillStyle = "#6a0dad"
-                ctx.fillRect(v,z,30, 30);
-                ctx.strokeStyle = "#000000";
-                ctx.lineWidth  = 2
-                ctx.strokeRect (v,z,30,30)
             } else if (array[z/30][v/30] === 5) {
                 ctx.fillStyle = "#ff0000"
-                ctx.fillRect(v,z,30, 30);
-                ctx.strokeStyle = "#000000";
-                ctx.lineWidth  = 2
-                ctx.strokeRect (v,z,30,30)
             } else if (array[z/30][v/30] === 6) {   
                 ctx.fillStyle = "#FFA500"
-                ctx.fillRect(v,z,30, 30);
-                ctx.strokeStyle = "#000000";
-                ctx.lineWidth  = 2
-                ctx.strokeRect (v,z,30,30)
             } else if (array[z/30][v/30] === 7) {
                 ctx.fillStyle = "#2e8bc0"
-                ctx.fillRect(v,z,30, 30);
-                ctx.strokeStyle = "#000000";
-                ctx.lineWidth  = 2
-                ctx.strokeRect (v,z,30,30)
+                
             }
+            ctx.fillRect(v+1,z+1,28,28);
         }
     }
 }
@@ -683,7 +657,7 @@ function linesCleared () {
 }
 
 function hardDropScoring (factor) {
-score += 1*factor
+    score += 1*factor
     document.getElementById("scorenumber").innerHTML = Number(score)
 }
 
@@ -703,113 +677,39 @@ function lineClearScoring (counterFactor) {
 
 
 function t () {
-       
-//Rotation state of 0       
-if (/*counter < array.length-1*/ pointHY <800 && array[(pointGY/30)][pointGX/30]===0 && array[(pointHY/30)][pointHX/30]===0 &&array[(pointIY/30)][pointIX/30]===0 && rotationState === 0) {
+    //Rotation state of 0       
+    if (rotationState === 0 && array[(pointGY/30)][pointGX/30]===0 && array[(pointHY/30)][pointHX/30]===0 &&array[(pointIY/30)][pointIX/30]===0) {
+        clearRStateT0 ()
+        plusY(30)
+        fillRStateT0()
 
+    } else if (rotationState === 1 && array[(pointGY/30)][pointGX/30]===0 && array[(pointHY/30)+1][pointHX/30]===0  ) {
+        //Rotation state of 1
+        clearRStateT1 ()
+        plusY(30)
+        fillRStateT1 ()
 
-clearRStateT0 ()
-plusY(30)
-fillRStateT0()
-counter++
-}
-//Rotation state of 1
-else if (/*counter < array.length-2*/ pointHY <950 && array[(pointGY/30)][pointGX/30]===0 &&/*array[(pointIY/30)][pointIX/30]===0 && */ array[(pointHY/30)+1][pointHX/30]===0 && rotationState === 1 )
+    } else if (rotationState === 2  && array[(pointGY/30)][pointGX/30]===0 &&array[(pointIY/30)][pointIX/30]===0 && 
+    array[(pointHY/30)+1][pointHX/30]===0 ) {
+        //Rotationstate of 2
+        clearRStateT2 ()
+        plusY(30)
+        fillRStateT2 ()
 
-{
+    } else if ( rotationState === 3  && array[(pointIY/30)][pointIX/30]===0 && array[(pointHY/30)+1][pointHX/30]===0 ) {
+        //Rotationstate of 3
+        clearRStateT3 ()
+        plusY(30)
+        fillRStateT3 ()
+    } else { 
 
-clearRStateT1 ()
-plusY(30)
-fillRStateT1 ()
-counter++
-}
+        resetCoordinates()
+        rotationState = 0
+        clearInterval(id2)
+        lineChecker()
 
-//Rotationstate of 2
-else if (/*counter < array.length-2*/ pointHY <950 && array[(pointGY/30)][pointGX/30]===0 &&array[(pointIY/30)][pointIX/30]===0 && array[(pointHY/30)+1][pointHX/30]===0 && rotationState === 2 )
-
-{
-clearRStateT2 ()
-plusY(30)
-fillRStateT2 ()
-counter++
-
-}
-
-//Rotationstate of 3
-else if (/*counter < array.length-2*/ rotationState === 3 && pointHY <950  && array[(pointIY/30)][pointIX/30]===0 && array[(pointHY/30)+1][pointHX/30]===0 )
-
-{
-clearRStateT3 ()
-plusY(30)
-fillRStateT3 ()
-counter++
-}
-
-else { 
-      
-pAX = 91
-pAY = 1
-
-pBX = 121
-pBY = 1
-
-pCX = 151
-pCY = 1
-
-pDX = 91
-pDY = 31
-
-pEX = 121
-pEY = 31
-
-pFX = 151
-pFY = 31
-
-pGX = 91
-pGY = 61
-
-pHX = 121
-pHY = 61
-
-pIX = 151
-pIY = 61
-
-counter = 1
-pointAX = 90
- pointAY =0
- pointBX = 120
- pointBY = 0
-
- pointCX = 150
- pointCY = 0
-
- pointDX = 90
- pointDY = 30
-
- pointEX = 120
- pointEY = 30
-
- pointFX = 150
- pointFY = 30
-
- pointGX = 90
- pointGY = 60
-
- pointHX = 120
- pointHY = 60
-
- pointIX = 150
- pointIY = 60
-
-rotationState = 0
-clearInterval(id2)
-lineChecker()
-random = random2
-random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
-randomizerTetrimino ()
-nextTetrimino()
-
-
+        random = random2
+        random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
         if (random === "o") {
             id = setInterval(o,speed)
@@ -826,98 +726,60 @@ nextTetrimino()
         } else if (random === "i") {
             id7 = setInterval (i,speed)
         }
+
+        if (array[1][4]!==0) {
+            randomizerTetrimino ()
+            nextTetrimino()
+            drawArea()
+            score = 0
+            cleared = 0
+            document.getElementById("scorenumber").innerHTML = 0
+            document.getElementById("linenumber").innerHTML = 0
+            document.getElementById("gameovermenu").style.display = "block"
+            clearInterval(id2)
+        }
+        randomizerTetrimino ()
+        nextTetrimino()
     }
 }
 
-
 function s () {
-//Rotation state of 0
-if (pointHY <800 && rotationState === 0 && array[(pointGY/30)][pointGX/30]===0 && array[(pointHY/30)][pointHX/30]===0 &&array[(pointFY/30)][pointFX/30]===0)
-{clearRStateS0()
-plusY(30)
-fillRStateS0()
-}
-//Rotation state of 1
-else if (pointHY <800 && rotationState === 1 && array[(pointHY/30)][pointHX/30]===0 &&array[(pointIY/30)+1][pointIX/30]===0)
-{clearRStateS1()
-plusY(30)
-fillRStateS1()
-}
-//Rotation state of 2
-else if (pointHY <800 && rotationState === 2 && array[(pointHY/30)+1][pointHX/30]===0 && array[(pointGY/30)+1][pointGX/30]===0 &&array[(pointIY/30)][pointIX/30]===0)
-{clearRStateS2()
-plusY(30)
-fillRStateS2()
-}
-//Rotation state of 3
-else if (pointHY <800 && rotationState === 3 && array[(pointHY/30)+1][pointHX/30]===0 && array[(pointGY/30)][pointGX/30]===0)
-{clearRStateS3()
-plusY(30)
-fillRStateS3()
-}
-else { 
-      
-pAX = 91
-pAY = 1
+    //Rotation state of 0
+    if (pointHY <800 && rotationState === 0 && array[(pointGY/30)][pointGX/30]===0 && 
+    array[(pointHY/30)][pointHX/30]===0 &&array[(pointFY/30)][pointFX/30]===0) {
+        clearRStateS0()
+        plusY(30)
+        fillRStateS0()
+    } else if (pointHY <800 && rotationState === 1 && array[(pointHY/30)][pointHX/30]===0 &&
+    array[(pointIY/30)+1][pointIX/30]===0) {
+        //Rotation state of 1
+        clearRStateS1()
+        plusY(30)
+        fillRStateS1()
 
-pBX = 121
-pBY = 1
+    } else if (pointHY <800 && rotationState === 2 && array[(pointHY/30)+1][pointHX/30]===0 && 
+    array[(pointGY/30)+1][pointGX/30]===0 &&array[(pointIY/30)][pointIX/30]===0) {
+        //Rotation state of 2
+        clearRStateS2()
+        plusY(30)
+        fillRStateS2()
 
-pCX = 151
-pCY = 1
+    } else if (pointHY <800 && rotationState === 3 && array[(pointHY/30)+1][pointHX/30]===0 && array[(pointGY/30)][pointGX/30]===0) {
+        //Rotation state of 3
+        clearRStateS3()
+        plusY(30)
+        fillRStateS3()
 
-pDX = 91
-pDY = 31
+    } else { 
 
-pEX = 121
-pEY = 31
+        resetCoordinates()
+        rotationState = 0
+        clearInterval(id3)
+        lineChecker ()
 
-pFX = 151
-pFY = 31
+        random = random2
+        random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
-pGX = 91
-pGY = 61
-
-pHX = 121
-pHY = 61
-
-pIX = 151
-pIY = 61
-
-counter = 1
-pointAX = 90
- pointAY =0
- pointBX = 120
- pointBY = 0
-
- pointCX = 150
- pointCY = 0
-
- pointDX = 90
- pointDY = 30
-
- pointEX = 120
- pointEY = 30
-
- pointFX = 150
- pointFY = 30
-
- pointGX = 90
- pointGY = 60
-
- pointHX = 120
- pointHY = 60
-
- pointIX = 150
- pointIY = 60
-
-rotationState = 0
-clearInterval(id3)
-lineChecker ()
-random = random2
-random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
-randomizerTetrimino ()
-nextTetrimino()
         if (random === "o") {
             id = setInterval(o,speed)
         } else if (random === "t") {
@@ -933,98 +795,62 @@ nextTetrimino()
         } else if (random === "i") {
             id7 = setInterval (i,speed)
         }
+
+        if (array[1][4]!==0) {
+            randomizerTetrimino ()
+            nextTetrimino()
+            drawArea()
+            score = 0
+            cleared = 0
+            document.getElementById("scorenumber").innerHTML = 0
+            document.getElementById("linenumber").innerHTML = 0
+            document.getElementById("gameovermenu").style.display = "block"
+            clearInterval(id3)
+        }
+        randomizerTetrimino ()
+        nextTetrimino()
     }
 }
 
 function z () {
-//Rotation state of 0
-if (pointHY <800 && rotationState === 0 && array[(pointDY/30)][pointDX/30]===0 && array[(pointHY/30)][pointHX/30]===0 &&array[(pointIY/30)][pointIX/30]===0)
-{clearRStateZ0()
-plusY(30)
-fillRStateZ0()
-}
-//Rotation state of 1
-else if (pointHY <800 && rotationState === 1 && array[(pointHY/30)+1][pointHX/30]===0 && array[(pointIY/30)][pointIX/30]===0)
-{clearRStateZ1()
-plusY(30)
-fillRStateZ1()
-}
-//Rotation state of 2
-else if (pointHY <800 && rotationState === 2 && array[(pointHY/30)+1][pointHX/30]===0 && array[(pointGY/30)][pointGX/30]===0 &&array[(pointIY/30)+1][pointIX/30]===0)
+    //Rotation state of 0
+    if (pointHY <800 && rotationState === 0 && array[(pointDY/30)][pointDX/30]===0 && array[(pointHY/30)][pointHX/30]===0 &&
+    array[(pointIY/30)][pointIX/30]===0) {
+        clearRStateZ0()
+        plusY(30)
+        fillRStateZ0()
 
-{clearRStateZ2()
-plusY(30)
-fillRStateZ2()
-}
-//Rotation state of 3
-else if (pointHY <800 && rotationState === 3 && array[(pointHY/30)][pointHX/30]===0 && array[(pointGY/30)+1][pointGX/30]===0)
-{clearRStateZ3()
-plusY(30)
-fillRStateZ3()
-}
-else { 
-      
-pAX = 91
-pAY = 1
+    } else if (pointHY <800 && rotationState === 1 && array[(pointHY/30)+1][pointHX/30]===0 && array[(pointIY/30)][pointIX/30]===0) {
+        //Rotation state of 1
+        clearRStateZ1()
+        plusY(30)
+        fillRStateZ1()
 
-pBX = 121
-pBY = 1
+    } else if (pointHY <800 && rotationState === 2 && array[(pointHY/30)+1][pointHX/30]===0 && array[(pointGY/30)][pointGX/30]===0 &&
+    array[(pointIY/30)+1][pointIX/30]===0) {
+        //Rotation state of 2
+        clearRStateZ2()
+        plusY(30)
+        fillRStateZ2()
 
-pCX = 151
-pCY = 1
+    } else if (pointHY <800 && rotationState === 3 && array[(pointHY/30)][pointHX/30]===0 && array[(pointGY/30)+1][pointGX/30]===0) {
+        //Rotation state of 3
+        clearRStateZ3()
+        plusY(30)
+        fillRStateZ3()
+    } else { 
 
-pDX = 91
-pDY = 31
+        resetCoordinates()
+        rotationState = 0
+        clearInterval(id4)
+        lineChecker ()
 
-pEX = 121
-pEY = 31
+        random = random2
+        random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
-pFX = 151
-pFY = 31
+        randomizerTetrimino ()
+        nextTetrimino()
 
-pGX = 91
-pGY = 61
-
-pHX = 121
-pHY = 61
-
-pIX = 151
-pIY = 61
-
-counter = 1
-pointAX = 90
- pointAY =0
- pointBX = 120
- pointBY = 0
-
- pointCX = 150
- pointCY = 0
-
- pointDX = 90
- pointDY = 30
-
- pointEX = 120
- pointEY = 30
-
- pointFX = 150
- pointFY = 30
-
- pointGX = 90
- pointGY = 60
-
- pointHX = 120
- pointHY = 60
-
- pointIX = 150
- pointIY = 60
-
-rotationState = 0
-clearInterval(id4)
-lineChecker ()
-random = random2
-random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
-randomizerTetrimino ()
-nextTetrimino()
         if (random === "o") {
             id = setInterval(o,speed)
         } else if (random === "t") {
@@ -1040,98 +866,59 @@ nextTetrimino()
         } else if (random === "i") {
             id7 = setInterval (i,speed)
         }
+
+        if (array[1][4]!==0) {
+            randomizerTetrimino ()
+            nextTetrimino()
+            drawArea()
+            score = 0
+            cleared = 0
+            document.getElementById("scorenumber").innerHTML = 0
+            document.getElementById("linenumber").innerHTML = 0
+            document.getElementById("gameovermenu").style.display = "block"
+            clearInterval(id4)
+        }
+        randomizerTetrimino ()
+        nextTetrimino()
     }
 }
 
-
 function l () {
-//Rotation state of 0
-if (pointHY <800 && rotationState === 0 && array[(pointGY/30)][pointGX/30]===0 && array[(pointHY/30)][pointHX/30]===0 &&array[(pointIY/30)][pointIX/30]===0)
-{clearRStateL0()
-plusY(30)
-fillRStateL0()
-}
-//Rotation state of 1
-else if (pointHY <800 && rotationState === 1 && array[(pointHY/30)+1][pointHX/30]===0 && array[(pointIY/30)+1][pointIX/30]===0)
-{clearRStateL1()
-plusY(30)
-fillRStateL1()
-}
-//Rotation state of 2
-else if (pointHY <800 && rotationState === 2 && array[(pointHY/30)][pointHX/30]===0 && array[(pointGY/30)+1][pointGX/30]===0 && array[(pointIY/30)][pointIX/30]===0)
-{clearRStateL2()
-plusY(30)
-fillRStateL2()
-}
-//Rotation state of 3
-else if (pointHY <800 && rotationState === 3 && array[(pointHY/30)+1][pointHX/30]===0 && array[(pointDY/30)][pointDX/30]===0 )
-{clearRStateL3()
-plusY(30)
-fillRStateL3()
-}
-else { 
-      
-pAX = 91
-pAY = 1
+    //Rotation state of 0
+    if (pointHY <800 && rotationState === 0 && array[(pointGY/30)][pointGX/30]===0 && array[(pointHY/30)][pointHX/30]===0 &&
+    array[(pointIY/30)][pointIX/30]===0) {
+    clearRStateL0()
+    plusY(30)
+    fillRStateL0()
+} else if (pointHY <800 && rotationState === 1 && array[(pointHY/30)+1][pointHX/30]===0 && 
+array[(pointIY/30)+1][pointIX/30]===0) {
+    //Rotation state of 1
+        clearRStateL1()
+        plusY(30)
+        fillRStateL1()
+        
+    } else if (pointHY <800 && rotationState === 2 && array[(pointHY/30)][pointHX/30]===0 && 
+    array[(pointGY/30)+1][pointGX/30]===0 && array[(pointIY/30)][pointIX/30]===0) {
+        //Rotation state of 2
+        clearRStateL2()
+        plusY(30)
+        fillRStateL2()
+        
+    } else if (pointHY <800 && rotationState === 3 && array[(pointHY/30)+1][pointHX/30]===0 && array[(pointDY/30)][pointDX/30]===0 ) {
+        //Rotation state of 3
+        clearRStateL3()
+        plusY(30)
+        fillRStateL3()
+    } else { 
 
-pBX = 121
-pBY = 1
+        resetCoordinates()
+        rotationState = 0
+        clearInterval(id5)
+        lineChecker()
 
-pCX = 151
-pCY = 1
+        random = random2
+        random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
-pDX = 91
-pDY = 31
-
-pEX = 121
-pEY = 31
-
-pFX = 151
-pFY = 31
-
-pGX = 91
-pGY = 61
-
-pHX = 121
-pHY = 61
-
-pIX = 151
-pIY = 61
-
-counter = 1
-pointAX = 90
- pointAY =0
- pointBX = 120
- pointBY = 0
-
- pointCX = 150
- pointCY = 0
-
- pointDX = 90
- pointDY = 30
-
- pointEX = 120
- pointEY = 30
-
- pointFX = 150
- pointFY = 30
-
- pointGX = 90
- pointGY = 60
-
- pointHX = 120
- pointHY = 60
-
- pointIX = 150
- pointIY = 60
-
-rotationState = 0
-clearInterval(id5)
-lineChecker()
-random = random2
-random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
-randomizerTetrimino ()
-nextTetrimino()
         if (random === "o") {
             id = setInterval(o,speed)
         } else if (random === "t") {
@@ -1146,10 +933,23 @@ nextTetrimino()
             id6 = setInterval (j,speed)
         } else if (random === "i") {
             id7 = setInterval (i,speed)
-        } 
+        }
+
+        if (array[1][4]!==0) {
+            randomizerTetrimino ()
+            nextTetrimino()
+            drawArea()
+            score = 0
+            cleared = 0
+            document.getElementById("scorenumber").innerHTML = 0
+            document.getElementById("linenumber").innerHTML = 0
+            document.getElementById("gameovermenu").style.display = "block"
+            clearInterval(id5)
+        }
+        randomizerTetrimino ()
+        nextTetrimino()
     }
 }
-
 
 function j () {
 //Rotation state of 0
@@ -1158,89 +958,33 @@ function j () {
         clearRStateJ0()
         plusY(30)
         fillRStateJ0()
-    }
-//Rotation state of 1
-else if (pointHY <800 && rotationState === 1 && array[(pointHY/30)+1][pointHX/30]===0 && array[(pointFY/30)][pointFX/30]===0)
-{clearRStateJ1()
-plusY(30)
-fillRStateJ1()
-}
-//Rotation state of 2
-else if (pointHY <800 && rotationState === 2 && array[(pointHY/30)][pointHX/30]===0 && array[(pointGY/30)][pointGX/30]===0 && array[(pointIY/30)+1][pointIX/30]===0)
-{
-clearRStateJ2()
-plusY(30)
-fillRStateJ2()
-}
-//Rotation state of 3
-else if (pointHY <800 && rotationState === 3 && array[(pointHY/30)+1][pointHX/30]===0 && array[(pointGY/30)+1][pointGX/30]===0 )
-{clearRStateJ3()
-plusY(30)
-fillRStateJ3()
-}
-else { 
-      
-pAX = 91
-pAY = 1
+    } else if (pointHY <800 && rotationState === 1 && array[(pointHY/30)+1][pointHX/30]===0 && array[(pointFY/30)][pointFX/30]===0) {
+        //Rotation state of 1
+        clearRStateJ1()
+        plusY(30)
+        fillRStateJ1()
+        
+    } else if (pointHY <800 && rotationState === 2 && array[(pointHY/30)][pointHX/30]===0 && array[(pointGY/30)][pointGX/30]===0 && 
+    array[(pointIY/30)+1][pointIX/30]===0) {
+        //Rotation state of 2
+        clearRStateJ2()
+        plusY(30)
+        fillRStateJ2()
+        
+    } else if (pointHY <800 && rotationState === 3 && array[(pointHY/30)+1][pointHX/30]===0 && array[(pointGY/30)+1][pointGX/30]===0 ) {
+        //Rotation state of 3
+        clearRStateJ3()
+        plusY(30)
+        fillRStateJ3()
+    } else { 
 
-pBX = 121
-pBY = 1
+        resetCoordinates()
+        rotationState = 0
+        clearInterval(id6)
+        lineChecker()
 
-pCX = 151
-pCY = 1
-
-pDX = 91
-pDY = 31
-
-pEX = 121
-pEY = 31
-
-pFX = 151
-pFY = 31
-
-pGX = 91
-pGY = 61
-
-pHX = 121
-pHY = 61
-
-pIX = 151
-pIY = 61
-
-counter = 1
-pointAX = 90
- pointAY =0
- pointBX = 120
- pointBY = 0
-
- pointCX = 150
- pointCY = 0
-
- pointDX = 90
- pointDY = 30
-
- pointEX = 120
- pointEY = 30
-
- pointFX = 150
- pointFY = 30
-
- pointGX = 90
- pointGY = 60
-
- pointHX = 120
- pointHY = 60
-
- pointIX = 150
- pointIY = 60
-
-rotationState = 0
-clearInterval(id6)
-lineChecker()
-random = random2
-random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
-randomizerTetrimino ()
-nextTetrimino()
+        random = random2
+        random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
         if (random === "o") {
             id = setInterval(o,speed)
@@ -1257,9 +1001,22 @@ nextTetrimino()
         } else if (random === "i") {
             id7 = setInterval (i,speed)
         }
+
+        if (array[1][4]!==0) {
+            randomizerTetrimino ()
+            nextTetrimino()
+            drawArea()
+            score = 0
+            cleared = 0
+            document.getElementById("scorenumber").innerHTML = 0
+            document.getElementById("linenumber").innerHTML = 0
+            document.getElementById("gameovermenu").style.display = "block"
+            clearInterval(id6)
+        }
+        randomizerTetrimino ()
+        nextTetrimino()
     }
 }
-
 
 function i () { 
 //Rotation state of 0
@@ -1329,7 +1086,6 @@ function i () {
         nextTetrimino()
     }
 }
-
 
 function o () {
 //Rotation state of 0 
