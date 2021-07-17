@@ -195,7 +195,7 @@ function minusX (amount) {
 }
 
 
-const tetrimino = [/*"o","t","s","z",*/"i","l","j"];
+const tetrimino = [/*"o","t","s","z",*/"i"/*,"l","j"*/];
 random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
 function randomizerTetrimino () {
@@ -517,8 +517,7 @@ function KeyboardController(keyset) {
 
 
 let counter = 1
-let levelList = 
-{
+let levelList = {
     10 : 1000,
     20 : 900,
     30 : 800,
@@ -572,18 +571,25 @@ function startGame () {
     levelChecker ()
     if (random === "o") {
         id = setInterval(o,speed)
+        ghostO()
     } else if (random === "t") {
         id2 = setInterval(t,speed)
+        ghostT0()
     } else if (random === "s") {
         id3 = setInterval (s,speed)
+        ghostS0()
     } else if (random === "z") {
         id4 = setInterval (z,speed)
+        ghostZ0()
     } else if (random === "l") {
         id5 = setInterval (l,speed)
+        ghostL0()
     } else if (random === "j") {
         id6 = setInterval (j,speed)
+        ghostJ0()
     } else if (random === "i") {
         id7 = setInterval (i,speed)
+        ghostI0()
     }
 }
 
@@ -644,6 +650,7 @@ function lineChecker () {
             m=0
         }
     }
+    
     linesCleared()
     lineClearScoring (counters)
     levelChecker()
@@ -713,18 +720,25 @@ function t () {
 
         if (random === "o") {
             id = setInterval(o,speed)
+            ghostO()
         } else if (random === "t") {
             id2 = setInterval(t,speed)
+            ghostT0()
         } else if (random === "s") {
             id3 = setInterval (s,speed)
+            ghostS0()
         } else if (random === "z") {
             id4 = setInterval (z,speed)
+            ghostZ0()
         } else if (random === "l") {
             id5 = setInterval (l,speed)
+            ghostL0()
         } else if (random === "j") {
             id6 = setInterval (j,speed)
+            ghostJ0()
         } else if (random === "i") {
             id7 = setInterval (i,speed)
+            ghostI0()
         }
 
         if (array[1][4]!==0) {
@@ -782,18 +796,25 @@ function s () {
 
         if (random === "o") {
             id = setInterval(o,speed)
+            ghostO()
         } else if (random === "t") {
             id2 = setInterval(t,speed)
+            ghostT0()
         } else if (random === "s") {
             id3 = setInterval (s,speed)
+            ghostS0()
         } else if (random === "z") {
             id4 = setInterval (z,speed)
+            ghostZ0()
         } else if (random === "l") {
             id5 = setInterval (l,speed)
+            ghostL0()
         } else if (random === "j") {
             id6 = setInterval (j,speed)
+            ghostJ0()
         } else if (random === "i") {
             id7 = setInterval (i,speed)
+            ghostI0()
         }
 
         if (array[1][4]!==0) {
@@ -848,23 +869,27 @@ function z () {
         random = random2
         random2 = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
-        randomizerTetrimino ()
-        nextTetrimino()
-
         if (random === "o") {
             id = setInterval(o,speed)
+            ghostO()
         } else if (random === "t") {
             id2 = setInterval(t,speed)
+            ghostT0()
         } else if (random === "s") {
             id3 = setInterval (s,speed)
+            ghostS0()
         } else if (random === "z") {
             id4 = setInterval (z,speed)
+            ghostZ0()
         } else if (random === "l") {
             id5 = setInterval (l,speed)
+            ghostL0()
         } else if (random === "j") {
             id6 = setInterval (j,speed)
+            ghostJ0()
         } else if (random === "i") {
             id7 = setInterval (i,speed)
+            ghostI0()
         }
 
         if (array[1][4]!==0) {
@@ -921,18 +946,25 @@ array[(pointIY/30)+1][pointIX/30]===0) {
 
         if (random === "o") {
             id = setInterval(o,speed)
+            ghostO()
         } else if (random === "t") {
             id2 = setInterval(t,speed)
+            ghostT0()
         } else if (random === "s") {
             id3 = setInterval (s,speed)
+            ghostS0()
         } else if (random === "z") {
             id4 = setInterval (z,speed)
+            ghostZ0()
         } else if (random === "l") {
             id5 = setInterval (l,speed)
+            ghostL0()
         } else if (random === "j") {
             id6 = setInterval (j,speed)
+            ghostJ0()
         } else if (random === "i") {
             id7 = setInterval (i,speed)
+            ghostI0()
         }
 
         if (array[1][4]!==0) {
@@ -944,7 +976,7 @@ array[(pointIY/30)+1][pointIX/30]===0) {
             document.getElementById("scorenumber").innerHTML = 0
             document.getElementById("linenumber").innerHTML = 0
             document.getElementById("gameovermenu").style.display = "block"
-            clearInterval(id5)
+            clearInterval(id4)
         }
         randomizerTetrimino ()
         nextTetrimino()
@@ -988,21 +1020,28 @@ function j () {
 
         if (random === "o") {
             id = setInterval(o,speed)
+            ghostO()
         } else if (random === "t") {
             id2 = setInterval(t,speed)
+            ghostT0()
         } else if (random === "s") {
             id3 = setInterval (s,speed)
+            ghostS0()
         } else if (random === "z") {
             id4 = setInterval (z,speed)
+            ghostZ0()
         } else if (random === "l") {
             id5 = setInterval (l,speed)
+            ghostL0()
         } else if (random === "j") {
             id6 = setInterval (j,speed)
+            ghostJ0()
         } else if (random === "i") {
             id7 = setInterval (i,speed)
+            ghostI0()
         }
 
-        if (array[1][4]!==0) {
+        if (array[1][4] !== 0) {
             randomizerTetrimino ()
             nextTetrimino()
             drawArea()
@@ -1057,18 +1096,25 @@ function i () {
 
         if (random === "o") {
             id = setInterval(o,speed)
+            ghostO()
         } else if (random === "t") {
             id2 = setInterval(t,speed)
+            ghostT0()
         } else if (random === "s") {
             id3 = setInterval (s,speed)
+            ghostS0()
         } else if (random === "z") {
             id4 = setInterval (z,speed)
+            ghostZ0()
         } else if (random === "l") {
             id5 = setInterval (l,speed)
+            ghostL0()
         } else if (random === "j") {
             id6 = setInterval (j,speed)
+            ghostJ0()
         } else if (random === "i") {
             id7 = setInterval (i,speed)
+            ghostI0()
         }
 
         if (array[0][4]!==0) {
@@ -1093,6 +1139,8 @@ function o () {
         clearRStateO0 ()
         plusY(30)
         fillRStateO0()
+        
+        
     } else { 
 
         resetCoordinates()
@@ -1105,18 +1153,25 @@ function o () {
 
         if (random === "o") {
             id = setInterval(o,speed)
+            ghostO()
         } else if (random === "t") {
             id2 = setInterval(t,speed)
+            ghostT0()
         } else if (random === "s") {
             id3 = setInterval (s,speed)
+            ghostS0()
         } else if (random === "z") {
             id4 = setInterval (z,speed)
+            ghostZ0()
         } else if (random === "l") {
             id5 = setInterval (l,speed)
+            ghostL0()
         } else if (random === "j") {
             id6 = setInterval (j,speed)
+            ghostJ0()
         } else if (random === "i") {
             id7 = setInterval (i,speed)
+            ghostI0()
         }
 
         if (array[1][4]!==0) {

@@ -253,6 +253,8 @@ function fillRStateI0 () {
 
     ctx.fillRect (iHX,iHY,28,28)
     array[pontHY/30][pontHX/30] = 2
+
+    ghostI0()
 }
 
 function clearRStateI0() {
@@ -267,6 +269,8 @@ function clearRStateI0() {
 
     ctx.clearRect (iHX,iHY,28,28)
     array[pontHY/30][pontHX/30] = 0
+
+    ghostI0remover()
 }
 
 function fillRStateI1 () {
@@ -281,6 +285,8 @@ function fillRStateI1 () {
 
     ctx.fillRect (iOX,iOY,28,28)
     array[pontOY/30][pontOX/30] = 2
+
+    ghostI1()
 }
 
 function clearRStateI1() {
@@ -294,7 +300,9 @@ function clearRStateI1() {
     array[pontGY/30][pontGX/30] = 0
 
     ctx.clearRect (iOX,iOY,28,28)
-    array[pontOY/30][pontOX/30] = 0
+    array[pontOY/30][pontOX/30] =0
+
+    ghostI1remover()
 }
 
 function fillRStateI2 () {
@@ -310,6 +318,8 @@ function fillRStateI2 () {
 
     ctx.fillRect (iLX,iLY,28,28)
     array[pontLY/30][pontLX/30] = 2
+
+    ghostI2()
 }
 
 function clearRStateI2() {
@@ -324,6 +334,8 @@ function clearRStateI2() {
 
     ctx.clearRect (iLX,iLY,28,28)
     array[pontLY/30][pontLX/30] = 0
+
+    ghostI2remover()
 }
 
 function fillRStateI3 () {
@@ -338,6 +350,8 @@ function fillRStateI3 () {
 
     ctx.fillRect (iNX,iNY,28,28)
     array[pontNY/30][pontNX/30] = 2
+
+    ghostI3()
 }
 
 function clearRStateI3() {
@@ -352,6 +366,9 @@ function clearRStateI3() {
 
     ctx.clearRect (iNX,iNY,28,28)
     array[pontNY/30][pontNX/30] = 0
+
+    ghostI3remover()
+
 }
 
 
@@ -621,8 +638,8 @@ function hardDropI () {
             id7 = setInterval(i,0)
             hardDropScoring(k)
             break; 
-        } else if ( rotationState === 2 && array[(pontMY/30)+k][pontMX/30]!==0 && array[(pontNY/30)+k][pontNX/30]!==0 && 
-        array[(pontOY/30)+k][pontOX/30]!==0  && array[(pontPY/30)+k][pontPX/30]!==0) {    
+        } else if ( rotationState === 2 && (array[(pontMY/30)+k][pontMX/30]!==0 || array[(pontNY/30)+k][pontNX/30]!==0 ||
+        array[(pontOY/30)+k][pontOX/30]!==0  || array[(pontPY/30)+k][pontPX/30]!==0)) {    
             
             clearRStateI2()
             pY(k*30) 
@@ -640,6 +657,177 @@ function hardDropI () {
             id7 = setInterval(i,0) 
             hardDropScoring(k)
             break; 
+        }
+    }
+}
+
+
+function ghostI0 () {
+    for (let k =pontJY/30 ; k<21; k++) {
+        if ((array[k][pontIX/30] !==0 || array[k][pontJX/30]!==0 || 
+        array[k][pontKX/30]!==0  || array[k][pontLX/30]!==0)) {
+            if (k-(pontJY/30)<1) {
+                return
+            }
+            ctx.fillStyle = "#C5CDD8";           
+            ctx.fillRect(iHX,(k-1)*30,28,28)
+            ctx.fillRect (iEX,(k-1)*30,28,28)
+            ctx.fillRect (iGX,(k-1)*30, 28,28)
+            ctx.fillRect (iFX,(k-1)*30,28,28)
+            ctx.fillStyle = "#72bcd4"
+            break;
+        } 
+    }
+}
+
+function ghostI0remover () {
+    for (let k =(pontJY/30) ; k<21; k++) {
+        if ((array[k][pontIX/30] !==0 || array[k][pontJX/30]!==0 || 
+        array[k][pontKX/30]!==0  || array[k][pontLX/30]!==0)) {  
+            ctx.clearRect(iHX,(k-1)*30,28,28)
+            ctx.clearRect (iEX,(k-1)*30,28,28)
+            ctx.clearRect (iGX,(k-1)*30, 28,28)
+            ctx.clearRect (iFX,(k-1)*30,28,28)
+            break;
+        }
+    }
+}
+
+function ghostI1 () {
+    for (let k =(pontOY/30)+1 ; k<21; k++) {
+        if (array[k][pontOX/30] !==0  ) {
+            if (k-(pontOY/30)<2) {
+                return
+            }
+
+            if (k-(pontOY/30)<3) {
+                ctx.fillStyle = "#C5CDD8";           
+                ctx.fillRect (iOX,(k-1)*30,28,28)
+                ctx.fillStyle = "#72bcd4"
+                return
+            }
+
+            if (k-(pontOY/30)<4) {
+                ctx.fillStyle = "#C5CDD8";           
+                ctx.fillRect (iKX,(k-2)*30, 28,28)
+                ctx.fillRect (iOX,(k-1)*30,28,28)
+                ctx.fillStyle = "#72bcd4"
+                return
+            }
+
+            if (k-(pontOY/30)<5) {
+                ctx.fillStyle = "#C5CDD8";           
+                ctx.fillRect (iGX,(k-3)*30,28,28)
+                ctx.fillRect (iKX,(k-2)*30, 28,28)
+                ctx.fillRect (iOX,(k-1)*30,28,28)
+                ctx.fillStyle = "#72bcd4"
+                return
+            }
+
+            ctx.fillStyle = "#C5CDD8";           
+            ctx.fillRect(iCX,(k-4)*30,28,28)
+            ctx.fillRect (iGX,(k-3)*30,28,28)
+            ctx.fillRect (iKX,(k-2)*30, 28,28)
+            ctx.fillRect (iOX,(k-1)*30,28,28)
+            ctx.fillStyle = "#72bcd4"
+            break;
+        } 
+    }
+}
+
+function ghostI1remover () {
+    for (let k =(pontOY/30)+1 ; k<21; k++) {
+        if (array[k][pontOX/30] !==0  ) {  
+            ctx.clearRect(iCX,(k-4)*30,28,28)
+            ctx.clearRect (iGX,(k-3)*30,28,28)
+            ctx.clearRect (iKX,(k-2)*30, 28,28)
+            ctx.clearRect (iOX,(k-1)*30,28,28)          
+            break;
+        }
+    }
+}
+
+function ghostI2 () {
+    for (let k =pontNY/30 ; k<21; k++) {
+        if ((array[k][pontMX/30] !==0 || array[k][pontNX/30]!==0 || 
+        array[k][pontOX/30]!==0  || array[k][pontPX/30]!==0)) {
+            if (k-(pontNY/30)<1) {
+                return
+            }
+            ctx.fillStyle = "#C5CDD8";           
+            ctx.fillRect(iIX,(k-1)*30,28,28)
+            ctx.fillRect (iJX,(k-1)*30,28,28)
+            ctx.fillRect (iKX,(k-1)*30, 28,28)
+            ctx.fillRect (iLX,(k-1)*30,28,28)
+            ctx.fillStyle = "#72bcd4"
+            break;
+        } 
+    }
+}
+
+function ghostI2remover () {
+    for (let k =pontNY/30 ; k<21; k++) {
+        if ((array[k][pontMX/30] !==0 || array[k][pontNX/30]!==0 || 
+        array[k][pontOX/30]!==0  || array[k][pontPX/30]!==0))  {  
+            ctx.clearRect(iIX,(k-1)*30,28,28)
+            ctx.clearRect (iJX,(k-1)*30,28,28)
+            ctx.clearRect (iKX,(k-1)*30, 28,28)
+            ctx.clearRect (iLX,(k-1)*30,28,28)
+            break;
+        }
+    }
+}
+
+function ghostI3 () {
+    for (let k =(pontNY/30)+1 ; k<21; k++) {
+        if (array[k][pontNX/30] !==0  ) {
+            if (k-(pontNY/30)<2) {
+                return
+            }
+
+            if (k-(pontNY/30)<3) {
+                ctx.fillStyle = "#C5CDD8";           
+                ctx.fillRect (iNX,(k-1)*30,28,28)
+                ctx.fillStyle = "#72bcd4"
+                return
+            }
+
+            if (k-(pontNY/30)<4) {
+                ctx.fillStyle = "#C5CDD8";           
+                ctx.fillRect (iJX,(k-2)*30, 28,28)
+                ctx.fillRect (iNX,(k-1)*30,28,28)
+                ctx.fillStyle = "#72bcd4"
+                return
+            }
+
+            if (k-(pontNY/30)<5) {
+                ctx.fillStyle = "#C5CDD8";           
+                ctx.fillRect (iFX,(k-3)*30,28,28)
+                ctx.fillRect (iJX,(k-2)*30, 28,28)
+                ctx.fillRect (iNX,(k-1)*30,28,28)
+                ctx.fillStyle = "#72bcd4"
+                return
+            }
+
+            ctx.fillStyle = "#C5CDD8";           
+            ctx.fillRect(iBX,(k-4)*30,28,28)
+            ctx.fillRect (iFX,(k-3)*30,28,28)
+            ctx.fillRect (iJX,(k-2)*30, 28,28)
+            ctx.fillRect (iNX,(k-1)*30,28,28)
+            ctx.fillStyle = "#72bcd4"
+            break;
+        } 
+    }
+}
+
+function ghostI3remover () {
+    for (let k =(pontNY/30)+1 ; k<21; k++) {
+        if (array[k][pontNX/30] !==0  ) {  
+            ctx.clearRect(iBX,(k-4)*30,28,28)
+            ctx.clearRect (iFX,(k-3)*30,28,28)
+            ctx.clearRect (iJX,(k-2)*30, 28,28)
+            ctx.clearRect (iNX,(k-1)*30,28,28)         
+            break;
         }
     }
 }

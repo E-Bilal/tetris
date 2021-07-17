@@ -1,7 +1,9 @@
 html,
 body {
   padding: 0;
-  background: blanchedalmond;
+
+  font-family: "Poppins", "Helvetica", sans-serif;
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
 }
 
 #gameArea {
@@ -64,8 +66,49 @@ body {
   left: 50%;
   margin: -310px 0 0 -270px;
 }
-#startgame {
+
+#start {
+  flex-direction: column;
+  justify-content: center;
+}
+/*#startgame {
   width: 200px;
   height: 100px;
   margin: auto;
+}*/
+
+:root {
+  --primary: 0, 0%, 100%;
+  --secondary: 202, 73%, 28%;
+}
+
+.btn {
+  --w: 300px;
+  --h: 45px;
+
+  display: flex;
+  justify-content: center;
+  width: var(--w);
+  height: var(--h);
+  border: 1px solid hsl(var(--primary));
+}
+
+span {
+  position: absolute;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: var(--h);
+  letter-spacing: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  color: hsl(var(--primary));
+  transition: all 0.4s var(--c);
+  z-index: 100;
+  cursor: default;
+}
+
+.btn:hover span {
+  color: hsl(var(--secondary));
+  transition-delay: 0s;
 }
