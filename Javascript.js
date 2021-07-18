@@ -1,6 +1,81 @@
+let database = firebase.database().ref('scoreSubmissions');
+
+
+
+
+function writeUserData(userId, name ,score) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    highscore: score,
+  });
+}
+
+let user;
+let highscre;
+
+
+document.getElementById("submithighscore").addEventListener('submit', submitform)
+function submitform(e) {
+    e.preventDefault()
+
+user = getInputVal('name') 
+highscore = getInputVal('highscore')   
+scoreSubmitter(user,highscore)
+}
+
+function getInputVal (id) {
+return document.getElementById(id).value
+}
+
+function scoreSubmitter (user, score) {
+    let newMessageRef = database.push()
+    newMessageRef.set({
+
+        user :user ,
+        score: score
+
+    })
+}
+let heyo = []
+// Attach an asynchronous callback to read the data at our posts reference
+database.on('value', (snapshot) => {
+    let datas = (snapshot.val());
+for (const [key, value] of Object.entries(datas)) {
+ heyo.push([value.user,value.score])
+}
+}, (errorObject) => {
+  console.log('The read failed: ' + errorObject.name);
+}); 
+
+setTimeout(() => { highScoreMenu()}, 2000);
+
+function highScoreMenu () {
+    for (let i = 0 ; i < heyo.length ; i++) {
+      let list =  document.createElement("li")
+      list.setAttribute("id", i)
+        document.getElementById("whato").appendChild(list)
+
+      document.getElementById(i).innerHTML += heyo[i][0]
+      document.getElementById(i).innerHTML += ":"
+     document.getElementById(i).innerHTML += heyo[i][1]
+
+    
+    }
+
+}
+
+function showHighScore() {
+let button = document.createElement("button")
+button.innerHTML = "RETURN"
+document.getElementById("highscoremenu").style.display ="block"
+document.getElementById("highscoremenu").appendChild(button)    
+}
+
+
+
+
+
 let score = 0
-
-
 let canvas = document.getElementById("canvas")
 canvas.width = 300
 canvas.height = 600
@@ -1118,6 +1193,7 @@ function i () {
         }
 
         if (array[0][4]!==0) {
+            document.getElementById('highscore').value = score
             randomizerTetrimino ()
             nextTetrimino()
             drawArea()

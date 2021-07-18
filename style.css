@@ -66,16 +66,26 @@ body {
   left: 50%;
   margin: -310px 0 0 -270px;
 }
+#highscoremenu {
+  flex-direction: column;
+  width: 540px;
+  height: 620px;
+  background-color: whitesmoke;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -310px 0 0 -270px;
+}
 
 #start {
   flex-direction: column;
   justify-content: center;
 }
-/*#startgame {
+#startgame {
   width: 200px;
   height: 100px;
   margin: auto;
-}*/
+}
 
 :root {
   --primary: 0, 0%, 100%;

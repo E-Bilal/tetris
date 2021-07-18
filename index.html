@@ -12,12 +12,15 @@
     </head>
 
     <body>
+
+
         <div id="main">
                 <div id="menu">
 <div id="start">
 <div class="btn style-1"   onclick="startGame()">	               
 
 	<span>Start game</span>
+    <button  onclick="showHighScore()">Highscore</button></div>
     </div>
 </div>
 
@@ -36,9 +39,38 @@
                 </div>
             </div>
         </div>
+        <div>
+            <form id="submithighscore">
+            <label>Name</label>
+<input type="text" name="name" id="name">
+<label >Highscore</label>
+<input type="text" name="highscore" id="highscore" readonly>
+<button type="submit">Submit</button>
+</form>
+        </div>
     <div id="gameovermenu" style="display: none;"><p>GAME OVER</p>
     <button id="startgame" onclick="startGame()">Restart</button></div>
+
+    
+
+    <div id="highscoremenu"  style="display: none;"><div><ul id="whato"> </ul>
+
+
+      <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
     </body>
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyAFExCMrYbnJShHI_ye3qudptU9ZlPJQ9g",
+  authDomain: "tetris-high-score-database.firebaseapp.com",
+  databaseURL: "https://tetris-high-score-database-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "tetris-high-score-database",
+  storageBucket: "tetris-high-score-database.appspot.com",
+  messagingSenderId: "287305238890",
+  appId: "1:287305238890:web:087214bfe44518effe7d13"
+};
+    firebase.initializeApp(firebaseConfig);
+</script> 
 
     <script src="./Javascript.js"></script>
     <script src="./Resetcoordinates.js "></script>
@@ -51,16 +83,3 @@
     <script src="./Opiece.js"></script>
 </html>
 
-<div class="btn style-1">		
-	<i></i>
-	<i></i>
-	<i></i>
-	<i></i>
-	<i></i>
-	<i></i>
-	<i></i>
-	<i></i>
-	<i></i>
-	<i></i>	
-	<span>Style 1</span>
-</div>
