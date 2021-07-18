@@ -52,8 +52,10 @@
 
     <button id="startgame" onclick="showHighScore()">Highscore</button></div>
 
-    <div id="highscoremenu"  style="display: none;"><div><ul id="whato"> </ul>
-</div></div>
+    <div id="highscoremenu"  style="display: none;">
+        <div id="whato"></div>
+        <button onclick="closeHighScore()">Close</button>
+    </div>
 
 
       <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>

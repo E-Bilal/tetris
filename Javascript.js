@@ -1,15 +1,4 @@
 let database = firebase.database().ref('scoreSubmissions');
-
-
-
-
-function writeUserData(userId, name ,score) {
-  firebase.database().ref('users/' + userId).set({
-    username: name,
-    highscore: score,
-  });
-}
-
 let user;
 let highscre;
 
@@ -38,37 +27,103 @@ function scoreSubmitter (user, score) {
 }
 let heyo = []
 // Attach an asynchronous callback to read the data at our posts reference
-database.on('value', (snapshot) => {
-    let datas = (snapshot.val());
-for (const [key, value] of Object.entries(datas)) {
- heyo.push([value.user,value.score])
-}
-}, (errorObject) => {
-  console.log('The read failed: ' + errorObject.name);
-}); 
+// database.on('value', (snapshot) => {
+//     let datas = (snapshot.val());
+// for (const [key, value] of Object.entries(datas)) {
+//  heyo.push([value.user,value.score])
+// }
+// }, (errorObject) => {
+//   console.log('The read failed: ' + errorObject.name);
+// })
 
-setTimeout(() => { highScoreMenu()}, 2000);
+
+function getData() {
+    heyo = [];
+    database.on('value', async (snapshot) => {
+        let dataLength = snapshot.numChildren();
+        let actualLength = 0;
+        let datas = await (snapshot.val());
+    for (const [key, value] of Object.entries(datas)) {
+        let val = await value.user;
+        let score = await value.score;
+        actualLength += 1;
+        
+        heyo.push([val,score])
+        
+        if(dataLength === actualLength) {
+            highScoreMenu();
+        }
+    }
+    }, (errorObject) => {
+      console.log('The read failed: ' + errorObject.name);
+    })
+}
+
+
+// const dbRef = firebase.database().ref();
+// dbRef.child("users").child(userId).get().then((snapshot) => {
+//   if (snapshot.exists()) {
+//     console.log(snapshot.val());
+//   } else {
+//     console.log("No data available");
+//   }
+// }).catch((error) => {
+//   console.error(error);
+// });
+
+// setTimeout(() => { highScoreMenu()}, 2000);
+
+{
+}
 
 function highScoreMenu () {
-    for (let i = 0 ; i < heyo.length ; i++) {
-      let list =  document.createElement("li")
-      list.setAttribute("id", i)
-        document.getElementById("whato").appendChild(list)
+    let list =  document.getElementById("whato");  
+    let ul = document.createElement("ul");
 
-      document.getElementById(i).innerHTML += heyo[i][0]
-      document.getElementById(i).innerHTML += ":"
-     document.getElementById(i).innerHTML += heyo[i][1]
+    if(list.hasChildNodes()) {
+        list.removeChild(list.firstElementChild);
+    }
+
+    for (let i = 0 ; i < heyo.length ; i++) {
+        if(i === 10) break;
+        let element = document.createElement("li");
+        element.innerHTML = `${heyo[i][0]} : ${heyo[i][1]}`;
+        ul.appendChild(element);
+    
+    // let child = list.lastElementChild;
+
+    // while (child) {
+    //     list.removeChild(child);
+    //     child = list.lastElementChild;
+    // }
+
+    // let textNode = document.createTextNode(`${heyo[i][0]} : ${heyo[i][1]}`)
+
+    //   list.setAttribute("id", i)
+    //    list.appendChild(list)
+
+    //   document.getElementById(i).innerHTML += heyo[i][0]
+    //   document.getElementById(i).innerHTML += ":"
+    //   document.getElementById(i).innerHTML += heyo[i][1]
 
     
     }
+    
+    list.appendChild(ul)
 
 }
 
 function showHighScore() {
-let button = document.createElement("button")
-button.innerHTML = "RETURN"
-document.getElementById("highscoremenu").style.display ="block"
-document.getElementById("highscoremenu").appendChild(button)    
+    getData();
+    // button gwn in html plaatsen 
+    // let button = document.createElement("button")
+    // document.getElementById("highscoremenu").appendChild(button)    
+    // button.innerHTML = "RETURN"
+    document.getElementById("highscoremenu").style.display ="block"
+}
+
+function closeHighScore() {
+    document.getElementById("highscoremenu").style.display ="none"
 }
 
 
