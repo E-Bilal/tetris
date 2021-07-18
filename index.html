@@ -13,19 +13,18 @@
 
     <body>
 
-<p id="se"></p>
         <div id="main">
-                <div id="menu">
-<div id="start">
-<div class="btn style-1"   onclick="startGame()">	               
 
-	<span>Start game</span>
-    </div>
+
+<div id="menu"> 
+    <div class="btn style-1"   onclick="startGame()"><span>Start game</span></div>
+    <div id="levelchangeroo" class="btn style-1" onclick="levelChanger()"><span><label>Level:</label> <label id="forso" >1<label></span></div>
+    <div class="btn style-1" onclick="showHighScore()"> <span> Highscore</span></div>
+    
 </div>
 
 
-                <button id="levelchangeroo" class="a" onclick="levelChanger()"><label>Level:</label> <label id="forso" >1<label></button>
-                </div>
+
             <div id="gameArea">
             <canvas id="canvas"> </canvas>
                 <div id="stats">
@@ -38,19 +37,25 @@
                 </div>
             </div>
         </div>
-        <div>
-            <form id="submithighscore">
-            <label>Name</label>
-<input type="text" name="name" id="name">
-<label >Highscore</label>
-<input type="text" name="highscore" id="highscore" readonly>
-<button type="submit">Submit</button>
-</form>
-        </div>
-    <div id="gameovermenu" style="display: none;"><p>GAME OVER</p>
+
+
+<div id="submithighscoremenu" style="display: none;">
+    <p>GAME OVER</p>
+    <form id="submithighscore">
+    <div id="trom">  <label>Name</label> <input type="text" name="name" id="name" required></div>
+    <div id="tram">      <label >Score</label> <input type="text" name="highscore" id="highscore" readonly></div>
+         <div id="buttons2"><div class="btn2 style-1" type="submit" onclick="submitform(event)"> <span> Submit</span></div> <div class="btn2 style-1"><span> Back To Menu</span></div> </div>
+    </form>
+</div>
+
+
+
+<div id="gameovermenu" style="display: none;"><p>GAME OVER</p>
+    <div id="levelchangeroo" class="btn style-1" onclick="levelChanger()"><span><label>Level:</label> <label id="forso" >1<label></span></div>
+
     <button id="startgame" onclick="startGame()">Restart</button></div>
 
-    <button id="startgame" onclick="showHighScore()">Highscore</button></div>
+
 
     <div id="highscoremenu"  style="display: none;">
         <div id="whato"></div>
