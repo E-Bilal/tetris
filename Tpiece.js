@@ -559,7 +559,7 @@ function hardDropT () {
             hardDropScoring(k)
 
             break; 
-        } else if (rotationState === 1 && array[(pointHY/30)+k+1][pointHX/30] !==0) {    
+        } else if (rotationState === 1 && (array[(pointHY/30)+k+1][pointHX/30] !==0 ||array[(pointGY/30)+k+1][pointGX/30] )) {    
             clearRStateT1()
             plusY(k*30) 
             fillRStateT1()
@@ -578,7 +578,7 @@ function hardDropT () {
             hardDropScoring(k)
 
             break; 
-        } else if (rotationState === 3 && array[(pointHY/30)+k+1][pointHX/30] !==0) {    
+        } else if (rotationState === 3 && (array[(pointHY/30)+k+1][pointHX/30] !==0 ||array[(pointIY/30)+k+1][pointIX/30] )) {    
             clearRStateT3()
             plusY(k*30) 
             fillRStateT3()
@@ -723,7 +723,7 @@ function ghostT3 () {
             if (k-(pointHY/30)<3) {
                 ctx.fillStyle = "#C5CDD8";           
                 ctx.fillRect (pHX,(k-1)*30, 28,28)
-                ctx.fillRect (pFX,(k-2)*30,28,28)
+                ctx.fillRect (pDX,(k-2)*30,28,28)
                 ctx.fillStyle = "#6a0dad"
                 return
             }

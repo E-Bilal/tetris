@@ -91,6 +91,7 @@ body {
   width: var(--w);
   height: var(--h);
   border: 1px solid hsl(var(--primary));
+  background-color: chocolate;
 }
 
 #buttons2 {
@@ -127,9 +128,24 @@ span {
 }
 
 .btn:hover span,
-.btn2:hover span {
+.btn2:hover span,
+input[type="submit"]:hover {
   color: hsl(var(--secondary));
   transition-delay: 0s;
+}
+input[type="submit"],
+input[type="text"] {
+  background-color: chocolate;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: var(--h);
+  letter-spacing: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  color: hsl(var(--primary));
+  transition: all 0.4s var(--c);
+  z-index: 100;
+  cursor: default;
 }
 
 #highscore {
@@ -137,9 +153,10 @@ span {
   border: none;
 }
 #trom {
+  background-color: chocolate;
   position: absolute;
   top: 380px;
-  left: 150px;
+  left: 120px;
   font-size: 20px;
   font-weight: 800;
   line-height: var(--h);
@@ -157,8 +174,8 @@ span {
   text-transform: uppercase;
   color: hsl(var(--primary));
   position: absolute;
-  top: 400px;
-  left: 150px;
+  top: 410px;
+  left: 120px;
 }
 
 p {

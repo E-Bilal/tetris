@@ -15,13 +15,14 @@ let highscore;
      firebase.database().ref('scoreSubmissions/').child("-Mer666aDWpUGO5i_wrB").update(updates);
 }*/
 
-//document.getElementById("submithighscore").addEventListener('submit', submitform)
+document.getElementById("submithighscore").addEventListener('submit', submitform)
 function submitform(e) {
     e.preventDefault()
 console.log("here")
     user = getInputVal('name')
     highscore = getInputVal('highscore')
     scoreSubmitter(user, highscore)
+    closeSubmitScore()
 }
 
 function getInputVal(id) {
@@ -46,14 +47,14 @@ function getData() {
         let dataLength = snapshot.numChildren();
         let actualLength = 0;
         let datas = await (snapshot.val());
+        console.log(snapshot.val())
         for (const [key, value] of Object.entries(datas)) {
             let val = await value.user;
-            let score = await value.score;
+            let score = await value.highscore;
             actualLength += 1;
-
             heyo.push([val, score])
-
             if (dataLength === actualLength) {
+                heyo.sort().reverse()
                 highScoreMenu();
             }
         }
@@ -61,6 +62,8 @@ function getData() {
         console.log('The read failed: ' + errorObject.name);
     })
 }
+
+//Calling data likes can fail because I have a static timeout of 2 seconds.This can be solved by using async function.
 
 
 // const dbRef = firebase.database().ref();
@@ -86,45 +89,20 @@ function highScoreMenu() {
     if (list.hasChildNodes()) {
         list.removeChild(list.firstElementChild);
     }
-console.log("here")
     for (let i = 0; i < heyo.length; i++) {
         if (i === 15) break;
+
         let element = document.createElement("li");
         element.innerHTML = `${heyo[i][0]} : ${heyo[i][1]}`;
         ul.appendChild(element);
-
-        // let child = list.lastElementChild;
-
-        // while (child) {
-        //     list.removeChild(child);
-        //     child = list.lastElementChild;
-        // }
-
-        // let textNode = document.createTextNode(`${heyo[i][0]} : ${heyo[i][1]}`)
-
-        //   list.setAttribute("id", i)
-        //    list.appendChild(list)
-
-        //   document.getElementById(i).innerHTML += heyo[i][0]
-        //   document.getElementById(i).innerHTML += ":"
-        //   document.getElementById(i).innerHTML += heyo[i][1]
-
-
     }
-
     list.appendChild(ul)
-
 }
 
 function showHighScore() {
     getData();
-    // button gwn in html plaatsen 
-    // let button = document.createElement("button")
-    // document.getElementById("highscoremenu").appendChild(button)    
-    // button.innerHTML = "RETURN"
     document.getElementById("menu").style.display ="none"
-    document.getElementById("highscoremenu").style.display = "flex"
-    
+    document.getElementById("highscoremenu").style.display = "flex"    
 }
 
 function closeHighScore() {
@@ -134,6 +112,12 @@ function closeHighScore() {
 
 function submitScore () {
     document.getElementById("submithighscoremenu").style.display ="flex"
+}
+
+function closeSubmitScore () {
+     document.getElementById("submithighscoremenu").style.display ="none"
+    document.getElementById("menu").style.display ="flex"
+
 }
 
 let score = 0
@@ -331,7 +315,7 @@ function minusX(amount) {
 }
 
 
-const tetrimino = [/*"o","t","s","z",*/"i"/*,"l","j"*/];
+const tetrimino = ["o","t","s","z","i","l","j"];
 random = tetrimino[Math.floor(Math.random() * tetrimino.length)];
 
 function randomizerTetrimino() {
@@ -520,10 +504,6 @@ function rightChecker() {
     else if (random === "l") { moveRightL() }
     else if (random === "j") { moveRightJ() }
     else if (random === "i") { moveRightI() }
-
-
-
-
 }
 
 function upChecker() {
@@ -534,10 +514,6 @@ function upChecker() {
     else if (random === "l") { moveUpL() }
     else if (random === "j") { moveUpJ() }
     else if (random === "i") { moveUpI() }
-
-
-
-
 }
 
 function zChecker() {
@@ -548,13 +524,7 @@ function zChecker() {
     else if (random === "l") { moveZL() }
     else if (random === "j") { moveZJ() }
     else if (random === "i") { moveZI() }
-
-
-
-
-
 }
-
 
 function hardDrop() {
     if (random === "o") { hardDropO() }
@@ -564,27 +534,7 @@ function hardDrop() {
     else if (random === "l") { hardDropL() }
     else if (random === "j") { hardDropJ() }
     else if (random === "i") { hardDropI() }
-
 }
-
-/*let pauseChecker = 0
-let btn = document.createElement("button")
- let menu = document.getElementById("menu");
- btn.innerHTML = "hello"
-function pause () {
-      if (pauseChecker=== 0) {
-clearInterval(id)
-pauseChecker = 1
-document.getElementById("main").appendChild(menu)
-document.getElementById("menu").appendChild(btn)
-}
-else {id = setInterval(o,1000)
-pauseChecker = 0}
-
-}
-*/
-
-
 
 
 // Keyboard input with customisable repeat (set to 0 for no key repeat)
@@ -871,6 +821,7 @@ function t() {
         }
 
         if (array[1][4] !== 0) {
+            document.getElementById('highscore').value = score
             randomizerTetrimino()
             nextTetrimino()
             drawArea()
@@ -878,7 +829,7 @@ function t() {
             cleared = 0
             document.getElementById("scorenumber").innerHTML = 0
             document.getElementById("linenumber").innerHTML = 0
-            document.getElementById("gameovermenu").style.display = "block"
+            submitScore()
             clearInterval(id2)
         }
         randomizerTetrimino()
@@ -947,6 +898,7 @@ function s() {
         }
 
         if (array[1][4] !== 0) {
+            document.getElementById('highscore').value = score
             randomizerTetrimino()
             nextTetrimino()
             drawArea()
@@ -954,7 +906,7 @@ function s() {
             cleared = 0
             document.getElementById("scorenumber").innerHTML = 0
             document.getElementById("linenumber").innerHTML = 0
-            document.getElementById("gameovermenu").style.display = "block"
+            submitScore()
             clearInterval(id3)
         }
         randomizerTetrimino()
@@ -1022,6 +974,7 @@ function z() {
         }
 
         if (array[1][4] !== 0) {
+            document.getElementById('highscore').value = score
             randomizerTetrimino()
             nextTetrimino()
             drawArea()
@@ -1029,7 +982,7 @@ function z() {
             cleared = 0
             document.getElementById("scorenumber").innerHTML = 0
             document.getElementById("linenumber").innerHTML = 0
-            document.getElementById("gameovermenu").style.display = "block"
+            submitScore()
             clearInterval(id4)
         }
         randomizerTetrimino()
@@ -1097,6 +1050,7 @@ function l() {
         }
 
         if (array[1][4] !== 0) {
+            document.getElementById('highscore').value = score
             randomizerTetrimino()
             nextTetrimino()
             drawArea()
@@ -1104,7 +1058,7 @@ function l() {
             cleared = 0
             document.getElementById("scorenumber").innerHTML = 0
             document.getElementById("linenumber").innerHTML = 0
-            document.getElementById("gameovermenu").style.display = "block"
+            submitScore()
             clearInterval(id4)
         }
         randomizerTetrimino()
@@ -1171,6 +1125,7 @@ function j() {
         }
 
         if (array[1][4] !== 0) {
+            document.getElementById('highscore').value = score
             randomizerTetrimino()
             nextTetrimino()
             drawArea()
@@ -1178,7 +1133,7 @@ function j() {
             cleared = 0
             document.getElementById("scorenumber").innerHTML = 0
             document.getElementById("linenumber").innerHTML = 0
-            document.getElementById("gameovermenu").style.display = "block"
+            submitScore()
             clearInterval(id6)
         }
         randomizerTetrimino()
@@ -1256,7 +1211,6 @@ function i() {
             document.getElementById("scorenumber").innerHTML = 0
             document.getElementById("linenumber").innerHTML = 0
             submitScore()
-            //document.getElementById("gameovermenu").style.display = "flex"
             clearInterval(id7)
         }
         randomizerTetrimino()
@@ -1306,6 +1260,7 @@ function o() {
         }
 
         if (array[1][4] !== 0) {
+            document.getElementById('highscore').value = score
             randomizerTetrimino()
             nextTetrimino()
             drawArea()
@@ -1313,7 +1268,7 @@ function o() {
             cleared = 0
             document.getElementById("scorenumber").innerHTML = 0
             document.getElementById("linenumber").innerHTML = 0
-            document.getElementById("gameovermenu").style.display = "block"
+            submitScore()
             clearInterval(id)
         }
         randomizerTetrimino()

@@ -44,7 +44,7 @@
     <form id="submithighscore">
     <div id="trom">  <label>Name</label> <input type="text" name="name" id="name" required></div>
     <div id="tram">      <label >Score</label> <input type="text" name="highscore" id="highscore" readonly></div>
-         <div id="buttons2"><div class="btn2 style-1" type="submit" onclick="submitform(event)"> <span> Submit</span></div> <div class="btn2 style-1"><span> Back To Menu</span></div> </div>
+         <div id="buttons2" > <input type="submit" id="sumbitinput"   value="Submit" class="btn2 style-1"> <div class="btn2 style-1" onclick="closeSubmitScore()"><span> Back To Menu</span></div> </div>
     </form>
 </div>
 
@@ -53,13 +53,16 @@
 <div id="gameovermenu" style="display: none;"><p>GAME OVER</p>
     <div id="levelchangeroo" class="btn style-1" onclick="levelChanger()"><span><label>Level:</label> <label id="forso" >1<label></span></div>
 
-    <button id="startgame" onclick="startGame()">Restart</button></div>
+        
+        <button id="startgame" onclick="startGame()">Restart</button></div>
 
 
 
     <div id="highscoremenu"  style="display: none;">
         <div id="whato"></div>
-        <button onclick="closeHighScore()">Close</button>
+   
+
+        <button class="btn style-1"  onclick="closeHighScore()"><span>Close</span></button>
     </div>
 
 
